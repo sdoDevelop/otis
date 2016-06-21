@@ -2,6 +2,17 @@
 Protected Class mdTextField
 Inherits TextField
 	#tag Event
+		Sub KeyUp(Key As String)
+		  Select Case Asc( Key )
+		  Case 13  'Carriage return
+		    
+		    If searchField = True Then  'This is a searchField
+		      
+		      
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Sub LostFocus()
 		  saveValue
 		End Sub
@@ -206,6 +217,10 @@ Inherits TextField
 
 	#tag Property, Flags = &h0
 		mdTableName As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		searchField As Boolean = False
 	#tag EndProperty
 
 
@@ -418,6 +433,12 @@ Inherits TextField
 			Name="ReadOnly"
 			Visible=true
 			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="searchField"
+			Group="Behavior"
+			InitialValue="False"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty

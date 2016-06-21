@@ -1,0 +1,40 @@
+#tag MultiImage
+Image img0
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAHQAAAAAAHQAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADS2nWXSCsAAAAakaMIaW1nMC5wbmcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABqY0dNrNypQaU5HUGlOR/////8AAAkgAAAAAAAAAAAAAAAAAAAABmltYWdlcwAQAAgAANLayfcAAAARAAgAANNrfXoAAAABABwAGpGjABqSAgAaiowACNtbAAaD8QAGg/AABixnAAIAX01hY2ludG9zaCBIRDpVc2VyczoAYmVuYXNzZWY6AERvY3VtZW50czoAT3RpcyBEZXZlbG9wbWVudDoAUmVwb3NpdG9yaWVzOgBPdGlzOgBpbWFnZXM6AGltZzAucG5nAAAOABIACABpAG0AZwAwAC4AcABuAGcADwAaAAwATQBhAGMAaQBuAHQAbwBzAGgAIABIAEQAEgBLVXNlcnMvYmVuYXNzZWYvRG9jdW1lbnRzL090aXMgRGV2ZWxvcG1lbnQvUmVwb3NpdG9yaWVzL090aXMvaW1hZ2VzL2ltZzAucG5nAAATAAEvAAAVAAIAD///AAAAAAAAAAA=
+		FullPath = /Users/benassef/Documents/Otis Development/Repositories/Otis/images/img0.png
+		PartialPath = ..\..\..\..\Documents\Otis Development\Repositories\Otis\images\img0.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 72
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 144
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 216
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+End Image
+#tag EndMultiImage

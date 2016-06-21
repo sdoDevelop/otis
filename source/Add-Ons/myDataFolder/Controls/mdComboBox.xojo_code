@@ -2,8 +2,49 @@
 Protected Class mdComboBox
 Inherits ComboBox
 	#tag Event
+		Sub KeyUp(Key As String)
+		  dim c as Control
+		  dim s1 as string
+		  
+		  
+		  
+		  
+		  Select Case Asc( Key )
+		  Case 13  'Carriage return
+		    
+		    'Save the value for this control
+		    me.saveValue
+		    
+		    'Reload the section we are in
+		    app.masterReload( parentSection )
+		    
+		    
+		  End Select
+		  
+		  
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Sub LostFocus()
 		  saveValue
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub Open()
+		  // Initialize the control
+		  
+		  
+		  'Check if the window is an sdoWindow
+		  If me.Window IsA sdoWindow Then
+		    
+		    'Set the sdoWindow variable to the window
+		    me.sdoWindow = sdoWindow( me.Window )
+		    
+		  End If
+		  
+		  
 		End Sub
 	#tag EndEvent
 
@@ -123,6 +164,14 @@ Inherits ComboBox
 
 	#tag Property, Flags = &h0
 		mdTableName As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		parentSection As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		sdoWindow As sdoWindow
 	#tag EndProperty
 
 
@@ -281,6 +330,12 @@ Inherits ComboBox
 			Group="ID"
 			Type="String"
 			EditorType="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="parentSection"
+			Group="Behavior"
+			Type="String"
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

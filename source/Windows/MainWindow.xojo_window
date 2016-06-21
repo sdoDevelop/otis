@@ -45,7 +45,7 @@ Begin sdoWindow MainWindow
       TabIndex        =   1
       TabPanelIndex   =   0
       Top             =   0
-      Value           =   2
+      Value           =   3
       Visible         =   True
       Width           =   1182
       Begin Listbox eventList_Listbox
@@ -1600,7 +1600,7 @@ Begin sdoWindow MainWindow
          TabIndex        =   4
          TabPanelIndex   =   3
          Top             =   23
-         Value           =   0
+         Value           =   1
          Visible         =   True
          Width           =   1174
          Begin Rectangle Rectangle_LineItemDetails
@@ -7573,45 +7573,6 @@ End
 
 #tag WindowCode
 	#tag Event
-		Sub KeyUp(Key As String)
-		  dim focusControl as RectControl
-		  
-		  focusControl = Focus
-		  
-		  Select Case Asc( Key )
-		  Case 13  'Carriage return
-		    If Focus.Name.ToText = TextField_searchInventory.Name.ToText then
-		      
-		      Listbox_EIPL_Inventory.searchMe( TextField_searchInventory.Text )
-		      
-		    ElseIf Focus.Name.ToText = TextField_searchEvents.Name.ToText Then
-		      
-		      Listbox_Events.searchMe( TextField_searchEvents.Text )
-		      
-		    ElseIf InStr( Focus.Name.ToText, "lineItems" ) > 0 Then
-		      dim theRowTag as mdRowTag
-		      If Listbox_LineItems.ListIndex <> -1 Then
-		        theRowTag = Listbox_LineItems.RowTag( Listbox_LineItems.ListIndex )
-		      End If
-		      me.FocusNext
-		      Listbox_LineItems.loadMe( true )
-		      Listbox_LineItems.searchMePKID( theRowTag.pkid )
-		      
-		    End If
-		    
-		  Case 09  'Tab
-		    If InStr( Focus.Name.ToText, "LineItems" ) > 0 Then
-		      Listbox_LineItems.loadMe( true )
-		    End If
-		    
-		    focusControl.SetFocus
-		    
-		    
-		  End Select
-		End Sub
-	#tag EndEvent
-
-	#tag Event
 		Sub Open()
 		  me.Hide
 		End Sub
@@ -8742,13 +8703,6 @@ End
 #tag EndEvents
 #tag Events ComboBox_EIPL_TypeSelector
 	#tag Event
-		Sub Open()
-		  
-		  me.AddRows Array( "Estimate", "Invoice", "Pack List" )
-		  
-		End Sub
-	#tag EndEvent
-	#tag Event
 		Sub Change()
 		  
 		  //edTableEIPL_eventFiltered.controlSave(  "ComboBox_EIPL_TypeSelector", TextField_eipl_pkid.Text.ToText, me.Text.ToText )
@@ -9091,13 +9045,6 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag Events ComboBox_PL_TypeSelector
-	#tag Event
-		Sub Open()
-		  
-		  me.AddRows Array( "Estimate", "Invoice", "Pack List" )
-		  
-		End Sub
-	#tag EndEvent
 	#tag Event
 		Sub Change()
 		  

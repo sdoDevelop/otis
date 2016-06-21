@@ -3,10 +3,47 @@ Protected Class mdTextField
 Inherits TextField
 	#tag Event
 		Sub KeyUp(Key As String)
-		  'Select Case Asc( Key )
-		  'Case 13  'Carriage return
+		  dim c as Control
+		  dim s1 as string
 		  
-		  'If searchField = True Then  'This is a searchField
+		  
+		  
+		  
+		  Select Case Asc( Key )
+		  Case 13  'Carriage return
+		    
+		    If searchField = True Then  'This is a searchField
+		      
+		      'Grab the text value
+		      s1 = me.Text
+		      
+		      If searchListboxName <> "" Then
+		        
+		        'Set c to the searchListbox 
+		        c = me.sdoWindow.findControlByName( searchListboxName, True )
+		        
+		        'Check to make sure c is a mdListbox
+		        If c IsA mdListbox Then
+		          
+		          'Search the Listbox
+		          mdListbox( c ).searchMe( s1 )
+		          
+		        End If
+		        
+		      End If
+		      
+		    Else
+		      
+		      'Save the value for this control
+		      me.saveValue
+		      
+		      'Reload the section we are in
+		      app.masterReload( parentSection )
+		      
+		    End If
+		    
+		    
+		  End Select
 		  
 		  
 		End Sub
@@ -15,6 +52,23 @@ Inherits TextField
 	#tag Event
 		Sub LostFocus()
 		  saveValue
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub Open()
+		  // Initialize the control
+		  
+		  
+		  'Check if the window is an sdoWindow
+		  If me.Window IsA sdoWindow Then
+		    
+		    'Set the sdoWindow variable to the window
+		    me.sdoWindow = sdoWindow( me.Window )
+		    
+		  End If
+		  
+		  
 		End Sub
 	#tag EndEvent
 
@@ -220,7 +274,19 @@ Inherits TextField
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		parentSection As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		sdoWindow As sdoWindow
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		searchField As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		searchListboxName As String
 	#tag EndProperty
 
 
@@ -424,6 +490,12 @@ Inherits TextField
 			EditorType="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="parentSection"
+			Group="Behavior"
+			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Password"
 			Visible=true
 			Group="Appearance"
@@ -440,6 +512,12 @@ Inherits TextField
 			Group="Behavior"
 			InitialValue="False"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="searchListboxName"
+			Group="Behavior"
+			Type="String"
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

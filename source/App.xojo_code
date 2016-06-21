@@ -50,6 +50,39 @@ Inherits Application
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub masterReload(section as string)
+		  // This method acts as a master reload script
+		  // It takes a section as a parameter and calls the appropriate method to reload that section
+		  
+		  
+		  
+		  If section = "all" Then
+		    
+		    
+		    
+		  ElseIf section = "ei" Then
+		    
+		    EIPL.controls_load( False )
+		    
+		  ElseIf section = "pl" Then
+		    
+		    EIPL.controls_load( False )
+		    
+		  ElseIf section = "event" Then
+		    
+		    
+		    
+		  ElseIf section = "inventory" Then
+		    
+		  ElseIf section = "" Then
+		    
+		    
+		    
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub MsgBoxAlert(theTitle as text, theMessage as text, button1Text as text)
 		  #IF TargetDesktop OR TargetWeb OR TargetConsole THEN
 		    

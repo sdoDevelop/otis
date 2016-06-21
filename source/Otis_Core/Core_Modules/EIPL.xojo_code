@@ -75,7 +75,7 @@ Protected Module EIPL
 		    loadAllFromDB( "venues", s1 )
 		    
 		    // Loading Lineitems
-		    MainWindow.Listbox_LineItems.loadMe
+		    MainWindow.Listbox_LineItems.loadMe( True )
 		    
 		    // Loading Inventory
 		    load_Inventory( True )
@@ -103,7 +103,7 @@ Protected Module EIPL
 		    loadAllFromDB( "venues", s1 )
 		    
 		    // Loading Lineitems
-		    MainWindow.Listbox_PL_LineItems.loadMe
+		    MainWindow.Listbox_PL_LineItems.loadMe( True )
 		    
 		    // Loading Inventory
 		    load_Inventory( True )
@@ -160,6 +160,8 @@ Protected Module EIPL
 		    MainWindow.ComboBox_EIPL_TypeSelector.mdFieldName = "type_"
 		    MainWindow.ComboBox_EIPL_TypeSelector.mdFormat = 0
 		    MainWindow.ComboBox_EIPL_TypeSelector.mdpkFieldName = "pkid"
+		    MainWindow.ComboBox_EIPL_TypeSelector.parentSection = "ei"
+		    MainWindow.ComboBox_EIPL_TypeSelector.AddRows Array( "Estimate", "Invoice", "Pack List" )
 		    
 		    // Label_EIPL_BalanceValue
 		    MainWindow.Label_EIPL_BalanceValue.mdTableName = "eipl"
@@ -178,30 +180,35 @@ Protected Module EIPL
 		    MainWindow.TextField_EIPL_DiscountAmount.mdFieldName = "discountamount_"
 		    MainWindow.TextField_EIPL_DiscountAmount.mdFormat = 1
 		    MainWindow.TextField_EIPL_DiscountAmount.mdpkFieldName = "pkid"
+		    MainWindow.TextField_EIPL_DiscountAmount.parentSection = "ei"
 		    
 		    // MainWindow.TextField_EIPL_DiscountPercent
 		    MainWindow.TextField_EIPL_DiscountPercent.mdTableName = "eipl"
 		    MainWindow.TextField_EIPL_DiscountPercent.mdFieldName = "discountperc_"
 		    MainWindow.TextField_EIPL_DiscountPercent.mdFormat = 2
 		    MainWindow.TextField_EIPL_DiscountPercent.mdpkFieldName = "pkid"
+		    MainWindow.TextField_EIPL_DiscountPercent.parentSection = "ei"
 		    
 		    // MainWindow.TextField_EIPL_TaxRate
 		    MainWindow.TextField_EIPL_TaxRate.mdTableName = "eipl"
 		    MainWindow.TextField_EIPL_TaxRate.mdFieldName = "tax_"
 		    MainWindow.TextField_EIPL_TaxRate.mdFormat = 2
 		    MainWindow.TextField_EIPL_TaxRate.mdpkFieldName = "pkid"
+		    MainWindow.TextField_EIPL_TaxRate.parentSection = "ei"
 		    
 		    // MainWindow.TextField_EIPL_ShippingMethod
 		    MainWindow.TextField_EIPL_ShippingMethod.mdTableName = "eipl"
 		    MainWindow.TextField_EIPL_ShippingMethod.mdFieldName = "shippingmethod_"
 		    MainWindow.TextField_EIPL_ShippingMethod.mdFormat = 0
 		    MainWindow.TextField_EIPL_ShippingMethod.mdpkFieldName = "pkid"
+		    MainWindow.TextField_EIPL_ShippingMethod.parentSection = "ei"
 		    
 		    // MainWindow.TextField_EIPL_DueDate
 		    MainWindow.TextField_EIPL_DueDate.mdTableName = "eipl"
 		    MainWindow.TextField_EIPL_DueDate.mdFieldName = "duedate"
 		    MainWindow.TextField_EIPL_DueDate.mdFormat = 12
 		    MainWindow.TextField_EIPL_DueDate.mdpkFieldName = "pkid"
+		    MainWindow.TextField_EIPL_DueDate.parentSection = "ei"
 		    
 		    
 		    //  Line Items
@@ -223,78 +230,91 @@ Protected Module EIPL
 		    MainWindow.TextField_LineItems_Name.mdFieldName = "name_"
 		    MainWindow.TextField_LineItems_Name.mdFormat = 0
 		    MainWindow.TextField_LineItems_Name.mdpkFieldName = "pkid"
+		    MainWindow.TextField_LineItems_Name.parentSection = "ei"
 		    
 		    // TextField_LineItems_Manufacturer
 		    MainWindow.TextField_LineItems_Manufacturer.mdTableName = "lineitems"
 		    MainWindow.TextField_LineItems_Manufacturer.mdFieldName = "manufacturer"
 		    MainWindow.TextField_LineItems_Manufacturer.mdFormat = 0
 		    MainWindow.TextField_LineItems_Manufacturer.mdpkFieldName = "pkid"
+		    MainWindow.TextField_LineItems_Manufacturer.parentSection = "ei"
 		    
 		    // TextField_LineItems_Model
 		    MainWindow.TextField_LineItems_Model.mdTableName = "lineitems"
 		    MainWindow.TextField_LineItems_Model.mdFieldName = "model"
 		    MainWindow.TextField_LineItems_Model.mdFormat = 0
 		    MainWindow.TextField_LineItems_Model.mdpkFieldName = "pkid"
+		    MainWindow.TextField_LineItems_Model.parentSection = "ei"
 		    
 		    // TextField_LineItems_Department
 		    MainWindow.TextField_LineItems_Department.mdTableName = "lineitems"
 		    MainWindow.TextField_LineItems_Department.mdFieldName = "department"
 		    MainWindow.TextField_LineItems_Department.mdFormat = 0
 		    MainWindow.TextField_LineItems_Department.mdpkFieldName = "pkid"
+		    MainWindow.TextField_LineItems_Department.parentSection = "ei"
 		    
 		    // TextField_LineItems_Category
 		    MainWindow.TextField_LineItems_Category.mdTableName = "lineitems"
 		    MainWindow.TextField_LineItems_Category.mdFieldName = "category"
 		    MainWindow.TextField_LineItems_Category.mdFormat = 0
 		    MainWindow.TextField_LineItems_Category.mdpkFieldName = "pkid"
+		    MainWindow.TextField_LineItems_Category.parentSection = "ei"
 		    
 		    // TextField_LineItems_SubCategory
 		    MainWindow.TextField_LineItems_SubCategory.mdTableName = "lineitems"
 		    MainWindow.TextField_LineItems_SubCategory.mdFieldName = "subcategory"
 		    MainWindow.TextField_LineItems_SubCategory.mdFormat = 0
 		    MainWindow.TextField_LineItems_SubCategory.mdpkFieldName = "pkid"
+		    MainWindow.TextField_LineItems_SubCategory.parentSection = "ei"
 		    
 		    // TextField_LineItems_Price
 		    MainWindow.TextField_LineItems_Price.mdTableName = "lineitems"
 		    MainWindow.TextField_LineItems_Price.mdFieldName = "price"
 		    MainWindow.TextField_LineItems_Price.mdFormat = 1
 		    MainWindow.TextField_LineItems_Price.mdpkFieldName = "pkid"
+		    MainWindow.TextField_LineItems_Price.parentSection = "ei"
 		    
 		    // TextField_LineItems_Description
 		    MainWindow.TextField_LineItems_Description.mdTableName = "lineitems"
 		    MainWindow.TextField_LineItems_Description.mdFieldName = "note_"
 		    MainWindow.TextField_LineItems_Description.mdFormat = 0
 		    MainWindow.TextField_LineItems_Description.mdpkFieldName = "pkid"
+		    MainWindow.TextField_LineItems_Description.parentSection = "ei"
 		    
 		    // TextField_LineItems_QTY
 		    MainWindow.TextField_LineItems_QTY.mdTableName = "lineitems"
 		    MainWindow.TextField_LineItems_QTY.mdFieldName = "quantity_"
 		    MainWindow.TextField_LineItems_QTY.mdFormat = 0
 		    MainWindow.TextField_LineItems_QTY.mdpkFieldName = "pkid"
+		    MainWindow.TextField_LineItems_QTY.parentSection = "ei"
 		    
 		    // TextField_LineItems_Time
 		    MainWindow.TextField_LineItems_Time.mdTableName = "lineitems"
 		    MainWindow.TextField_LineItems_Time.mdFieldName = "time_"
 		    MainWindow.TextField_LineItems_Time.mdFormat = 0
 		    MainWindow.TextField_LineItems_Time.mdpkFieldName = "pkid"
+		    MainWindow.TextField_LineItems_Time.parentSection = "ei"
 		    
 		    // TextField_LineItems_Rate
 		    MainWindow.TextField_LineItems_Rate.mdTableName = "lineitems"
 		    MainWindow.TextField_LineItems_Rate.mdFieldName = "rate_"
 		    MainWindow.TextField_LineItems_Rate.mdFormat = 0
 		    MainWindow.TextField_LineItems_Rate.mdpkFieldName = "pkid"
+		    MainWindow.TextField_LineItems_Rate.parentSection = "ei"
 		    
 		    // TextField_LineItems_DiscountAmount
 		    MainWindow.TextField_LineItems_DiscountAmount.mdTableName = "lineitems"
 		    MainWindow.TextField_LineItems_DiscountAmount.mdFieldName = "discountamount_"
 		    MainWindow.TextField_LineItems_DiscountAmount.mdFormat = 1
 		    MainWindow.TextField_LineItems_DiscountAmount.mdpkFieldName ="pkid"
+		    MainWindow.TextField_LineItems_DiscountAmount.parentSection = "ei"
 		    
 		    // TextField_LineItems_DiscountPerc
 		    MainWindow.TextField_LineItems_DiscountPerc.mdTableName = "lineitems"
 		    MainWindow.TextField_LineItems_DiscountPerc.mdFieldName = "discountperc_"
 		    MainWindow.TextField_LineItems_DiscountPerc.mdFormat = 2
 		    MainWindow.TextField_LineItems_DiscountPerc.mdpkFieldName ="pkid"
+		    MainWindow.TextField_LineItems_DiscountPerc.parentSection = "ei"
 		    
 		    
 		    // Inventory
@@ -527,6 +547,8 @@ Protected Module EIPL
 		    MainWindow.ComboBox_EIPL_TypeSelector.mdFieldName = "type_"
 		    MainWindow.ComboBox_EIPL_TypeSelector.mdFormat = 0
 		    MainWindow.ComboBox_EIPL_TypeSelector.mdpkFieldName = "pkid"
+		    MainWindow.ComboBox_EIPL_TypeSelector.parentSection = "pl"
+		    MainWindow.ComboBox_EIPL_TypeSelector.AddRows Array( "Estimate", "Invoice", "Pack List" )
 		    
 		    // Label_EIPL_BalanceValue
 		    MainWindow.Label_EIPL_BalanceValue.mdTableName = "eipl"
@@ -545,6 +567,7 @@ Protected Module EIPL
 		    MainWindow.TextField_PL_ShippingMethod.mdFieldName = "shippingmethod_"
 		    MainWindow.TextField_PL_ShippingMethod.mdFormat = 0
 		    MainWindow.TextField_PL_ShippingMethod.mdpkFieldName = "pkid"
+		    MainWindow.TextField_PL_ShippingMethod.parentSection = "pl"
 		    
 		    
 		    // Line Items
@@ -566,48 +589,56 @@ Protected Module EIPL
 		    MainWindow.TextField_PL_LineItems_Name.mdFieldName = "name_"
 		    MainWindow.TextField_PL_LineItems_Name.mdFormat = 0
 		    MainWindow.TextField_PL_LineItems_Name.mdpkFieldName = "pkid"
+		    MainWindow.TextField_PL_LineItems_Name.parentSection = "pl"
 		    
 		    // TextField_LineItems_Manufacturer
 		    MainWindow.TextField_PL_LineItems_Manufacturer.mdTableName = "lineitems"
 		    MainWindow.TextField_PL_LineItems_Manufacturer.mdFieldName = "manufacturer"
 		    MainWindow.TextField_PL_LineItems_Manufacturer.mdFormat = 0
 		    MainWindow.TextField_PL_LineItems_Manufacturer.mdpkFieldName = "pkid"
+		    MainWindow.TextField_PL_LineItems_Manufacturer.parentSection = "pl"
 		    
 		    // TextField_LineItems_Model
 		    MainWindow.TextField_PL_LineItems_Model.mdTableName = "lineitems"
 		    MainWindow.TextField_PL_LineItems_Model.mdFieldName = "model"
 		    MainWindow.TextField_PL_LineItems_Model.mdFormat = 0
 		    MainWindow.TextField_PL_LineItems_Model.mdpkFieldName = "pkid"
+		    MainWindow.TextField_PL_LineItems_Model.parentSection = "pl"
 		    
 		    // TextField_LineItems_Department
 		    MainWindow.TextField_PL_LineItems_Department.mdTableName = "lineitems"
 		    MainWindow.TextField_PL_LineItems_Department.mdFieldName = "department"
 		    MainWindow.TextField_PL_LineItems_Department.mdFormat = 0
 		    MainWindow.TextField_PL_LineItems_Department.mdpkFieldName = "pkid"
+		    MainWindow.TextField_PL_LineItems_Department.parentSection = "pl"
 		    
 		    // TextField_LineItems_Category
 		    MainWindow.TextField_PL_LineItems_Category.mdTableName = "lineitems"
 		    MainWindow.TextField_PL_LineItems_Category.mdFieldName = "category"
 		    MainWindow.TextField_PL_LineItems_Category.mdFormat = 0
 		    MainWindow.TextField_PL_LineItems_Category.mdpkFieldName = "pkid"
+		    MainWindow.TextField_PL_LineItems_Category.parentSection = "pl"
 		    
 		    // TextField_LineItems_SubCategory
 		    MainWindow.TextField_PL_LineItems_SubCategory.mdTableName = "lineitems"
 		    MainWindow.TextField_PL_LineItems_SubCategory.mdFieldName = "subcategory"
 		    MainWindow.TextField_PL_LineItems_SubCategory.mdFormat = 0
 		    MainWindow.TextField_PL_LineItems_SubCategory.mdpkFieldName = "pkid"
+		    MainWindow.TextField_PL_LineItems_SubCategory.parentSection = "pl"
 		    
 		    // TextField_LineItems_Description
 		    MainWindow.TextField_PL_LineItems_Description.mdTableName = "lineitems"
 		    MainWindow.TextField_PL_LineItems_Description.mdFieldName = "note_"
 		    MainWindow.TextField_PL_LineItems_Description.mdFormat = 0
 		    MainWindow.TextField_PL_LineItems_Description.mdpkFieldName = "pkid"
+		    MainWindow.TextField_PL_LineItems_Description.parentSection = "pl"
 		    
 		    // TextField_LineItems_QTY
 		    MainWindow.TextField_PL_LineItems_QTY.mdTableName = "lineitems"
 		    MainWindow.TextField_PL_LineItems_QTY.mdFieldName = "quantity_"
 		    MainWindow.TextField_PL_LineItems_QTY.mdFormat = 0
 		    MainWindow.TextField_PL_LineItems_QTY.mdpkFieldName = "pkid"
+		    MainWindow.TextField_PL_LineItems_QTY.parentSection = "pl"
 		    
 		    
 		    // Inventory
@@ -771,29 +802,6 @@ Protected Module EIPL
 		      MainWindow.mdLabel_PL_Venue_Country.mdpkFieldName = "pkid"
 		      
 		    end if
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
 		    
 		    
 		    

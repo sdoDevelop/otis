@@ -5,6 +5,8 @@ Inherits ComboBox
 		Sub KeyUp(Key As String)
 		  dim c as Control
 		  dim s1 as string
+		  dim n1 as integer
+		  dim controlName as string
 		  
 		  
 		  
@@ -12,11 +14,22 @@ Inherits ComboBox
 		  Select Case Asc( Key )
 		  Case 13  'Carriage return
 		    
+		    'Get the name of the currently highlighted control
+		    controlName = sdoWindow.Focus.Name
+		    
 		    'Save the value for this control
 		    me.saveValue
 		    
 		    'Reload the section we are in
 		    app.masterReload( parentSection )
+		    
+		    'Set focus to previously focused control
+		    me.sdoWindow.setControlFocus( controlName )
+		    
+		    'Move Down the tab order
+		    me.sdoWindow.FocusNext
+		    
+		    
 		    
 		    
 		  End Select

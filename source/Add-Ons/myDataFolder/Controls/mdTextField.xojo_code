@@ -5,6 +5,7 @@ Inherits TextField
 		Sub KeyUp(Key As String)
 		  dim c as Control
 		  dim s1 as string
+		  dim controlName as string
 		  
 		  
 		  
@@ -34,11 +35,21 @@ Inherits TextField
 		      
 		    Else
 		      
+		      'Get the name of the currently highlighted control
+		      controlName = sdoWindow.Focus.Name
+		      
 		      'Save the value for this control
 		      me.saveValue
 		      
 		      'Reload the section we are in
 		      app.masterReload( parentSection )
+		      
+		      'Set focus to previously focused control
+		      me.sdoWindow.setControlFocus( controlName )
+		      
+		      'Move Down the tab order
+		      me.sdoWindow.FocusNext
+		      
 		      
 		    End If
 		    

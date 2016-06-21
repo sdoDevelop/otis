@@ -41,6 +41,68 @@ Inherits Window
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub setControlFocus(pControl as Control)
+		  dim c as Control
+		  
+		  
+		  c = pControl
+		  
+		  //  Find out what kind of control it is and set the focus
+		  If c IsA mdTextField Then
+		    mdTextField( c ).SetFocus
+		  ElseIf c IsA mdTextArea Then
+		    mdTextArea( c ).SetFocus
+		  ElseIf c IsA mdComboBox Then
+		    mdComboBox( c ).SetFocus
+		  ElseIf c IsA mdLabel Then
+		    mdLabel( c ).SetFocus
+		  ElseIf c IsA mdCheckbox Then
+		    mdCheckbox( c ).SetFocus
+		  ElseIf c IsA mdListbox Then
+		    mdListbox( c ).SetFocus
+		  ElseIf c IsA TextField Then
+		    TextField( c ).SetFocus
+		  ElseIf c IsA TextArea Then
+		    TextField( c ).SetFocus
+		  ElseIf c IsA ComboBox Then
+		    ComboBox( c ).SetFocus
+		  ElseIf c IsA Label Then
+		    Label( c ).SetFocus
+		  ElseIf c IsA CheckBox Then
+		    CheckBox( c ).SetFocus
+		  ElseIf c IsA Listbox Then
+		    Listbox( c ).SetFocus
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub setControlFocus(controlIndex as integer)
+		  dim c as Control
+		  
+		  
+		  'Set c to the control
+		  c = me.Control( controlIndex )
+		  
+		  setControlFocus( c )
+		  
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub setControlFocus(controlName as String)
+		  dim c as Control
+		  
+		  
+		  c = me.findControlByName( controlName, True )
+		  
+		  setControlFocus( c )
+		End Sub
+	#tag EndMethod
+
 
 	#tag ViewBehavior
 		#tag ViewProperty

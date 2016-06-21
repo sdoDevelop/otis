@@ -3,12 +3,12 @@ Protected Class mdTextField
 Inherits TextField
 	#tag Event
 		Sub KeyUp(Key As String)
-		  Select Case Asc( Key )
-		  Case 13  'Carriage return
-		    
-		    If searchField = True Then  'This is a searchField
-		      
-		      
+		  'Select Case Asc( Key )
+		  'Case 13  'Carriage return
+		  
+		  'If searchField = True Then  'This is a searchField
+		  
+		  
 		End Sub
 	#tag EndEvent
 

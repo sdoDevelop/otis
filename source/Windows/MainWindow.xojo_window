@@ -1,5 +1,5 @@
 #tag Window
-Begin Window MainWindow
+Begin sdoWindow MainWindow
    BackColor       =   &c1A1A1A00
    Backdrop        =   0
    CloseButton     =   True
@@ -7842,25 +7842,6 @@ End
 		    
 		    
 		  End If
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function findControlByName(pControlName as text) As integer
-		  // returns -1 if no control with specified name is found
-		  
-		  dim theControl as control 
-		  dim theControlIndex as integer
-		  
-		  // Loop through controls
-		  For theControlIndex = 0 To me.ControlCount - 1
-		    theControl = me.Control( theControlIndex )
-		    if theControl.Name = pControlName then
-		      return theControlIndex
-		    elseif theControlIndex = me.ControlCount - 1 then
-		      return -1
-		    end if
-		  Next
 		End Function
 	#tag EndMethod
 

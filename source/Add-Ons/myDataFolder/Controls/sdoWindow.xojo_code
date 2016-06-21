@@ -2,7 +2,7 @@
 Protected Class sdoWindow
 Inherits Window
 	#tag Method, Flags = &h0
-		Function findControlByName(name as string, optional returnInt as Boolean) As Variant
+		Function findControlByName(name as string, optional returnControl as Boolean) As Variant
 		  // Searches through all controls in the window to find the one with the name specified
 		  // Returns type Control by default, optionally returns control index as integer
 		  
@@ -31,10 +31,10 @@ Inherits Window
 		  Next
 		  
 		  'Check what kind of return we want
-		  If returnInt Then  'Return an integer
-		    theReturn = n1
-		  Else  'Return a control
+		  If returnControl Then  'Return a control
 		    theReturn = c
+		  Else  'Return an integer
+		    theReturn = n1
 		  End If
 		  
 		  Return theReturn

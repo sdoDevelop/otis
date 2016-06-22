@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+   <key>NSHighResolutionCapable</key>
+   <true/>
+   <key>CFBundleExecutable</key>
+   <string>Kaju Admin</string>
+   <key>CFBundleName</key>
+   <string>Kaju Admin</string>
+   <key>CFBundleIdentifier</key>
+   <string>com.mactechnologies.kajuadmin</string>
+   <key>CFBundleInfoDictionaryVersion</key>
+   <string>6.0</string>
+   <key>CFBundleVersion</key>
+   <string>2.0.0.3.0</string>
+   <key>CFBundleDevelopmentRegion</key>
+   <string>en</string>
+   <key>CFBundlePackageType</key>
+   <string>APPL</string>
+   <key>CFBundleSignature</key>
+   <string>????</string>
+   <key>NSHumanReadableCopyright</key>
+   <string>v.2.0</string>
+   <key>CFBundleShortVersionString</key>
+   <string>2.0</string>
+   <key>CFBundleIconFile</key>
+   <string>App</string>
+   <key>LSMinimumSystemVersion</key>
+   <string>10.7</string>
+   <key>CFBundleDocumentTypes</key>
+   <array>
+      <dict>
+         <key>CFBundleTypeName</key>
+         <string>KajuDocument</string>
+         <key>CFBundleTypeIconFile</key>
+         <string>KajuDocument.icns</string>
+         <key>CFBundleTypeOSTypes</key>
+         <array>
+            <string></string>
+         </array>
+         <key>CFBundleTypeExtensions</key>
+         <array>
+            <string>kaju</string>
+         </array>
+         <key>LSItemContentTypes</key>
+         <array>
+            <string>com.mactechnologies.kajudocument</string>
+         </array>
+         <key>CFBundleTypeRole</key>
+         <string>Editor</string>
+      </dict>
+   </array>
+
+   <key>UTImportedTypeDeclarations</key>
+   <array>
+      <dict>
+         <key>UTTypeIdentifier</key>
+         <string>com.mactechnologies.kajudocument</string>
+         <key>UTTypeIconFile</key>
+         <string>KajuDocument.icns</string>
+         <key>UTTypeTagSpecification</key>
+         <dict>
+            <key>public.filename-extension</key>
+            <array>
+            <string>kaju</string>
+            </array>
+         </dict>
+      </dict>
+      <dict>
+         <key>UTTypeIdentifier</key>
+         <string>public.html</string>
+         <key>UTTypeTagSpecification</key>
+         <dict>
+            <key>public.filename-extension</key>
+            <array>
+            <string>htm</string>
+            <string>html</string>
+            </array>
+            <key>com.apple.ostype</key>
+            <array>
+               <string>TEXT</string>
+            </array>
+         </dict>
+      </dict>
+   </array>
+
+</dict>
+</plist>

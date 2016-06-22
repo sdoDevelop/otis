@@ -9,7 +9,7 @@ Begin Window KajuUpdateWindow
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   600
+   Height          =   452
    ImplicitInstance=   True
    LiveResize      =   False
    MacProcID       =   0
@@ -29,7 +29,7 @@ Begin Window KajuUpdateWindow
    Begin HTMLViewer hvNotes
       AutoDeactivate  =   True
       Enabled         =   True
-      Height          =   445
+      Height          =   296
       HelpTag         =   ""
       Index           =   -2147483648
       Left            =   149
@@ -73,7 +73,7 @@ Begin Window KajuUpdateWindow
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   555
+      Top             =   402
       Underline       =   False
       Visible         =   True
       Width           =   150
@@ -104,7 +104,7 @@ Begin Window KajuUpdateWindow
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   555
+      Top             =   402
       Underline       =   False
       Visible         =   True
       Width           =   150
@@ -135,7 +135,7 @@ Begin Window KajuUpdateWindow
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   555
+      Top             =   402
       Underline       =   False
       Visible         =   True
       Width           =   150
@@ -270,7 +270,7 @@ Begin Window KajuUpdateWindow
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   555
+      Top             =   402
       Transparent     =   True
       Underline       =   False
       Visible         =   False
@@ -292,7 +292,7 @@ Begin Window KajuUpdateWindow
       Maximum         =   0
       Scope           =   2
       TabPanelIndex   =   0
-      Top             =   555
+      Top             =   402
       Value           =   0
       Visible         =   False
       Width           =   117

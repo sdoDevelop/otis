@@ -472,7 +472,7 @@ Begin Window Window_Login
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
-      TabPanelIndex   =   "0"
+      TabPanelIndex   =   0
    End
    Begin CheckBox CheckBox_saveUsername
       AutoDeactivate  =   True
@@ -560,6 +560,40 @@ Begin Window Window_Login
       Visible         =   True
       Width           =   178
    End
+   Begin Label Label_version
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   15
+      TabPanelIndex   =   0
+      Text            =   "Version"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   282
+      Transparent     =   True
+      Underline       =   False
+      Visible         =   True
+      Width           =   178
+   End
 End
 #tag EndWindow
 
@@ -595,6 +629,20 @@ End
 	#tag Method, Flags = &h0
 		Sub myOpen()
 		  dim theLineArray() as Text
+		  dim stageCodeLetter as string
+		  
+		  Select Case app.StageCode
+		  Case 0
+		    stageCodeLetter = "d"
+		  Case 1 
+		    stageCodeLetter = "a"
+		  Case 2
+		    stageCodeLetter = "b"
+		  Case 3
+		    stageCodeLetter = "f"
+		  End Select
+		  
+		  Label_version.Text = app.MajorVersion.ToText + "." + app.MinorVersion.ToText + "." + app.BugVersion.ToText + stageCodeLetter + app.NonReleaseVersion.ToText
 		  
 		  
 		  // Set our variables that we know right away
@@ -646,12 +694,12 @@ End
 		  me.Show
 		  
 		  // Call the updater
-		  'dim PrefFolder as FolderItem
-		  'PrefFolder = SpecialFolder.ApplicationData.Child( "Otis" )
-		  'dim updater as new Kaju.UpdateChecker( PrefFolder )
-		  'updater.ServerPublicRSAKey = "30820120300D06092A864886F70D01010105000382010D00308201080282010100AF305D99D771D23746CCDFB34CD7ACEB7191C551FB6AB0E95176100C12988FA5F3C1D4ACE61FB43A0A18720F1E7C13E549B62F52D1B7CEECF89EB3DDA4BEE9032826EE4E7B1FA9F6CA9E33EE3088F5FFE2E90949307582D4C4E9CFF1F45990D515A9D6B9443794BCAF192FAE9A0AAC26FED4447230002CBDF5F218B33202B8D122BA66D91133CC5F0BC2F162F623EF95AF1A6E4C4B242D999AAB4715ACB333CDD493CFD01C5BFF2A997CCB09FCF40C5C5EAECFA57BEF43A5C4D166265D27AFC78B8DAEC670716C473B4C1E7F4276EF918959675842602D089F38FE75B45A7BF812CCA0E444175D38DB5DC91242C923424EF6552F8AE62F3B1F0D2CD895007F19020111"
-		  'updater.UpdateURL = "https://grayvelcro:drumline!1@mallet.whatbox.ca/home/grayvelcro/otis/"
-		  'updater.Execute
+		  dim PrefFolder as FolderItem
+		  PrefFolder = SpecialFolder.ApplicationData.Child( "Otis" )
+		  dim updater as new Kaju.UpdateChecker( PrefFolder )
+		  updater.ServerPublicRSAKey = "30820120300D06092A864886F70D01010105000382010D00308201080282010100CBAC639041952E744E95F250C79199901DCDE28C9FFCBEA38C05D45779F5B9CC14DE6EFCAE0D884D3C1D3FB8CC990A775B1FD0B5619D229A5760D7795E073E34DE649B28438B8B0653F36347F7622F477073A191D37C2F33B8A729D365755C2C61090EA8B8A2014E593E35279969BF76FA01D72EBA17B40D0B91F4859AB16AB588E9B3338667C388AF20F898D2AB978943FE3C9682F69CDD714BDAA158E1AC00EC436097F03A96898F0336F3E82ED9BC73753D49DEFC4AA18D22918F1C13D101486947ACDE51EDE7C0F92101914411D472A6F1761D8BCAA6615292E1DE53D2FC7AB55BA1F70CFF4F53A5F4793644FFC64685C5F4A024764E9205004D60364D8B020111"
+		  updater.UpdateURL = "http://nspdevelopment.weebly.com/uploads/9/6/9/7/9697054/updateinformation.json"
+		  updater.Execute
 		  
 		  
 		  

@@ -1,5 +1,5 @@
 #tag Window
-Begin Window MainWindow
+Begin sdoWindow MainWindow
    BackColor       =   &c1A1A1A00
    Backdrop        =   0
    CloseButton     =   True
@@ -34,10 +34,10 @@ Begin Window MainWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Left            =   0
-      LockBottom      =   False
+      LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   False
+      LockRight       =   True
       LockTop         =   True
       PanelCount      =   4
       Panels          =   ""
@@ -159,10 +159,10 @@ Begin Window MainWindow
          InitialValue    =   ""
          Italic          =   False
          Left            =   992
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
+         LockLeft        =   False
+         LockRight       =   True
          LockTop         =   True
          mdColumnWidths  =   ""
          mdfkActualRecordFieldName=   ""
@@ -216,7 +216,7 @@ Begin Window MainWindow
          InitialValue    =   ""
          Italic          =   False
          Left            =   1
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
          LockRight       =   False
@@ -293,8 +293,8 @@ Begin Window MainWindow
          Left            =   1116
          LockBottom      =   False
          LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
+         LockLeft        =   False
+         LockRight       =   True
          LockTop         =   True
          Scope           =   0
          TabIndex        =   3
@@ -393,10 +393,10 @@ Begin Window MainWindow
          Index           =   -2147483648
          InitialParent   =   "mainWindow_PagePanel"
          Left            =   191
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
-         LockRight       =   False
+         LockRight       =   True
          LockTop         =   True
          Scope           =   0
          TabIndex        =   36
@@ -771,7 +771,7 @@ Begin Window MainWindow
             InitialValue    =   ""
             Italic          =   False
             Left            =   626
-            LockBottom      =   False
+            LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   True
             LockRight       =   False
@@ -828,7 +828,7 @@ Begin Window MainWindow
             InitialValue    =   ""
             Italic          =   False
             Left            =   241
-            LockBottom      =   False
+            LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   True
             LockRight       =   False
@@ -906,11 +906,11 @@ Begin Window MainWindow
             InitialParent   =   "Rectangle4"
             Italic          =   False
             Left            =   241
-            LockBottom      =   False
+            LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   True
             LockRight       =   False
-            LockTop         =   True
+            LockTop         =   False
             Scope           =   0
             TabIndex        =   14
             TabPanelIndex   =   2
@@ -937,11 +937,11 @@ Begin Window MainWindow
             InitialParent   =   "Rectangle4"
             Italic          =   False
             Left            =   645
-            LockBottom      =   False
+            LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   True
             LockRight       =   False
-            LockTop         =   True
+            LockTop         =   False
             Scope           =   0
             TabIndex        =   15
             TabPanelIndex   =   2
@@ -1589,10 +1589,10 @@ Begin Window MainWindow
          Index           =   -2147483648
          InitialParent   =   "mainWindow_PagePanel"
          Left            =   4
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
-         LockRight       =   False
+         LockRight       =   True
          LockTop         =   True
          PanelCount      =   2
          Panels          =   ""
@@ -1614,11 +1614,11 @@ Begin Window MainWindow
             Index           =   -2147483648
             InitialParent   =   "PagePanel_EIPL"
             Left            =   10
-            LockBottom      =   False
+            LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   True
-            LockRight       =   False
-            LockTop         =   True
+            LockRight       =   True
+            LockTop         =   False
             Scope           =   0
             TabIndex        =   2
             TabPanelIndex   =   1
@@ -1646,11 +1646,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   747
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -1686,11 +1686,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_LineItemDetails"
                Italic          =   False
                Left            =   695
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -1725,11 +1725,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_LineItemDetails"
                Italic          =   False
                Left            =   695
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -1764,11 +1764,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_LineItemDetails"
                Italic          =   False
                Left            =   394
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -1811,11 +1811,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   506
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -1859,11 +1859,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   506
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -1899,11 +1899,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_LineItemDetails"
                Italic          =   False
                Left            =   116
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -1946,11 +1946,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   205
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -1986,11 +1986,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_LineItemDetails"
                Italic          =   False
                Left            =   116
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -2033,11 +2033,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   205
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -2073,11 +2073,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_LineItemDetails"
                Italic          =   False
                Left            =   116
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -2120,11 +2120,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   205
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -2160,11 +2160,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_LineItemDetails"
                Italic          =   False
                Left            =   116
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -2207,11 +2207,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   205
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -2255,11 +2255,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   747
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -2295,11 +2295,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_LineItemDetails"
                Italic          =   False
                Left            =   695
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -2344,11 +2344,11 @@ Begin Window MainWindow
                LimitText       =   0
                LineHeight      =   0.0
                LineSpacing     =   1.0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -2387,11 +2387,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_LineItemDetails"
                Italic          =   False
                Left            =   394
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -2434,11 +2434,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   747
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -2474,11 +2474,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_LineItemDetails"
                Italic          =   False
                Left            =   695
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -2513,11 +2513,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_LineItemDetails"
                Italic          =   False
                Left            =   936
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -2552,11 +2552,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_LineItemDetails"
                Italic          =   False
                Left            =   394
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -2599,11 +2599,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   747
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -2641,11 +2641,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_LineItemDetails"
                Italic          =   False
                Left            =   19
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Scope           =   0
                TabIndex        =   26
                TabPanelIndex   =   1
@@ -2672,11 +2672,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_LineItemDetails"
                Italic          =   False
                Left            =   19
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Scope           =   0
                TabIndex        =   27
                TabPanelIndex   =   1
@@ -4245,10 +4245,10 @@ Begin Window MainWindow
             Index           =   -2147483648
             InitialParent   =   "PagePanel_EIPL"
             Left            =   15
-            LockBottom      =   False
+            LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   True
-            LockRight       =   False
+            LockRight       =   True
             LockTop         =   True
             Scope           =   0
             TabIndex        =   23
@@ -4284,7 +4284,7 @@ Begin Window MainWindow
                InitialValue    =   ""
                Italic          =   False
                Left            =   369
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
@@ -4375,7 +4375,7 @@ Begin Window MainWindow
                InitialValue    =   ""
                Italic          =   False
                Left            =   32
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
@@ -4453,11 +4453,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle3"
                Italic          =   False
                Left            =   32
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Scope           =   0
                TabIndex        =   4
                TabPanelIndex   =   2
@@ -4482,10 +4482,10 @@ Begin Window MainWindow
             Index           =   -2147483648
             InitialParent   =   "PagePanel_EIPL"
             Left            =   10
-            LockBottom      =   False
+            LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   True
-            LockRight       =   False
+            LockRight       =   True
             LockTop         =   True
             Scope           =   0
             TabIndex        =   3
@@ -4634,10 +4634,10 @@ Begin Window MainWindow
                InitialValue    =   ""
                Italic          =   False
                Left            =   286
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
-               LockRight       =   False
+               LockRight       =   True
                LockTop         =   True
                mdColumnWidths  =   ""
                mdfkActualRecordFieldName=   ""
@@ -4678,8 +4678,8 @@ Begin Window MainWindow
                Left            =   932
                LockBottom      =   False
                LockedInPosition=   False
-               LockLeft        =   True
-               LockRight       =   False
+               LockLeft        =   False
+               LockRight       =   True
                LockTop         =   True
                Multiline       =   False
                Scope           =   0
@@ -4712,8 +4712,8 @@ Begin Window MainWindow
                Left            =   1026
                LockBottom      =   False
                LockedInPosition=   False
-               LockLeft        =   True
-               LockRight       =   False
+               LockLeft        =   False
+               LockRight       =   True
                LockTop         =   True
                mdFieldName     =   ""
                mdFormat        =   0
@@ -4751,8 +4751,8 @@ Begin Window MainWindow
                Left            =   725
                LockBottom      =   False
                LockedInPosition=   False
-               LockLeft        =   True
-               LockRight       =   False
+               LockLeft        =   False
+               LockRight       =   True
                LockTop         =   True
                Multiline       =   False
                Scope           =   0
@@ -4785,8 +4785,8 @@ Begin Window MainWindow
                Left            =   795
                LockBottom      =   False
                LockedInPosition=   False
-               LockLeft        =   True
-               LockRight       =   False
+               LockLeft        =   False
+               LockRight       =   True
                LockTop         =   True
                mdFieldName     =   ""
                mdFormat        =   0
@@ -4862,7 +4862,7 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   320
                LockBottom      =   False
-               LockedInPosition=   True
+               LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
                LockTop         =   True
@@ -4898,11 +4898,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   27
                ListIndex       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Scope           =   0
                TabIndex        =   11
                TabPanelIndex   =   1
@@ -4943,7 +4943,7 @@ Begin Window MainWindow
                InitialValue    =   ""
                Italic          =   False
                Left            =   27
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
@@ -4985,10 +4985,10 @@ Begin Window MainWindow
             Index           =   -2147483648
             InitialParent   =   "PagePanel_EIPL"
             Left            =   687
-            LockBottom      =   False
+            LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   True
-            LockRight       =   False
+            LockRight       =   True
             LockTop         =   True
             Scope           =   0
             TabIndex        =   24
@@ -5018,11 +5018,11 @@ Begin Window MainWindow
             Italic          =   False
             Left            =   998
             LimitText       =   0
-            LockBottom      =   False
+            LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   True
             LockRight       =   False
-            LockTop         =   True
+            LockTop         =   False
             Mask            =   ""
             mdFieldName     =   ""
             mdFormat        =   0
@@ -5066,11 +5066,11 @@ Begin Window MainWindow
             Italic          =   False
             Left            =   998
             LimitText       =   0
-            LockBottom      =   False
+            LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   True
             LockRight       =   False
-            LockTop         =   True
+            LockTop         =   False
             Mask            =   ""
             mdFieldName     =   ""
             mdFormat        =   0
@@ -5103,10 +5103,10 @@ Begin Window MainWindow
          Index           =   -2147483648
          InitialParent   =   "mainWindow_PagePanel"
          Left            =   4
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
-         LockRight       =   False
+         LockRight       =   True
          LockTop         =   True
          PanelCount      =   2
          Panels          =   ""
@@ -5114,7 +5114,7 @@ Begin Window MainWindow
          TabIndex        =   0
          TabPanelIndex   =   4
          Top             =   23
-         Value           =   1
+         Value           =   0
          Visible         =   True
          Width           =   1174
          Begin Rectangle Rectangle_PL_LineItemDetails
@@ -5128,11 +5128,11 @@ Begin Window MainWindow
             Index           =   -2147483648
             InitialParent   =   "PagePanel_PL"
             Left            =   10
-            LockBottom      =   False
+            LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   True
-            LockRight       =   False
-            LockTop         =   True
+            LockRight       =   True
+            LockTop         =   False
             Scope           =   0
             TabIndex        =   0
             TabPanelIndex   =   1
@@ -5160,11 +5160,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   747
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -5200,11 +5200,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_PL_LineItemDetails"
                Italic          =   False
                Left            =   695
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -5239,11 +5239,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_PL_LineItemDetails"
                Italic          =   False
                Left            =   394
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -5286,11 +5286,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   506
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -5334,11 +5334,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   506
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -5374,11 +5374,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_PL_LineItemDetails"
                Italic          =   False
                Left            =   116
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -5421,11 +5421,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   205
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -5461,11 +5461,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_PL_LineItemDetails"
                Italic          =   False
                Left            =   116
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -5508,11 +5508,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   205
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -5548,11 +5548,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_PL_LineItemDetails"
                Italic          =   False
                Left            =   116
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -5595,11 +5595,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   205
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -5635,11 +5635,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_PL_LineItemDetails"
                Italic          =   False
                Left            =   116
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -5682,11 +5682,11 @@ Begin Window MainWindow
                Italic          =   False
                Left            =   205
                LimitText       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -5732,11 +5732,11 @@ Begin Window MainWindow
                LimitText       =   0
                LineHeight      =   0.0
                LineSpacing     =   1.0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Mask            =   ""
                mdFieldName     =   ""
                mdFormat        =   0
@@ -5775,11 +5775,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_PL_LineItemDetails"
                Italic          =   False
                Left            =   394
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -5814,11 +5814,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_PL_LineItemDetails"
                Italic          =   False
                Left            =   394
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   ""
@@ -5855,11 +5855,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_PL_LineItemDetails"
                Italic          =   False
                Left            =   19
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Scope           =   0
                TabIndex        =   23
                TabPanelIndex   =   1
@@ -5886,11 +5886,11 @@ Begin Window MainWindow
                InitialParent   =   "Rectangle_PL_LineItemDetails"
                Italic          =   False
                Left            =   19
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Scope           =   0
                TabIndex        =   24
                TabPanelIndex   =   1
@@ -7192,10 +7192,10 @@ Begin Window MainWindow
             Index           =   -2147483648
             InitialParent   =   "PagePanel_PL"
             Left            =   10
-            LockBottom      =   False
+            LockBottom      =   True
             LockedInPosition=   False
             LockLeft        =   True
-            LockRight       =   False
+            LockRight       =   True
             LockTop         =   True
             Scope           =   0
             TabIndex        =   14
@@ -7305,10 +7305,10 @@ Begin Window MainWindow
                InitialValue    =   ""
                Italic          =   False
                Left            =   286
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
-               LockRight       =   False
+               LockRight       =   True
                LockTop         =   True
                mdColumnWidths  =   ""
                mdfkActualRecordFieldName=   ""
@@ -7434,7 +7434,7 @@ Begin Window MainWindow
                InitialValue    =   ""
                Italic          =   False
                Left            =   27
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
@@ -7572,45 +7572,6 @@ End
 #tag EndWindow
 
 #tag WindowCode
-	#tag Event
-		Sub KeyUp(Key As String)
-		  dim focusControl as RectControl
-		  
-		  focusControl = Focus
-		  
-		  Select Case Asc( Key )
-		  Case 13  'Carriage return
-		    If Focus.Name.ToText = TextField_searchInventory.Name.ToText then
-		      
-		      Listbox_EIPL_Inventory.searchMe( TextField_searchInventory.Text )
-		      
-		    ElseIf Focus.Name.ToText = TextField_searchEvents.Name.ToText Then
-		      
-		      Listbox_Events.searchMe( TextField_searchEvents.Text )
-		      
-		    ElseIf InStr( Focus.Name.ToText, "lineItems" ) > 0 Then
-		      dim theRowTag as mdRowTag
-		      If Listbox_LineItems.ListIndex <> -1 Then
-		        theRowTag = Listbox_LineItems.RowTag( Listbox_LineItems.ListIndex )
-		      End If
-		      me.FocusNext
-		      Listbox_LineItems.loadMe( true )
-		      Listbox_LineItems.searchMePKID( theRowTag.pkid )
-		      
-		    End If
-		    
-		  Case 09  'Tab
-		    If InStr( Focus.Name.ToText, "LineItems" ) > 0 Then
-		      Listbox_LineItems.loadMe( true )
-		    End If
-		    
-		    focusControl.SetFocus
-		    
-		    
-		  End Select
-		End Sub
-	#tag EndEvent
-
 	#tag Event
 		Sub Open()
 		  me.Hide
@@ -7842,25 +7803,6 @@ End
 		    
 		    
 		  End If
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function findControlByName(pControlName as text) As integer
-		  // returns -1 if no control with specified name is found
-		  
-		  dim theControl as control 
-		  dim theControlIndex as integer
-		  
-		  // Loop through controls
-		  For theControlIndex = 0 To me.ControlCount - 1
-		    theControl = me.Control( theControlIndex )
-		    if theControl.Name = pControlName then
-		      return theControlIndex
-		    elseif theControlIndex = me.ControlCount - 1 then
-		      return -1
-		    end if
-		  Next
 		End Function
 	#tag EndMethod
 
@@ -8761,13 +8703,6 @@ End
 #tag EndEvents
 #tag Events ComboBox_EIPL_TypeSelector
 	#tag Event
-		Sub Open()
-		  
-		  me.AddRows Array( "Estimate", "Invoice", "Pack List" )
-		  
-		End Sub
-	#tag EndEvent
-	#tag Event
 		Sub Change()
 		  
 		  //edTableEIPL_eventFiltered.controlSave(  "ComboBox_EIPL_TypeSelector", TextField_eipl_pkid.Text.ToText, me.Text.ToText )
@@ -9046,6 +8981,9 @@ End
 		  
 		  // Executing the script on server
 		  theRecordSet = otis.db.SQLSelect( "SELECT inventory_to_lineitem( '" + theInventorypkid + "', '" + theEIPLpkid + "' ) ;" )
+		  If otis.db.error Then
+		    logErrorMessage( 4, "DBase", otis.db.errormessage )
+		  End If
 		  
 		  // Reload LineItems
 		  Listbox_LineItems.loadMe( True )
@@ -9110,13 +9048,6 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag Events ComboBox_PL_TypeSelector
-	#tag Event
-		Sub Open()
-		  
-		  me.AddRows Array( "Estimate", "Invoice", "Pack List" )
-		  
-		End Sub
-	#tag EndEvent
 	#tag Event
 		Sub Change()
 		  
@@ -9272,6 +9203,9 @@ End
 		  
 		  // Executing the script on server
 		  theRecordSet = otis.db.SQLSelect( "SELECT inventory_to_lineitem( '" + theInventorypkid + "', '" + theEIPLpkid + "' ) ;" )
+		  If otis.db.error Then
+		    logErrorMessage( 4, "DBase", otis.db.errormessage )
+		  End If
 		  
 		  // Reload LineItems
 		  Listbox_PL_LineItems.loadMe( True )

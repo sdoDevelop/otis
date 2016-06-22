@@ -1,5 +1,5 @@
 #tag Window
-Begin Window Window_Inventory
+Begin sdoWindow Window_Inventory
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
@@ -607,25 +607,6 @@ End
 		End Function
 	#tag EndMenuHandler
 
-
-	#tag Method, Flags = &h0
-		Function findControlByName(pControlName as string) As integer
-		  // returns -1 if no control with specified name is found
-		  
-		  dim theControl as control 
-		  dim theControlIndex as integer
-		  
-		  // Loop through controls
-		  For theControlIndex = 0 To me.ControlCount - 1
-		    theControl = me.Control( theControlIndex )
-		    if theControl.Name = pControlName then
-		      return theControlIndex
-		    elseif theControlIndex = me.ControlCount - 1 then
-		      return -1
-		    end if
-		  Next
-		End Function
-	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub loadInventory()

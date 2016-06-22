@@ -23,7 +23,7 @@ Inherits TextField
 		        'Set c to the searchListbox 
 		        c = me.sdoWindow.findControlByName( searchListboxName, True )
 		        
-		        'Check to make sure c is a mdListbox
+		        'Check to make sure c is an mdListbox
 		        If c IsA mdListbox Then
 		          
 		          'Search the Listbox
@@ -48,13 +48,15 @@ Inherits TextField
 		      me.sdoWindow.setControlFocus( controlName )
 		      
 		      'Move Down the tab order
-		      me.sdoWindow.FocusNext
+		      'me.sdoWindow.FocusNext
 		      
 		      
 		    End If
 		    
 		    
 		  End Select
+		  
+		  Return 
 		  
 		  
 		End Sub

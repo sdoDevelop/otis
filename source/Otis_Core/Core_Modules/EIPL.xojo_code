@@ -128,6 +128,11 @@ Protected Module EIPL
 		    // Estimate and Invoice Page
 		    
 		    
+		    // Search
+		    MainWindow.TextField_searchInventory.searchField = True
+		    MainWindow.TextField_searchInventory.searchListboxName = "Listbox_EIPL_Inventory"
+		    
+		    
 		    // ========================
 		    //  EIPL
 		    
@@ -514,53 +519,43 @@ Protected Module EIPL
 		    // ========================
 		    // PackList Page
 		    
+		    MainWindow.TextField_PL_searchInventory.searchField = True
+		    MainWindow.TextField_PL_searchInventory.searchListboxName = "Listbox_PL_Inventory"
 		    
 		    // ========================
 		    //  EIPL
 		    
 		    
 		    //  Listbox_EIPL
-		    MainWindow.ListBox_EIPL.mdTableName = "eipl"
-		    MainWindow.ListBox_EIPL.mdHeaders() = Array( "EIPL", "Type" )
-		    MainWindow.ListBox_EIPL.mdFieldNames() = Array ( "eipl_nmbr", "type_" )
-		    MainWindow.ListBox_EIPL.mdpkFieldName = "pkid"
-		    MainWindow.ListBox_EIPL.mdSortFields() = Array( "type_", "eipl_nmbr" )
-		    MainWindow.ListBox_EIPL.mdColumnTypes() = Array( 0,0 )
-		    MainWindow.ListBox_EIPL.mdFormats() = Array( 0,0 )
-		    MainWindow.ListBox_EIPL.mdColumnWidths = "100%,0"
-		    MainWindow.ListBox_EIPL.mdfkFieldName = "fkevents_"
+		    MainWindow.Listbox_PL_Inventory.mdTableName = "eipl"
+		    MainWindow.Listbox_PL_Inventory.mdHeaders() = Array( "EIPL", "Type" )
+		    MainWindow.Listbox_PL_Inventory.mdFieldNames() = Array ( "eipl_nmbr", "type_" )
+		    MainWindow.Listbox_PL_Inventory.mdpkFieldName = "pkid"
+		    MainWindow.Listbox_PL_Inventory.mdSortFields() = Array( "type_", "eipl_nmbr" )
+		    MainWindow.Listbox_PL_Inventory.mdColumnTypes() = Array( 0,0 )
+		    MainWindow.Listbox_PL_Inventory.mdFormats() = Array( 0,0 )
+		    MainWindow.Listbox_PL_Inventory.mdColumnWidths = "100%,0"
+		    MainWindow.Listbox_PL_Inventory.mdfkFieldName = "fkevents_"
 		    
 		    // Label_EIPL_Number
-		    MainWindow.Label_EIPL_Number.mdTableName = "eipl"
-		    MainWindow.Label_EIPL_Number.mdFieldName = "eipl_nmbr"
-		    MainWindow.Label_EIPL_Number.mdFormat = 0
-		    MainWindow.Label_EIPL_Number.mdpkFieldName = "pkid"
+		    MainWindow.Label_PL_Number.mdTableName = "eipl"
+		    MainWindow.Label_PL_Number.mdFieldName = "eipl_nmbr"
+		    MainWindow.Label_PL_Number.mdFormat = 0
+		    MainWindow.Label_PL_Number.mdpkFieldName = "pkid"
 		    
 		    // Label_EIPL_Type
-		    MainWindow.Label_EIPL_Type.mdTableName = "eipl"
-		    MainWindow.Label_EIPL_Type.mdFieldName = "type_"
-		    MainWindow.Label_EIPL_Type.mdFormat = 0
-		    MainWindow.Label_EIPL_Type.mdpkFieldName = "pkid"
+		    MainWindow.Label_PL_Type.mdTableName = "eipl"
+		    MainWindow.Label_PL_Type.mdFieldName = "type_"
+		    MainWindow.Label_PL_Type.mdFormat = 0
+		    MainWindow.Label_PL_Type.mdpkFieldName = "pkid"
 		    
 		    // ComboBox_EIPL_TypeSelector
-		    MainWindow.ComboBox_EIPL_TypeSelector.mdTableName = "eipl"
-		    MainWindow.ComboBox_EIPL_TypeSelector.mdFieldName = "type_"
-		    MainWindow.ComboBox_EIPL_TypeSelector.mdFormat = 0
-		    MainWindow.ComboBox_EIPL_TypeSelector.mdpkFieldName = "pkid"
-		    MainWindow.ComboBox_EIPL_TypeSelector.parentSection = "pl"
-		    MainWindow.ComboBox_EIPL_TypeSelector.AddRows Array( "Estimate", "Invoice", "Pack List" )
-		    
-		    // Label_EIPL_BalanceValue
-		    MainWindow.Label_EIPL_BalanceValue.mdTableName = "eipl"
-		    MainWindow.Label_EIPL_BalanceValue.mdFieldName = "balance_"
-		    MainWindow.Label_EIPL_BalanceValue.mdFormat = 1
-		    MainWindow.Label_EIPL_BalanceValue.mdpkFieldName = "pkid"
-		    
-		    // Label_EIPL_GrandTotal
-		    MainWindow.Label_EIPL_GrandTotal.mdTableName = "eipl"
-		    MainWindow.Label_EIPL_GrandTotal.mdFieldName = "grandtotal_"
-		    MainWindow.Label_EIPL_GrandTotal.mdFormat = 1
-		    MainWindow.Label_EIPL_GrandTotal.mdpkFieldName = "pkid"
+		    MainWindow.ComboBox_PL_TypeSelector.mdTableName = "eipl"
+		    MainWindow.ComboBox_PL_TypeSelector.mdFieldName = "type_"
+		    MainWindow.ComboBox_PL_TypeSelector.mdFormat = 0
+		    MainWindow.ComboBox_PL_TypeSelector.mdpkFieldName = "pkid"
+		    MainWindow.ComboBox_PL_TypeSelector.parentSection = "pl"
+		    MainWindow.ComboBox_PL_TypeSelector.AddRows Array( "Estimate", "Invoice", "Pack List" )
 		    
 		    // MainWindow.TextField_PL_ShippingMethod
 		    MainWindow.TextField_PL_ShippingMethod.mdTableName = "eipl"
@@ -858,6 +853,48 @@ Protected Module EIPL
 		  
 		  MainWindow.Listbox_EIPL_Inventory.loadMe( keep_selection )
 		  MainWindow.Listbox_PL_Inventory.loadMe( keep_selection )
+		  
+		  
+		  // Grab all departments in EIPL Inventory
+		  dim theGroups() as string
+		  dim theValue as string
+		  
+		  dim groupColumnNumber as integer = 1
+		  
+		  
+		  // Gather all of the group names
+		  For i1 as integer = 0 To MainWindow.Listbox_EIPL_Inventory.ListCount - 1
+		    
+		    theValue = MainWindow.Listbox_EIPL_Inventory.Cell( i1, groupColumnNumber )
+		    
+		    If theGroups.IndexOf( theValue ) = -1 Then
+		      
+		      theGroups.Append( theValue )
+		      
+		    End If
+		    
+		  Next
+		  
+		  // Put group names into the combobox
+		  MainWindow.ComboBox_InventoryDepartmentFilter.AddRows( theGroups() ) 
+		  
+		  
+		  
+		  // Gather all of the group names
+		  For i1 as integer = 0 To MainWindow.Listbox_PL_Inventory.ListCount - 1
+		    
+		    theValue = MainWindow.Listbox_PL_Inventory.Cell( i1, groupColumnNumber )
+		    
+		    If theGroups.IndexOf( theValue ) = -1 Then
+		      
+		      theGroups.Append( theValue )
+		      
+		    End If
+		    
+		  Next
+		  
+		  // Put group names into the combobox
+		  MainWindow.ComboBox_PL_InventoryDepartmentFilter.AddRows( theGroups() ) 
 		End Sub
 	#tag EndMethod
 

@@ -56,7 +56,7 @@ Inherits TextField
 		    
 		  End Select
 		  
-		  Return 
+		   
 		  
 		  
 		End Sub

@@ -45,7 +45,7 @@ Begin sdoWindow MainWindow
       TabIndex        =   1
       TabPanelIndex   =   0
       Top             =   0
-      Value           =   2
+      Value           =   3
       Visible         =   True
       Width           =   1182
       Begin Listbox eventList_Listbox
@@ -470,9 +470,12 @@ Begin sdoWindow MainWindow
             mdpkFieldName   =   "pkid"
             mdpkValue       =   ""
             mdTableName     =   ""
+            parentSection   =   ""
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
+            searchField     =   False
+            searchListboxName=   ""
             TabIndex        =   1
             TabPanelIndex   =   2
             TabStop         =   True
@@ -725,6 +728,7 @@ Begin sdoWindow MainWindow
             mdpkValue       =   ""
             mdTableName     =   ""
             Multiline       =   True
+            parentSection   =   ""
             ReadOnly        =   False
             Scope           =   0
             ScrollbarHorizontal=   False
@@ -985,9 +989,12 @@ Begin sdoWindow MainWindow
             mdpkFieldName   =   "pkid"
             mdpkValue       =   ""
             mdTableName     =   ""
+            parentSection   =   ""
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
+            searchField     =   False
+            searchListboxName=   ""
             TabIndex        =   16
             TabPanelIndex   =   2
             TabStop         =   True
@@ -1064,9 +1071,12 @@ Begin sdoWindow MainWindow
             mdpkFieldName   =   "pkid"
             mdpkValue       =   ""
             mdTableName     =   ""
+            parentSection   =   ""
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
+            searchField     =   False
+            searchListboxName=   ""
             TabIndex        =   18
             TabPanelIndex   =   2
             TabStop         =   True
@@ -1112,9 +1122,12 @@ Begin sdoWindow MainWindow
             mdpkFieldName   =   "pkid"
             mdpkValue       =   ""
             mdTableName     =   ""
+            parentSection   =   ""
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
+            searchField     =   False
+            searchListboxName=   ""
             TabIndex        =   19
             TabPanelIndex   =   2
             TabStop         =   True
@@ -1160,9 +1173,12 @@ Begin sdoWindow MainWindow
             mdpkFieldName   =   "pkid"
             mdpkValue       =   ""
             mdTableName     =   ""
+            parentSection   =   ""
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
+            searchField     =   False
+            searchListboxName=   ""
             TabIndex        =   20
             TabPanelIndex   =   2
             TabStop         =   True
@@ -1208,9 +1224,12 @@ Begin sdoWindow MainWindow
             mdpkFieldName   =   "pkid"
             mdpkValue       =   ""
             mdTableName     =   ""
+            parentSection   =   ""
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
+            searchField     =   False
+            searchListboxName=   ""
             TabIndex        =   21
             TabPanelIndex   =   2
             TabStop         =   True
@@ -1287,9 +1306,12 @@ Begin sdoWindow MainWindow
             mdpkFieldName   =   "pkid"
             mdpkValue       =   ""
             mdTableName     =   ""
+            parentSection   =   ""
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
+            searchField     =   False
+            searchListboxName=   ""
             TabIndex        =   23
             TabPanelIndex   =   2
             TabStop         =   True
@@ -1366,9 +1388,12 @@ Begin sdoWindow MainWindow
             mdpkFieldName   =   "pkid"
             mdpkValue       =   ""
             mdTableName     =   ""
+            parentSection   =   ""
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
+            searchField     =   False
+            searchListboxName=   ""
             TabIndex        =   25
             TabPanelIndex   =   2
             TabStop         =   True
@@ -1414,9 +1439,12 @@ Begin sdoWindow MainWindow
             mdpkFieldName   =   "pkid"
             mdpkValue       =   ""
             mdTableName     =   ""
+            parentSection   =   ""
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
+            searchField     =   False
+            searchListboxName=   ""
             TabIndex        =   26
             TabPanelIndex   =   2
             TabStop         =   True
@@ -1493,9 +1521,12 @@ Begin sdoWindow MainWindow
             mdpkFieldName   =   "pkid"
             mdpkValue       =   ""
             mdTableName     =   ""
+            parentSection   =   ""
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
+            searchField     =   False
+            searchListboxName=   ""
             TabIndex        =   28
             TabPanelIndex   =   2
             TabStop         =   True
@@ -1657,9 +1688,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   7
                TabPanelIndex   =   1
                TabStop         =   True
@@ -1822,9 +1856,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   5
                TabPanelIndex   =   1
                TabStop         =   True
@@ -1870,9 +1907,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   4
                TabPanelIndex   =   1
                TabStop         =   True
@@ -1957,9 +1997,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   3
                TabPanelIndex   =   1
                TabStop         =   True
@@ -2044,9 +2087,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   2
                TabPanelIndex   =   1
                TabStop         =   True
@@ -2131,9 +2177,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   1
                TabPanelIndex   =   1
                TabStop         =   True
@@ -2218,9 +2267,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   0
                TabPanelIndex   =   1
                TabStop         =   True
@@ -2266,9 +2318,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   10
                TabPanelIndex   =   1
                TabStop         =   True
@@ -2356,6 +2411,7 @@ Begin sdoWindow MainWindow
                mdpkValue       =   ""
                mdTableName     =   ""
                Multiline       =   True
+               parentSection   =   ""
                ReadOnly        =   False
                Scope           =   0
                ScrollbarHorizontal=   False
@@ -2445,9 +2501,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   9
                TabPanelIndex   =   1
                TabStop         =   True
@@ -2610,9 +2669,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   8
                TabPanelIndex   =   1
                TabStop         =   True
@@ -3818,9 +3880,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   0
                TabPanelIndex   =   2
                TabStop         =   True
@@ -3900,9 +3965,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   2
                TabPanelIndex   =   2
                TabStop         =   True
@@ -4016,9 +4084,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   5
                TabPanelIndex   =   2
                TabStop         =   True
@@ -4064,9 +4135,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   6
                TabPanelIndex   =   2
                TabStop         =   True
@@ -4146,9 +4220,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   8
                TabPanelIndex   =   2
                TabStop         =   True
@@ -4189,6 +4266,7 @@ Begin sdoWindow MainWindow
                mdpkValue       =   ""
                mdQueue         =   False
                mdTableName     =   ""
+               parentSection   =   ""
                Scope           =   0
                TabIndex        =   9
                TabPanelIndex   =   2
@@ -4494,7 +4572,7 @@ Begin sdoWindow MainWindow
             TopLeftColor    =   &cABABAB00
             Visible         =   True
             Width           =   1161
-            Begin TextField TextField_searchInventory
+            Begin mdTextField TextField_searchInventory
                AcceptTabs      =   False
                Alignment       =   0
                AutoDeactivate  =   True
@@ -4520,6 +4598,8 @@ Begin sdoWindow MainWindow
                LockRight       =   False
                LockTop         =   True
                Mask            =   ""
+               mdFormat        =   0
+               mdpkFieldName   =   "pkid"
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
@@ -5029,9 +5109,12 @@ Begin sdoWindow MainWindow
             mdpkFieldName   =   "pkid"
             mdpkValue       =   ""
             mdTableName     =   ""
+            parentSection   =   ""
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
+            searchField     =   False
+            searchListboxName=   ""
             TabIndex        =   4
             TabPanelIndex   =   1
             TabStop         =   True
@@ -5077,9 +5160,12 @@ Begin sdoWindow MainWindow
             mdpkFieldName   =   "pkid"
             mdpkValue       =   ""
             mdTableName     =   ""
+            parentSection   =   ""
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
+            searchField     =   False
+            searchListboxName=   ""
             TabIndex        =   5
             TabPanelIndex   =   1
             TabStop         =   True
@@ -5171,9 +5257,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   0
                TabPanelIndex   =   1
                TabStop         =   True
@@ -5297,9 +5386,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   4
                TabPanelIndex   =   1
                TabStop         =   True
@@ -5345,9 +5437,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   5
                TabPanelIndex   =   1
                TabStop         =   True
@@ -5432,9 +5527,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   7
                TabPanelIndex   =   1
                TabStop         =   True
@@ -5519,9 +5617,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   9
                TabPanelIndex   =   1
                TabStop         =   True
@@ -5606,9 +5707,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   11
                TabPanelIndex   =   1
                TabStop         =   True
@@ -5693,9 +5797,12 @@ Begin sdoWindow MainWindow
                mdpkFieldName   =   "pkid"
                mdpkValue       =   ""
                mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   13
                TabPanelIndex   =   1
                TabStop         =   True
@@ -5744,6 +5851,7 @@ Begin sdoWindow MainWindow
                mdpkValue       =   ""
                mdTableName     =   ""
                Multiline       =   True
+               parentSection   =   ""
                ReadOnly        =   False
                Scope           =   0
                ScrollbarHorizontal=   False
@@ -7001,7 +7109,7 @@ Begin sdoWindow MainWindow
             TopLeftColor    =   &cABABAB00
             Visible         =   True
             Width           =   268
-            Begin Label Label_PL_Type
+            Begin Label Label_PL_TypeLabel
                AutoDeactivate  =   True
                Bold            =   False
                DataField       =   ""
@@ -7067,9 +7175,12 @@ Begin sdoWindow MainWindow
             mdpkFieldName   =   "pkid"
             mdpkValue       =   ""
             mdTableName     =   ""
+            parentSection   =   ""
             Password        =   False
             ReadOnly        =   False
             Scope           =   0
+            searchField     =   False
+            searchListboxName=   ""
             TabIndex        =   2
             TabPanelIndex   =   2
             TabStop         =   True
@@ -7144,6 +7255,7 @@ Begin sdoWindow MainWindow
             mdpkValue       =   ""
             mdQueue         =   False
             mdTableName     =   ""
+            parentSection   =   ""
             Scope           =   0
             TabIndex        =   9
             TabPanelIndex   =   2
@@ -7204,7 +7316,7 @@ Begin sdoWindow MainWindow
             TopLeftColor    =   &cABABAB00
             Visible         =   True
             Width           =   1161
-            Begin TextField TextField_PL_searchInventory
+            Begin mdTextField TextField_PL_searchInventory
                AcceptTabs      =   False
                Alignment       =   0
                AutoDeactivate  =   True
@@ -7230,6 +7342,8 @@ Begin sdoWindow MainWindow
                LockRight       =   False
                LockTop         =   True
                Mask            =   ""
+               mdFormat        =   0
+               mdpkFieldName   =   "pkid"
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
@@ -7335,7 +7449,7 @@ Begin sdoWindow MainWindow
                _ScrollOffset   =   0
                _ScrollWidth    =   -1
             End
-            Begin mdLabel Label_PL_Type1
+            Begin mdLabel Label_PL_Type
                AutoDeactivate  =   True
                Bold            =   False
                DataField       =   ""
@@ -7464,6 +7578,45 @@ Begin sdoWindow MainWindow
                _ScrollOffset   =   0
                _ScrollWidth    =   -1
             End
+            Begin mdLabel Label_PL_Number
+               AutoDeactivate  =   True
+               Bold            =   False
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "Rectangle10"
+               Italic          =   False
+               Left            =   392
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   False
+               LockTop         =   True
+               mdFieldName     =   ""
+               mdFormat        =   0
+               mdpkFieldName   =   ""
+               mdpkValue       =   ""
+               mdTableName     =   ""
+               Multiline       =   False
+               Scope           =   0
+               Selectable      =   False
+               TabIndex        =   12
+               TabPanelIndex   =   1
+               Text            =   "pl number"
+               TextAlign       =   0
+               TextColor       =   &c00000000
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   42
+               Transparent     =   False
+               Underline       =   False
+               Visible         =   True
+               Width           =   100
+            End
          End
          Begin Rectangle Rectangle11
             AutoDeactivate  =   True
@@ -7559,14 +7712,14 @@ Begin sdoWindow MainWindow
       InitialParent   =   ""
       LockedInPosition=   False
       Scope           =   0
-      TabPanelIndex   =   "0"
+      TabPanelIndex   =   0
       Visible         =   True
    End
    Begin zPrefs zPrefsPrime
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
-      TabPanelIndex   =   "0"
+      TabPanelIndex   =   0
    End
 End
 #tag EndWindow
@@ -8271,12 +8424,15 @@ End
 	#tag Method, Flags = &h0
 		Sub reloadFocusSection()
 		  
-		  
-		  If InStr( Focus.Name, "Event" ) <> 0 Then
-		    Listbox_Events.loadMe( True )
-		    loadEvent
-		  ElseIf InStr( Focus.Name, "EIPL" ) <> 0 Then
-		    EIPL.controls_load( True )
+		  If Focus <> Nil Then
+		    
+		    If InStr( Focus.Name, "Event" ) <> 0 Then
+		      Listbox_Events.loadMe( True )
+		      loadEvent
+		    ElseIf InStr( Focus.Name, "EIPL" ) <> 0 Then
+		      EIPL.controls_load( True )
+		    End If
+		    
 		  End If
 		End Sub
 	#tag EndMethod

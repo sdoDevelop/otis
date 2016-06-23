@@ -125,20 +125,23 @@ Begin sdoWindow Window_Inventory
          Italic          =   False
          Left            =   20
          LimitText       =   0
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
          LockRight       =   False
-         LockTop         =   True
+         LockTop         =   False
          Mask            =   ""
          mdFieldName     =   ""
          mdFormat        =   0
          mdpkFieldName   =   "pkid"
          mdpkValue       =   ""
          mdTableName     =   ""
+         parentSection   =   ""
          Password        =   False
          ReadOnly        =   False
          Scope           =   0
+         searchField     =   False
+         searchListboxName=   ""
          TabIndex        =   1
          TabPanelIndex   =   1
          TabStop         =   True
@@ -173,20 +176,23 @@ Begin sdoWindow Window_Inventory
          Italic          =   False
          Left            =   103
          LimitText       =   0
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
          LockRight       =   False
-         LockTop         =   True
+         LockTop         =   False
          Mask            =   ""
          mdFieldName     =   ""
          mdFormat        =   0
          mdpkFieldName   =   "pkid"
          mdpkValue       =   ""
          mdTableName     =   ""
+         parentSection   =   ""
          Password        =   False
          ReadOnly        =   False
          Scope           =   0
+         searchField     =   False
+         searchListboxName=   ""
          TabIndex        =   2
          TabPanelIndex   =   1
          TabStop         =   True
@@ -221,20 +227,23 @@ Begin sdoWindow Window_Inventory
          Italic          =   False
          Left            =   186
          LimitText       =   0
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
          LockRight       =   False
-         LockTop         =   True
+         LockTop         =   False
          Mask            =   ""
          mdFieldName     =   ""
          mdFormat        =   0
          mdpkFieldName   =   "pkid"
          mdpkValue       =   ""
          mdTableName     =   ""
+         parentSection   =   ""
          Password        =   False
          ReadOnly        =   False
          Scope           =   0
+         searchField     =   False
+         searchListboxName=   ""
          TabIndex        =   3
          TabPanelIndex   =   1
          TabStop         =   True
@@ -269,20 +278,23 @@ Begin sdoWindow Window_Inventory
          Italic          =   False
          Left            =   269
          LimitText       =   0
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
          LockRight       =   False
-         LockTop         =   True
+         LockTop         =   False
          Mask            =   ""
          mdFieldName     =   ""
          mdFormat        =   0
          mdpkFieldName   =   "pkid"
          mdpkValue       =   ""
          mdTableName     =   ""
+         parentSection   =   ""
          Password        =   False
          ReadOnly        =   False
          Scope           =   0
+         searchField     =   False
+         searchListboxName=   ""
          TabIndex        =   4
          TabPanelIndex   =   1
          TabStop         =   True
@@ -317,20 +329,23 @@ Begin sdoWindow Window_Inventory
          Italic          =   False
          Left            =   352
          LimitText       =   0
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
          LockRight       =   False
-         LockTop         =   True
+         LockTop         =   False
          Mask            =   ""
          mdFieldName     =   ""
          mdFormat        =   0
          mdpkFieldName   =   "pkid"
          mdpkValue       =   ""
          mdTableName     =   ""
+         parentSection   =   ""
          Password        =   False
          ReadOnly        =   False
          Scope           =   0
+         searchField     =   False
+         searchListboxName=   ""
          TabIndex        =   5
          TabPanelIndex   =   1
          TabStop         =   True
@@ -365,20 +380,23 @@ Begin sdoWindow Window_Inventory
          Italic          =   False
          Left            =   435
          LimitText       =   0
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
          LockRight       =   False
-         LockTop         =   True
+         LockTop         =   False
          Mask            =   ""
          mdFieldName     =   ""
          mdFormat        =   0
          mdpkFieldName   =   "pkid"
          mdpkValue       =   ""
          mdTableName     =   ""
+         parentSection   =   ""
          Password        =   False
          ReadOnly        =   False
          Scope           =   0
+         searchField     =   False
+         searchListboxName=   ""
          TabIndex        =   6
          TabPanelIndex   =   1
          TabStop         =   True
@@ -413,20 +431,23 @@ Begin sdoWindow Window_Inventory
          Italic          =   False
          Left            =   518
          LimitText       =   0
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
          LockRight       =   False
-         LockTop         =   True
+         LockTop         =   False
          Mask            =   ""
          mdFieldName     =   ""
          mdFormat        =   0
          mdpkFieldName   =   "pkid"
          mdpkValue       =   ""
          mdTableName     =   ""
+         parentSection   =   ""
          Password        =   False
          ReadOnly        =   False
          Scope           =   0
+         searchField     =   False
+         searchListboxName=   ""
          TabIndex        =   7
          TabPanelIndex   =   1
          TabStop         =   True
@@ -461,20 +482,23 @@ Begin sdoWindow Window_Inventory
          Italic          =   False
          Left            =   601
          LimitText       =   0
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
          LockRight       =   False
-         LockTop         =   True
+         LockTop         =   False
          Mask            =   ""
          mdFieldName     =   ""
          mdFormat        =   0
          mdpkFieldName   =   "pkid"
          mdpkValue       =   ""
          mdTableName     =   ""
+         parentSection   =   ""
          Password        =   False
          ReadOnly        =   False
          Scope           =   0
+         searchField     =   False
+         searchListboxName=   ""
          TabIndex        =   8
          TabPanelIndex   =   1
          TabStop         =   True
@@ -509,20 +533,23 @@ Begin sdoWindow Window_Inventory
          Italic          =   False
          Left            =   683
          LimitText       =   0
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
          LockRight       =   False
-         LockTop         =   True
+         LockTop         =   False
          Mask            =   ""
          mdFieldName     =   ""
          mdFormat        =   0
          mdpkFieldName   =   "pkid"
          mdpkValue       =   ""
          mdTableName     =   ""
+         parentSection   =   ""
          Password        =   False
          ReadOnly        =   False
          Scope           =   0
+         searchField     =   False
+         searchListboxName=   ""
          TabIndex        =   9
          TabPanelIndex   =   1
          TabStop         =   True
@@ -557,20 +584,23 @@ Begin sdoWindow Window_Inventory
          Italic          =   False
          Left            =   766
          LimitText       =   0
-         LockBottom      =   False
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
          LockRight       =   False
-         LockTop         =   True
+         LockTop         =   False
          Mask            =   ""
          mdFieldName     =   ""
          mdFormat        =   0
          mdpkFieldName   =   "pkid"
          mdpkValue       =   ""
          mdTableName     =   ""
+         parentSection   =   ""
          Password        =   False
          ReadOnly        =   False
          Scope           =   0
+         searchField     =   False
+         searchListboxName=   ""
          TabIndex        =   10
          TabPanelIndex   =   1
          TabStop         =   True
@@ -592,12 +622,19 @@ Begin sdoWindow Window_Inventory
       Mode            =   2
       Period          =   150
       Scope           =   0
-      TabPanelIndex   =   "0"
+      TabPanelIndex   =   0
    End
 End
 #tag EndWindow
 
 #tag WindowCode
+	#tag Event
+		Sub Resized()
+		  'resizeTextFields
+		End Sub
+	#tag EndEvent
+
+
 	#tag MenuHandler
 		Function NewInventoryItem() As Boolean Handles NewInventoryItem.Action
 			newInventoryItem
@@ -621,7 +658,9 @@ End
 
 	#tag Method, Flags = &h0
 		Sub myOpen()
-		  
+		  dim c as control
+		  dim n1 as integer
+		  dim s1(), s2 as string
 		  
 		  
 		  
@@ -630,7 +669,7 @@ End
 		  Listbox_inventory.mdfieldNames() = Array( "name_", "manufacturer", "model", "department", "category", "subcategory", "description", "quantity_", "price", "owner" )
 		  Listbox_inventory.mdColumnTypes() = Array( 0,0,0,0,0,0,0,0,0,0 )
 		  Listbox_inventory.mdFormats() = Array( 0,0,0,0,0,0,0,0,1,0 )
-		  Listbox_inventory.ColumnWidths = "15%,15%,12%,10%,10%,10%,10%,5%,5%,4%"
+		  Listbox_inventory.mdColumnWidths = "17%,15%,10%,10%,10%,10%,10%,5%,5%,1*"
 		  Listbox_inventory.mdsortFields() = Array( "department", "category", "subcategory", "manufacturer", "model" )
 		  Listbox_inventory.mdpkFieldName = "pkid"
 		  
@@ -639,6 +678,8 @@ End
 		  
 		  
 		  setUpInvTextFields
+		  
+		  
 		  
 		  
 		End Sub
@@ -730,7 +771,6 @@ End
 		      
 		    Next
 		    
-		    listboxColumnWidths = Listbox_inventory.ColumnWidths
 		    
 		    
 		  End If
@@ -838,8 +878,26 @@ End
 	#tag Event
 		Sub Action()
 		  dim difference as Boolean
-		  dim s1(), s2() as string
+		  dim s1(), s2(), s3(), s4 as string
+		  dim n1 as integer
+		  dim c as control
 		  
+		  
+		  For i1 as integer = 1 To 10
+		    
+		    s4 = "TextField" + i1.ToText
+		    c = Window_Inventory.findControlByName( s4, True )
+		    
+		    If c IsA mdTextField Then
+		      n1 = mdTextField( c ).Width
+		      s3.Append( n1.ToText )
+		    End If
+		    
+		  Next
+		  
+		  if s3.Ubound <> -1 Then
+		    listboxColumnWidths = Join( s3, "," )
+		  end if
 		  
 		  s1() = Split( listboxColumnWidths )
 		  s2() = Split( Listbox_inventory.ColumnWidths )
@@ -854,6 +912,7 @@ End
 		  Next
 		  
 		  if difference Then
+		    
 		    resizeTextFields
 		  end if
 		End Sub

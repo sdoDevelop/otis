@@ -34,6 +34,12 @@ Protected Module EIPL
 		    MainWindow.Listbox_Payments.loadMe( True )
 		    MainWindow.Listbox_EIPLDiscounts.loadMe( True )
 		    
+		    // Set the event name title
+		    If MainWindow.Listbox_Events.ListIndex <> -1 Then
+		      MainWindow.Label_EIPL_Title.Text = MainWindow.Listbox_Events.Cell( MainWindow.Listbox_Events.ListIndex, 0 )
+		    End If
+		    
+		    
 		    If type = "Estimate" Then
 		      
 		      MainWindow.Label_EIPL_Payments.Visible = False
@@ -85,6 +91,11 @@ Protected Module EIPL
 		    
 		    // Set Foreign Keys
 		    MainWindow.Listbox_PL_LineItems.mdfkValue = thePKID
+		    
+		    // Set the event name title
+		    If MainWindow.Listbox_Events.ListIndex <> -1 Then
+		      MainWindow.Label_PL_Title.Text = MainWindow.Listbox_Events.Cell( MainWindow.Listbox_Events.ListIndex, 0 )
+		    End If
 		    
 		    // Populate Contact stuff
 		    r1 = otis.db.SQLSelect( "Select fkcontacts From contact_venue_data Where fkeipl = '" + thePKID + "' And fkContacts <> '' ; " )
@@ -521,6 +532,7 @@ Protected Module EIPL
 		    
 		    MainWindow.TextField_PL_searchInventory.searchField = True
 		    MainWindow.TextField_PL_searchInventory.searchListboxName = "Listbox_PL_Inventory"
+		    
 		    
 		    // ========================
 		    //  EIPL

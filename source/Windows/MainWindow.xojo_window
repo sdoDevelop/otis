@@ -45,7 +45,7 @@ Begin sdoWindow MainWindow
       TabIndex        =   1
       TabPanelIndex   =   0
       Top             =   0
-      Value           =   3
+      Value           =   2
       Visible         =   True
       Width           =   1182
       Begin Listbox eventList_Listbox
@@ -175,7 +175,7 @@ Begin sdoWindow MainWindow
          ScrollbarHorizontal=   False
          ScrollBarVertical=   True
          SelectionType   =   0
-         TabIndex        =   18
+         TabIndex        =   2
          TabPanelIndex   =   2
          TabStop         =   True
          TextFont        =   "System"
@@ -232,7 +232,7 @@ Begin sdoWindow MainWindow
          ScrollbarHorizontal=   False
          ScrollBarVertical=   True
          SelectionType   =   0
-         TabIndex        =   19
+         TabIndex        =   3
          TabPanelIndex   =   2
          TabStop         =   True
          TextFont        =   "System"
@@ -371,7 +371,7 @@ Begin sdoWindow MainWindow
          LockRight       =   False
          LockTop         =   True
          Scope           =   0
-         TabIndex        =   35
+         TabIndex        =   4
          TabPanelIndex   =   2
          TabStop         =   True
          TextFont        =   "System"
@@ -399,7 +399,7 @@ Begin sdoWindow MainWindow
          LockRight       =   True
          LockTop         =   True
          Scope           =   0
-         TabIndex        =   36
+         TabIndex        =   1
          TabPanelIndex   =   2
          Top             =   36
          TopLeftColor    =   &cABABAB00
@@ -425,7 +425,7 @@ Begin sdoWindow MainWindow
             Multiline       =   False
             Scope           =   0
             Selectable      =   False
-            TabIndex        =   0
+            TabIndex        =   17
             TabPanelIndex   =   2
             Text            =   "Venues"
             TextAlign       =   1
@@ -476,7 +476,7 @@ Begin sdoWindow MainWindow
             Scope           =   0
             searchField     =   False
             searchListboxName=   ""
-            TabIndex        =   1
+            TabIndex        =   0
             TabPanelIndex   =   2
             TabStop         =   True
             Text            =   ""
@@ -510,7 +510,7 @@ Begin sdoWindow MainWindow
             Multiline       =   False
             Scope           =   0
             Selectable      =   False
-            TabIndex        =   2
+            TabIndex        =   18
             TabPanelIndex   =   2
             Text            =   "Event Name"
             TextAlign       =   0
@@ -544,7 +544,7 @@ Begin sdoWindow MainWindow
             Multiline       =   False
             Scope           =   0
             Selectable      =   False
-            TabIndex        =   3
+            TabIndex        =   19
             TabPanelIndex   =   2
             Text            =   "Start"
             TextAlign       =   0
@@ -578,7 +578,7 @@ Begin sdoWindow MainWindow
             Multiline       =   False
             Scope           =   0
             Selectable      =   False
-            TabIndex        =   4
+            TabIndex        =   20
             TabPanelIndex   =   2
             Text            =   "Load In"
             TextAlign       =   0
@@ -612,7 +612,7 @@ Begin sdoWindow MainWindow
             Multiline       =   False
             Scope           =   0
             Selectable      =   False
-            TabIndex        =   5
+            TabIndex        =   21
             TabPanelIndex   =   2
             Text            =   "End"
             TextAlign       =   0
@@ -646,7 +646,7 @@ Begin sdoWindow MainWindow
             Multiline       =   False
             Scope           =   0
             Selectable      =   False
-            TabIndex        =   6
+            TabIndex        =   22
             TabPanelIndex   =   2
             Text            =   "Load Out"
             TextAlign       =   0
@@ -680,7 +680,7 @@ Begin sdoWindow MainWindow
             Multiline       =   False
             Scope           =   0
             Selectable      =   False
-            TabIndex        =   7
+            TabIndex        =   23
             TabPanelIndex   =   2
             Text            =   "Details"
             TextAlign       =   0
@@ -734,7 +734,7 @@ Begin sdoWindow MainWindow
             ScrollbarHorizontal=   False
             ScrollbarVertical=   True
             Styled          =   True
-            TabIndex        =   8
+            TabIndex        =   14
             TabPanelIndex   =   2
             TabStop         =   True
             Text            =   ""
@@ -791,7 +791,7 @@ Begin sdoWindow MainWindow
             ScrollbarHorizontal=   False
             ScrollBarVertical=   True
             SelectionType   =   0
-            TabIndex        =   9
+            TabIndex        =   24
             TabPanelIndex   =   2
             TabStop         =   True
             TextFont        =   "System"
@@ -848,7 +848,7 @@ Begin sdoWindow MainWindow
             ScrollbarHorizontal=   False
             ScrollBarVertical=   True
             SelectionType   =   0
-            TabIndex        =   10
+            TabIndex        =   25
             TabPanelIndex   =   2
             TabStop         =   True
             TextFont        =   "System"
@@ -882,7 +882,7 @@ Begin sdoWindow MainWindow
             Multiline       =   False
             Scope           =   0
             Selectable      =   False
-            TabIndex        =   11
+            TabIndex        =   26
             TabPanelIndex   =   2
             Text            =   "Contacts"
             TextAlign       =   1
@@ -916,7 +916,7 @@ Begin sdoWindow MainWindow
             LockRight       =   False
             LockTop         =   False
             Scope           =   0
-            TabIndex        =   14
+            TabIndex        =   15
             TabPanelIndex   =   2
             TabStop         =   True
             TextFont        =   "System"
@@ -947,7 +947,7 @@ Begin sdoWindow MainWindow
             LockRight       =   False
             LockTop         =   False
             Scope           =   0
-            TabIndex        =   15
+            TabIndex        =   16
             TabPanelIndex   =   2
             TabStop         =   True
             TextFont        =   "System"
@@ -995,7 +995,7 @@ Begin sdoWindow MainWindow
             Scope           =   0
             searchField     =   False
             searchListboxName=   ""
-            TabIndex        =   16
+            TabIndex        =   8
             TabPanelIndex   =   2
             TabStop         =   True
             Text            =   ""
@@ -1029,7 +1029,7 @@ Begin sdoWindow MainWindow
             LockRight       =   False
             LockTop         =   True
             Scope           =   0
-            TabIndex        =   17
+            TabIndex        =   9
             TabPanelIndex   =   2
             TabStop         =   True
             TextFont        =   "System"
@@ -1077,7 +1077,7 @@ Begin sdoWindow MainWindow
             Scope           =   0
             searchField     =   False
             searchListboxName=   ""
-            TabIndex        =   18
+            TabIndex        =   11
             TabPanelIndex   =   2
             TabStop         =   True
             Text            =   ""
@@ -1128,7 +1128,7 @@ Begin sdoWindow MainWindow
             Scope           =   0
             searchField     =   False
             searchListboxName=   ""
-            TabIndex        =   19
+            TabIndex        =   7
             TabPanelIndex   =   2
             TabStop         =   True
             Text            =   ""
@@ -1179,7 +1179,7 @@ Begin sdoWindow MainWindow
             Scope           =   0
             searchField     =   False
             searchListboxName=   ""
-            TabIndex        =   20
+            TabIndex        =   10
             TabPanelIndex   =   2
             TabStop         =   True
             Text            =   ""
@@ -1230,7 +1230,7 @@ Begin sdoWindow MainWindow
             Scope           =   0
             searchField     =   False
             searchListboxName=   ""
-            TabIndex        =   21
+            TabIndex        =   2
             TabPanelIndex   =   2
             TabStop         =   True
             Text            =   ""
@@ -1264,7 +1264,7 @@ Begin sdoWindow MainWindow
             LockRight       =   False
             LockTop         =   True
             Scope           =   0
-            TabIndex        =   22
+            TabIndex        =   3
             TabPanelIndex   =   2
             TabStop         =   True
             TextFont        =   "System"
@@ -1312,7 +1312,7 @@ Begin sdoWindow MainWindow
             Scope           =   0
             searchField     =   False
             searchListboxName=   ""
-            TabIndex        =   23
+            TabIndex        =   5
             TabPanelIndex   =   2
             TabStop         =   True
             Text            =   ""
@@ -1346,7 +1346,7 @@ Begin sdoWindow MainWindow
             LockRight       =   False
             LockTop         =   True
             Scope           =   0
-            TabIndex        =   24
+            TabIndex        =   6
             TabPanelIndex   =   2
             TabStop         =   True
             TextFont        =   "System"
@@ -1394,7 +1394,7 @@ Begin sdoWindow MainWindow
             Scope           =   0
             searchField     =   False
             searchListboxName=   ""
-            TabIndex        =   25
+            TabIndex        =   1
             TabPanelIndex   =   2
             TabStop         =   True
             Text            =   ""
@@ -1445,7 +1445,7 @@ Begin sdoWindow MainWindow
             Scope           =   0
             searchField     =   False
             searchListboxName=   ""
-            TabIndex        =   26
+            TabIndex        =   4
             TabPanelIndex   =   2
             TabStop         =   True
             Text            =   ""
@@ -1479,7 +1479,7 @@ Begin sdoWindow MainWindow
             LockRight       =   False
             LockTop         =   True
             Scope           =   0
-            TabIndex        =   27
+            TabIndex        =   12
             TabPanelIndex   =   2
             TabStop         =   True
             TextFont        =   "System"
@@ -1527,7 +1527,7 @@ Begin sdoWindow MainWindow
             Scope           =   0
             searchField     =   False
             searchListboxName=   ""
-            TabIndex        =   28
+            TabIndex        =   13
             TabPanelIndex   =   2
             TabStop         =   True
             Text            =   ""
@@ -1566,7 +1566,7 @@ Begin sdoWindow MainWindow
             Multiline       =   False
             Scope           =   0
             Selectable      =   False
-            TabIndex        =   29
+            TabIndex        =   27
             TabPanelIndex   =   2
             Text            =   "Acount Manager"
             TextAlign       =   0
@@ -1628,7 +1628,7 @@ Begin sdoWindow MainWindow
          PanelCount      =   2
          Panels          =   ""
          Scope           =   0
-         TabIndex        =   4
+         TabIndex        =   0
          TabPanelIndex   =   3
          Top             =   23
          Value           =   0
@@ -1651,7 +1651,7 @@ Begin sdoWindow MainWindow
             LockRight       =   True
             LockTop         =   False
             Scope           =   0
-            TabIndex        =   2
+            TabIndex        =   0
             TabPanelIndex   =   1
             Top             =   507
             TopLeftColor    =   &cABABAB00
@@ -2709,7 +2709,7 @@ Begin sdoWindow MainWindow
                LockRight       =   False
                LockTop         =   False
                Scope           =   0
-               TabIndex        =   26
+               TabIndex        =   11
                TabPanelIndex   =   1
                TabStop         =   True
                TextFont        =   "System"
@@ -2740,7 +2740,7 @@ Begin sdoWindow MainWindow
                LockRight       =   False
                LockTop         =   False
                Scope           =   0
-               TabIndex        =   27
+               TabIndex        =   12
                TabPanelIndex   =   1
                TabStop         =   True
                TextFont        =   "System"
@@ -3886,7 +3886,7 @@ Begin sdoWindow MainWindow
                Scope           =   0
                searchField     =   False
                searchListboxName=   ""
-               TabIndex        =   0
+               TabIndex        =   4
                TabPanelIndex   =   2
                TabStop         =   True
                Text            =   ""
@@ -3920,7 +3920,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   1
+               TabIndex        =   7
                TabPanelIndex   =   2
                Text            =   "Due Date"
                TextAlign       =   0
@@ -3971,7 +3971,7 @@ Begin sdoWindow MainWindow
                Scope           =   0
                searchField     =   False
                searchListboxName=   ""
-               TabIndex        =   2
+               TabIndex        =   3
                TabPanelIndex   =   2
                TabStop         =   True
                Text            =   ""
@@ -4005,7 +4005,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   3
+               TabIndex        =   8
                TabPanelIndex   =   2
                Text            =   "Shipping Method"
                TextAlign       =   0
@@ -4039,7 +4039,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   4
+               TabIndex        =   9
                TabPanelIndex   =   2
                Text            =   "Tax Rate"
                TextAlign       =   0
@@ -4090,7 +4090,7 @@ Begin sdoWindow MainWindow
                Scope           =   0
                searchField     =   False
                searchListboxName=   ""
-               TabIndex        =   5
+               TabIndex        =   2
                TabPanelIndex   =   2
                TabStop         =   True
                Text            =   ""
@@ -4141,7 +4141,7 @@ Begin sdoWindow MainWindow
                Scope           =   0
                searchField     =   False
                searchListboxName=   ""
-               TabIndex        =   6
+               TabIndex        =   1
                TabPanelIndex   =   2
                TabStop         =   True
                Text            =   ""
@@ -4175,7 +4175,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   7
+               TabIndex        =   10
                TabPanelIndex   =   2
                Text            =   "Discount"
                TextAlign       =   0
@@ -4226,7 +4226,7 @@ Begin sdoWindow MainWindow
                Scope           =   0
                searchField     =   False
                searchListboxName=   ""
-               TabIndex        =   8
+               TabIndex        =   0
                TabPanelIndex   =   2
                TabStop         =   True
                Text            =   ""
@@ -4268,7 +4268,7 @@ Begin sdoWindow MainWindow
                mdTableName     =   ""
                parentSection   =   ""
                Scope           =   0
-               TabIndex        =   9
+               TabIndex        =   6
                TabPanelIndex   =   2
                TabStop         =   True
                TextFont        =   "System"
@@ -4300,7 +4300,7 @@ Begin sdoWindow MainWindow
                LockRight       =   False
                LockTop         =   True
                Scope           =   0
-               TabIndex        =   10
+               TabIndex        =   5
                TabPanelIndex   =   2
                TabStop         =   True
                TextFont        =   "System"
@@ -4378,7 +4378,7 @@ Begin sdoWindow MainWindow
                ScrollbarHorizontal=   False
                ScrollBarVertical=   True
                SelectionType   =   0
-               TabIndex        =   0
+               TabIndex        =   2
                TabPanelIndex   =   2
                TabStop         =   True
                TextFont        =   "System"
@@ -4412,7 +4412,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   1
+               TabIndex        =   3
                TabPanelIndex   =   2
                Text            =   "Discounts"
                TextAlign       =   1
@@ -4469,7 +4469,7 @@ Begin sdoWindow MainWindow
                ScrollbarHorizontal=   False
                ScrollBarVertical=   True
                SelectionType   =   0
-               TabIndex        =   2
+               TabIndex        =   1
                TabPanelIndex   =   2
                TabStop         =   True
                TextFont        =   "System"
@@ -4503,7 +4503,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   3
+               TabIndex        =   4
                TabPanelIndex   =   2
                Text            =   "Payments"
                TextAlign       =   1
@@ -4537,7 +4537,7 @@ Begin sdoWindow MainWindow
                LockRight       =   False
                LockTop         =   False
                Scope           =   0
-               TabIndex        =   4
+               TabIndex        =   0
                TabPanelIndex   =   2
                TabStop         =   True
                TextFont        =   "System"
@@ -4603,7 +4603,7 @@ Begin sdoWindow MainWindow
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
-               TabIndex        =   1
+               TabIndex        =   0
                TabPanelIndex   =   1
                TabStop         =   True
                Text            =   ""
@@ -4642,7 +4642,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   2
+               TabIndex        =   4
                TabPanelIndex   =   1
                Text            =   "eipl number"
                TextAlign       =   0
@@ -4676,7 +4676,7 @@ Begin sdoWindow MainWindow
                LockRight       =   False
                LockTop         =   True
                Scope           =   0
-               TabIndex        =   3
+               TabIndex        =   1
                TabPanelIndex   =   1
                TabStop         =   True
                TextFont        =   "System"
@@ -4730,7 +4730,7 @@ Begin sdoWindow MainWindow
                ScrollbarHorizontal=   False
                ScrollBarVertical=   True
                SelectionType   =   0
-               TabIndex        =   4
+               TabIndex        =   5
                TabPanelIndex   =   1
                TabStop         =   True
                TextFont        =   "System"
@@ -4764,7 +4764,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   5
+               TabIndex        =   6
                TabPanelIndex   =   1
                Text            =   "Balance Due:"
                TextAlign       =   2
@@ -4803,7 +4803,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   6
+               TabIndex        =   7
                TabPanelIndex   =   1
                Text            =   "Value"
                TextAlign       =   0
@@ -4837,7 +4837,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   7
+               TabIndex        =   8
                TabPanelIndex   =   1
                Text            =   "Total:"
                TextAlign       =   2
@@ -4876,7 +4876,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   8
+               TabIndex        =   9
                TabPanelIndex   =   1
                Text            =   "Value"
                TextAlign       =   0
@@ -4915,7 +4915,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   9
+               TabIndex        =   10
                TabPanelIndex   =   1
                Text            =   "Type"
                TextAlign       =   2
@@ -4949,7 +4949,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   10
+               TabIndex        =   11
                TabPanelIndex   =   1
                Text            =   ":"
                TextAlign       =   1
@@ -4984,7 +4984,7 @@ Begin sdoWindow MainWindow
                LockRight       =   False
                LockTop         =   False
                Scope           =   0
-               TabIndex        =   11
+               TabIndex        =   2
                TabPanelIndex   =   1
                TabStop         =   True
                TextFont        =   "System"
@@ -5039,7 +5039,7 @@ Begin sdoWindow MainWindow
                ScrollbarHorizontal=   False
                ScrollBarVertical=   True
                SelectionType   =   0
-               TabIndex        =   0
+               TabIndex        =   3
                TabPanelIndex   =   1
                TabStop         =   True
                TextFont        =   "System"
@@ -5115,7 +5115,7 @@ Begin sdoWindow MainWindow
             Scope           =   0
             searchField     =   False
             searchListboxName=   ""
-            TabIndex        =   4
+            TabIndex        =   1
             TabPanelIndex   =   1
             TabStop         =   True
             Text            =   ""
@@ -5166,7 +5166,7 @@ Begin sdoWindow MainWindow
             Scope           =   0
             searchField     =   False
             searchListboxName=   ""
-            TabIndex        =   5
+            TabIndex        =   2
             TabPanelIndex   =   1
             TabStop         =   True
             Text            =   ""
@@ -5263,7 +5263,7 @@ Begin sdoWindow MainWindow
                Scope           =   0
                searchField     =   False
                searchListboxName=   ""
-               TabIndex        =   0
+               TabIndex        =   7
                TabPanelIndex   =   1
                TabStop         =   True
                Text            =   ""
@@ -5302,7 +5302,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   1
+               TabIndex        =   11
                TabPanelIndex   =   1
                Text            =   "QTY"
                TextAlign       =   0
@@ -5341,7 +5341,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   3
+               TabIndex        =   10
                TabPanelIndex   =   1
                Text            =   "SubCategory"
                TextAlign       =   0
@@ -5392,7 +5392,7 @@ Begin sdoWindow MainWindow
                Scope           =   0
                searchField     =   False
                searchListboxName=   ""
-               TabIndex        =   4
+               TabIndex        =   5
                TabPanelIndex   =   1
                TabStop         =   True
                Text            =   ""
@@ -5443,7 +5443,7 @@ Begin sdoWindow MainWindow
                Scope           =   0
                searchField     =   False
                searchListboxName=   ""
-               TabIndex        =   5
+               TabIndex        =   4
                TabPanelIndex   =   1
                TabStop         =   True
                Text            =   ""
@@ -5482,7 +5482,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   6
+               TabIndex        =   12
                TabPanelIndex   =   1
                Text            =   "Department"
                TextAlign       =   0
@@ -5533,7 +5533,7 @@ Begin sdoWindow MainWindow
                Scope           =   0
                searchField     =   False
                searchListboxName=   ""
-               TabIndex        =   7
+               TabIndex        =   3
                TabPanelIndex   =   1
                TabStop         =   True
                Text            =   ""
@@ -5572,7 +5572,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   8
+               TabIndex        =   13
                TabPanelIndex   =   1
                Text            =   "Model"
                TextAlign       =   0
@@ -5623,7 +5623,7 @@ Begin sdoWindow MainWindow
                Scope           =   0
                searchField     =   False
                searchListboxName=   ""
-               TabIndex        =   9
+               TabIndex        =   2
                TabPanelIndex   =   1
                TabStop         =   True
                Text            =   ""
@@ -5662,7 +5662,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   10
+               TabIndex        =   14
                TabPanelIndex   =   1
                Text            =   "Manufacturer"
                TextAlign       =   0
@@ -5713,7 +5713,7 @@ Begin sdoWindow MainWindow
                Scope           =   0
                searchField     =   False
                searchListboxName=   ""
-               TabIndex        =   11
+               TabIndex        =   1
                TabPanelIndex   =   1
                TabStop         =   True
                Text            =   ""
@@ -5752,7 +5752,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   12
+               TabIndex        =   15
                TabPanelIndex   =   1
                Text            =   "Name"
                TextAlign       =   0
@@ -5803,7 +5803,7 @@ Begin sdoWindow MainWindow
                Scope           =   0
                searchField     =   False
                searchListboxName=   ""
-               TabIndex        =   13
+               TabIndex        =   0
                TabPanelIndex   =   1
                TabStop         =   True
                Text            =   ""
@@ -5857,7 +5857,7 @@ Begin sdoWindow MainWindow
                ScrollbarHorizontal=   False
                ScrollbarVertical=   True
                Styled          =   True
-               TabIndex        =   16
+               TabIndex        =   6
                TabPanelIndex   =   1
                TabStop         =   True
                Text            =   ""
@@ -5896,7 +5896,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   17
+               TabIndex        =   16
                TabPanelIndex   =   1
                Text            =   "Description"
                TextAlign       =   0
@@ -5935,7 +5935,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   21
+               TabIndex        =   17
                TabPanelIndex   =   1
                Text            =   "Category"
                TextAlign       =   0
@@ -5969,7 +5969,7 @@ Begin sdoWindow MainWindow
                LockRight       =   False
                LockTop         =   False
                Scope           =   0
-               TabIndex        =   23
+               TabIndex        =   8
                TabPanelIndex   =   1
                TabStop         =   True
                TextFont        =   "System"
@@ -6000,7 +6000,7 @@ Begin sdoWindow MainWindow
                LockRight       =   False
                LockTop         =   False
                Scope           =   0
-               TabIndex        =   24
+               TabIndex        =   9
                TabPanelIndex   =   1
                TabStop         =   True
                TextFont        =   "System"
@@ -7347,7 +7347,7 @@ Begin sdoWindow MainWindow
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
-               TabIndex        =   1
+               TabIndex        =   0
                TabPanelIndex   =   1
                TabStop         =   True
                Text            =   ""
@@ -7381,7 +7381,7 @@ Begin sdoWindow MainWindow
                LockRight       =   False
                LockTop         =   True
                Scope           =   0
-               TabIndex        =   3
+               TabIndex        =   1
                TabPanelIndex   =   1
                TabStop         =   True
                TextFont        =   "System"
@@ -7474,7 +7474,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   9
+               TabIndex        =   5
                TabPanelIndex   =   1
                Text            =   "Type"
                TextAlign       =   2
@@ -7509,7 +7509,7 @@ Begin sdoWindow MainWindow
                LockRight       =   False
                LockTop         =   True
                Scope           =   0
-               TabIndex        =   11
+               TabIndex        =   2
                TabPanelIndex   =   1
                TabStop         =   True
                TextFont        =   "System"
@@ -7564,7 +7564,7 @@ Begin sdoWindow MainWindow
                ScrollbarHorizontal=   False
                ScrollBarVertical=   True
                SelectionType   =   0
-               TabIndex        =   0
+               TabIndex        =   3
                TabPanelIndex   =   1
                TabStop         =   True
                TextFont        =   "System"
@@ -7603,7 +7603,7 @@ Begin sdoWindow MainWindow
                Multiline       =   False
                Scope           =   0
                Selectable      =   False
-               TabIndex        =   12
+               TabIndex        =   6
                TabPanelIndex   =   1
                Text            =   "pl number"
                TextAlign       =   0
@@ -7704,6 +7704,105 @@ Begin sdoWindow MainWindow
          Underline       =   False
          Visible         =   True
          Width           =   80
+      End
+      Begin PushButton PushButton_PL_Print
+         AutoDeactivate  =   True
+         Bold            =   False
+         ButtonStyle     =   "0"
+         Cancel          =   False
+         Caption         =   "Print"
+         Default         =   False
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "mainWindow_PagePanel"
+         Italic          =   False
+         Left            =   1114
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   True
+         LockTop         =   True
+         Scope           =   0
+         TabIndex        =   3
+         TabPanelIndex   =   4
+         TabStop         =   True
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   1
+         Underline       =   False
+         Visible         =   True
+         Width           =   57
+      End
+      Begin Label Label_PL_Title
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "mainWindow_PagePanel"
+         Italic          =   False
+         Left            =   382
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Multiline       =   False
+         Scope           =   0
+         Selectable      =   False
+         TabIndex        =   4
+         TabPanelIndex   =   4
+         Text            =   "Event Name Here"
+         TextAlign       =   1
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   18.0
+         TextUnit        =   0
+         Top             =   4
+         Transparent     =   True
+         Underline       =   False
+         Visible         =   True
+         Width           =   417
+      End
+      Begin Label Label_EIPL_Title
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "mainWindow_PagePanel"
+         Italic          =   False
+         Left            =   382
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Multiline       =   False
+         Scope           =   0
+         Selectable      =   False
+         TabIndex        =   4
+         TabPanelIndex   =   3
+         Text            =   "Event Name Here"
+         TextAlign       =   1
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   18.0
+         TextUnit        =   0
+         Top             =   4
+         Transparent     =   True
+         Underline       =   False
+         Visible         =   True
+         Width           =   417
       End
    End
    Begin myToolbar mainWindow_Toolbar
@@ -9353,8 +9452,8 @@ End
 		  theRowTag = me.RowTag( me.ListIndex )
 		  theInventorypkid = theRowTag.pkid
 		  
-		  // Grabbing the Rowtag and extracting pkid Inventory
-		  theRowTag = Listbox_PL_Inventory.RowTag( Listbox_PL_Inventory.ListIndex )
+		  // Grabbing the Rowtag and extracting pkid EIPL
+		  theRowTag = ListBox_EIPL.RowTag( ListBox_EIPL.ListIndex )
 		  theEIPLpkid = theRowTag.pkid
 		  
 		  // Executing the script on server
@@ -9386,6 +9485,14 @@ End
 	#tag Event
 		Sub Action()
 		  PagePanel_PL.Value = 0
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton_PL_Print
+	#tag Event
+		Sub Action()
+		  printEIPL
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

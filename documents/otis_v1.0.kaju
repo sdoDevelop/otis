@@ -28,6 +28,32 @@
         "Hash":"3EF233317D073A152162170A20B6F15C",
         "URL":"http:\/\/nspdevelopment.weebly.com\/uploads\/9\/6\/9\/7\/9697054\/otis.zip"
       }
+    },
+    {
+      "AppName":"Otis",
+      "ImageURL":"",
+      "MinimumRequiredVersion":"",
+      "ReleaseNotes":"",
+      "RequiresPayment":false,
+      "UseTransparency":true,
+      "Version":"1.0.0a3",
+      "MacBinary":{
+        "Hash":"8C7424958043973A98239849328717DB",
+        "URL":"http:\/\/nspdevelopment.weebly.com\/uploads\/9\/6\/9\/7\/9697054\/otis.zip"
+      }
+    },
+    {
+      "AppName":"Otis",
+      "ImageURL":"",
+      "MinimumRequiredVersion":"",
+      "ReleaseNotes":"",
+      "RequiresPayment":false,
+      "UseTransparency":true,
+      "Version":"1.0.0a4",
+      "MacBinary":{
+        "Hash":"BB4874D046E01A48239C3FD7DBAF4F38",
+        "URL":"http:\/\/nspdevelopment.weebly.com\/uploads\/9\/6\/9\/7\/9697054\/otis.zip"
+      }
     }
   ]
 }

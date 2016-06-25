@@ -45,7 +45,7 @@ Begin sdoWindow MainWindow
       TabIndex        =   1
       TabPanelIndex   =   0
       Top             =   0
-      Value           =   2
+      Value           =   3
       Visible         =   True
       Width           =   1182
       Begin Listbox eventList_Listbox
@@ -1631,7 +1631,7 @@ Begin sdoWindow MainWindow
          TabIndex        =   0
          TabPanelIndex   =   3
          Top             =   23
-         Value           =   0
+         Value           =   1
          Visible         =   True
          Width           =   1174
          Begin Rectangle Rectangle_LineItemDetails
@@ -3782,7 +3782,7 @@ Begin sdoWindow MainWindow
                LockLeft        =   True
                LockRight       =   False
                LockTop         =   True
-               Scope           =   2
+               Scope           =   0
                TabIndex        =   1
                TabPanelIndex   =   2
                TabStop         =   True
@@ -7043,7 +7043,7 @@ Begin sdoWindow MainWindow
             LockLeft        =   True
             LockRight       =   False
             LockTop         =   True
-            Scope           =   2
+            Scope           =   0
             TabIndex        =   1
             TabPanelIndex   =   2
             TabStop         =   True
@@ -8491,8 +8491,8 @@ End
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Sub printEIPL()
+	#tag Method, Flags = &h0
+		Sub printEIPL()
 		  dim deagle as new printFormModule.drawEstimate
 		  dim thePicture() as Picture
 		  
@@ -8909,16 +8909,91 @@ End
 #tag Events PushButton_newLineItem
 	#tag Event
 		Sub Action()
-		  addLineItem
+		  dim theSQL as string
+		  dim theRecordSet as RecordSet
+		  dim theEIPLpkid as string
+		  dim theLineItempkid as string
+		  dim theRowTag as mdRowTag
+		  
+		  dim theListBoxIndex as integer
+		  
+		  // Grab Rowtag and Pull EIPL pkid
+		  If ListBox_EIPL.ListIndex <> -1 Then
+		    theRowTag = ListBox_EIPL.RowTag( ListBox_EIPL.ListIndex )
+		    theEIPLpkid = theRowTag.pkid
+		  End If
+		  
+		  If theEIPLpkid <> "" then
+		    // Form sql string
+		    theSQL = "INSERT INTO lineitems ( fkeipl ) VALUES ( '" + theEIPLpkid + "' ) RETURNING pkid ;"
+		    
+		    // Execute sql and put contents into record set
+		    theRecordSet = otis.db.SQLSelect( theSQL )
+		    if otis.db.Error then
+		      logErrorMessage( 4, "LineItem", otis.db.ErrorMessage )
+		    end if
+		    
+		    if theRecordSet.FieldCount <> 0 then
+		      
+		      // Extract line item pkid from theRecordSet
+		      theLineItempkid = theRecordSet.Field( "pkid" ).StringValue.ToText
+		      
+		      // Reload Listbox Saving folder things
+		      Listbox_LineItems.loadMe( true )
+		      
+		      // Select the previously added row
+		      Listbox_LineItems.searchMePKID( theLineItempkid )
+		      
+		      TextField_LineItems_Name.SetFocus
+		      
+		    else
+		      logErrorMessage( 4, "Database", "Line Item RecordSet Nil" )
+		    end if
+		    
+		  else
+		    logErrorMessage( 4, "Database", "No EIPL pkid found" )
+		  end if
+		  
+		  
+		  
+		  
+		  
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events PushButton_addToInventory
 	#tag Event
 		Sub Action()
-		  if addLineItemtoInventory then
+		  dim SQL as string
+		  dim ps as PostgreSQLPreparedStatement
+		  dim EIPLpkid as string
+		  dim theRecordSet as RecordSet
+		  dim errorOccurred as Boolean
+		  
+		  
+		  If Listbox_LineItems.ListIndex <> -1 Then
 		    
-		  end if
+		    EIPLpkid = Listbox_LineItems.pullPKID( Listbox_LineItems.ListIndex )
+		    
+		    
+		    SQL = "Select * From lineitem_to_inventory( $1 );"
+		    ps = otis.db.Prepare( SQL )
+		    ps.Bind( 0, EIPLpkid )
+		    theRecordSet = ps.SQLSelect
+		    If otis.db.Error Then
+		      logErrorMessage( 4, "DBase", "Could not add Line Item: Check error Log" )
+		      logErrorMessage( 3, "DBase", "Could not add Line Item: Check error Log" + otis.db.ErrorMessage )
+		      errorOccurred = True
+		    End If
+		    
+		    If errorOccurred Then
+		      
+		    Else
+		      logErrorMessage( 2, "ActionConfirmed", "Line Item successfully added to inventory" )
+		    End If
+		    
+		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -9255,16 +9330,92 @@ End
 #tag Events PushButton_PL_newLineItem
 	#tag Event
 		Sub Action()
-		  addLineItem
+		  dim theSQL as string
+		  dim theRecordSet as RecordSet
+		  dim theEIPLpkid as string
+		  dim theLineItempkid as string
+		  dim theRowTag as mdRowTag
+		  
+		  dim theListBoxIndex as integer
+		  
+		  // Grab Rowtag and Pull EIPL pkid
+		  If ListBox_EIPL.ListIndex <> -1 Then
+		    theRowTag = ListBox_EIPL.RowTag( ListBox_EIPL.ListIndex )
+		    theEIPLpkid = theRowTag.pkid
+		  End If
+		  
+		  If theEIPLpkid <> "" then
+		    // Form sql string
+		    theSQL = "INSERT INTO lineitems ( fkeipl ) VALUES ( '" + theEIPLpkid + "' ) RETURNING pkid ;"
+		    
+		    // Execute sql and put contents into record set
+		    theRecordSet = otis.db.SQLSelect( theSQL )
+		    if otis.db.Error then
+		      logErrorMessage( 4, "LineItem", otis.db.ErrorMessage )
+		    end if
+		    
+		    if theRecordSet.FieldCount <> 0 then
+		      
+		      // Extract line item pkid from theRecordSet
+		      theLineItempkid = theRecordSet.Field( "pkid" ).StringValue.ToText
+		      
+		      // Reload Listbox Saving folder things
+		      Listbox_PL_LineItems.loadMe( true )
+		      
+		      // Select the previously added row
+		      Listbox_PL_LineItems.searchMePKID( theLineItempkid )
+		      
+		      TextField_PL_LineItems_Name.SetFocus
+		      
+		    else
+		      logErrorMessage( 4, "Database", "Line Item RecordSet Nil" )
+		    end if
+		    
+		  else
+		    logErrorMessage( 4, "Database", "No EIPL pkid found" )
+		  end if
+		  
+		  
+		  
+		  
+		  
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events PushButton_PL_addToInventory
 	#tag Event
 		Sub Action()
-		  if addLineItemtoInventory then
+		  dim SQL as string
+		  dim ps as PostgreSQLPreparedStatement
+		  dim EIPLpkid as string
+		  dim theRecordSet as RecordSet
+		  dim errorOccurred as Boolean
+		  
+		  
+		  If Listbox_LineItems.ListIndex <> -1 Then
 		    
-		  end if
+		    EIPLpkid = Listbox_PL_LineItems.pullPKID( Listbox_PL_LineItems.ListIndex )
+		    
+		    
+		    SQL = "Select * From lineitem_to_inventory( $1 );"
+		    ps = otis.db.Prepare( SQL )
+		    ps.Bind( 0, EIPLpkid )
+		    theRecordSet = ps.SQLSelect
+		    If otis.db.Error Then
+		      logErrorMessage( 4, "DBase", "Could not add Line Item: Check error Log" )
+		      logErrorMessage( 3, "DBase", "Could not add Line Item: Check error Log" + otis.db.ErrorMessage )
+		      errorOccurred = True
+		    End If
+		    
+		    If errorOccurred Then
+		      
+		    Else
+		      logErrorMessage( 2, "ActionConfirmed", "Line Item successfully added to inventory" )
+		    End If
+		    
+		    
+		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents

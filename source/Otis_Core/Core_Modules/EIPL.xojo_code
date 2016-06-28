@@ -1,6 +1,75 @@
 #tag Module
 Protected Module EIPL
 	#tag Method, Flags = &h1
+		Protected Sub add_lineitem()
+		  dim theSQL as string
+		  dim theRecordSet as RecordSet
+		  dim theEIPLpkid as string
+		  dim theLineItempkid as string
+		  dim theRowTag as mdRowTag
+		  
+		  dim theListBoxIndex as integer
+		  
+		  // Grab Rowtag and Pull EIPL pkid
+		  If MainWindow.ListBox_EIPL.ListIndex <> -1 Then
+		    theRowTag = MainWindow.ListBox_EIPL.RowTag( MainWindow.ListBox_EIPL.ListIndex )
+		    theEIPLpkid = theRowTag.pkid
+		  End If
+		  
+		  If theEIPLpkid <> "" then
+		    // Form sql string
+		    theSQL = "INSERT INTO lineitems ( fkeipl ) VALUES ( '" + theEIPLpkid + "' ) RETURNING pkid ;"
+		    
+		    // Execute sql and put contents into record set
+		    theRecordSet = otis.db.SQLSelect( theSQL )
+		    if otis.db.Error then
+		      logErrorMessage( 4, "LineItem", otis.db.ErrorMessage )
+		    end if
+		    
+		    if theRecordSet <> Nil then
+		      
+		      // Extract line item pkid from theRecordSet
+		      theLineItempkid = theRecordSet.Field( "pkid" ).StringValue.ToText
+		      
+		      If type = "Estimate" Or type = "Invoice" Then
+		        
+		        // Reload Listbox Saving folder things
+		        MainWindow.Listbox_LineItems.loadMe( true )
+		        
+		        // Select the previously added row
+		        MainWindow.Listbox_LineItems.searchMePKID( theLineItempkid )
+		        
+		        MainWindow.TextField_LineItems_Name.SetFocus
+		        
+		      ElseIf type = "Pack List" Then
+		        
+		        // Reload Listbox Saving folder things
+		        MainWindow.Listbox_PL_LineItems.loadMe( true )
+		        
+		        // Select the previously added row
+		        MainWindow.Listbox_PL_LineItems.searchMePKID( theLineItempkid )
+		        
+		        MainWindow.TextField_PL_LineItems_Name.SetFocus
+		        
+		      End If
+		      
+		    else
+		      logErrorMessage( 4, "Database", "Line Item RecordSet Nil" )
+		    end if
+		    
+		  else
+		    logErrorMessage( 4, "Database", "No EIPL pkid found" )
+		  end if
+		  
+		  
+		  
+		  
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
 		Protected Sub controls_load(switch_window as Boolean)
 		  dim theRowTag as mdRowTag
 		  dim thePKID as String
@@ -114,7 +183,7 @@ Protected Module EIPL
 		    loadAllFromDB( "venues", s1 )
 		    
 		    // Loading Lineitems
-		    MainWindow.Listbox_PL_LineItems.loadMe( True )
+		    MainWindow.Listbox_PL_LineItems.loadMe( true )
 		    
 		    // Loading Inventory
 		    load_Inventory( True )

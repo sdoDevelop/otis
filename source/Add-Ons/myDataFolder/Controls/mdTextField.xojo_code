@@ -56,7 +56,7 @@ Inherits TextField
 		    
 		  End Select
 		  
-		   
+		  
 		  
 		  
 		End Sub
@@ -249,9 +249,16 @@ Inherits TextField
 		  // Catch errors
 		  If otis.db.Error Then
 		    logErrorMessage( 2, "Could not save value", otis.db.ErrorMessage )
+		  Else
+		    RaiseEvent Saved 
 		  End If
 		End Sub
 	#tag EndMethod
+
+
+	#tag Hook, Flags = &h0
+		Event Saved()
+	#tag EndHook
 
 
 	#tag Note, Name = Format Values

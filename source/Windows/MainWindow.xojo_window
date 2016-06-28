@@ -2794,7 +2794,7 @@ Begin sdoWindow MainWindow
                TabIndex        =   0
                TabPanelIndex   =   2
                Top             =   40
-               Value           =   0
+               Value           =   1
                Visible         =   True
                Width           =   378
                Begin mdLabel mdLabel_Contact_NameFirst
@@ -4598,11 +4598,17 @@ Begin sdoWindow MainWindow
                LockRight       =   False
                LockTop         =   True
                Mask            =   ""
+               mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   "pkid"
+               mdpkValue       =   ""
+               mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   0
                TabPanelIndex   =   1
                TabStop         =   True
@@ -7342,11 +7348,17 @@ Begin sdoWindow MainWindow
                LockRight       =   False
                LockTop         =   True
                Mask            =   ""
+               mdFieldName     =   ""
                mdFormat        =   0
                mdpkFieldName   =   "pkid"
+               mdpkValue       =   ""
+               mdTableName     =   ""
+               parentSection   =   ""
                Password        =   False
                ReadOnly        =   False
                Scope           =   0
+               searchField     =   False
+               searchListboxName=   ""
                TabIndex        =   0
                TabPanelIndex   =   1
                TabStop         =   True
@@ -7503,11 +7515,11 @@ Begin sdoWindow MainWindow
                Italic          =   False
                Left            =   27
                ListIndex       =   0
-               LockBottom      =   False
+               LockBottom      =   True
                LockedInPosition=   False
                LockLeft        =   True
                LockRight       =   False
-               LockTop         =   True
+               LockTop         =   False
                Scope           =   0
                TabIndex        =   2
                TabPanelIndex   =   1
@@ -8663,7 +8675,7 @@ End
 		  EIPL.controls_load( True )
 		  
 		  //  Change Panel
-		  mainWindow_PagePanel.Value = 2
+		  'mainWindow_PagePanel.Value = 2
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -8695,7 +8707,7 @@ End
 		  End If
 		  
 		  If Not me.RowIsFolder(me.ListIndex) Then
-		    EIPL.controls_load( True )
+		    EIPL.controls_load( False )
 		  End If
 		End Sub
 	#tag EndEvent
@@ -8751,6 +8763,30 @@ End
 		Sub Action()
 		  logErrorMessage( 2, "Test", "Searching" )
 		  Listbox_Events.searchMe( TextField_searchEvents.Text )
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events TextField_Event_Name
+	#tag Event
+		Sub Saved()
+		  dim theRowTag as mdRowTag
+		  dim thePKID as string
+		  
+		  
+		  
+		  
+		  // We want to reload the event listbox so that the event name is correct again
+		  
+		  
+		  // First save the pkid of the currently selected event
+		  theRowTag = Listbox_Events.RowTag( Listbox_Events.ListIndex )
+		  thePKID = theRowTag.pkid
+		  
+		  // Then load the event listbox
+		  Listbox_Events.loadMe
+		  
+		  // Then search the listbox for the previously selected event and select it
+		  Listbox_Events.searchMePKID( thePKID )
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -8909,7 +8945,7 @@ End
 #tag Events PushButton_newLineItem
 	#tag Event
 		Sub Action()
-		  addLineItem
+		  eipl.add_lineitem
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -9255,7 +9291,8 @@ End
 #tag Events PushButton_PL_newLineItem
 	#tag Event
 		Sub Action()
-		  addLineItem
+		  
+		  eipl.add_lineitem
 		End Sub
 	#tag EndEvent
 #tag EndEvents

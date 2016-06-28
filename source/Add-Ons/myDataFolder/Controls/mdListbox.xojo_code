@@ -411,6 +411,7 @@ Inherits Listbox
 		  dim expandedfolders() as string
 		  dim selectedPKID as string
 		  dim theRowTag as mdRowTag
+		  dim theScrollPosition as integer
 		  
 		  
 		  
@@ -430,6 +431,8 @@ Inherits Listbox
 		        End If
 		      End If
 		    Next
+		    
+		    theScrollPosition = me.ScrollPosition
 		    
 		  End If
 		  
@@ -466,6 +469,8 @@ Inherits Listbox
 		  If selectedPKID <> "" Then
 		    me.searchMePKID( selectedPKID )
 		  End If
+		  
+		  me.ScrollPosition = theScrollPosition
 		  
 		  me.Enabled = True
 		  
@@ -1023,7 +1028,7 @@ Inherits Listbox
 		  dim theExpanded as Boolean
 		  dim numberofRows as integer
 		  dim n1, n2, n3, n4 as double
-		   
+		  
 		  
 		  
 		  

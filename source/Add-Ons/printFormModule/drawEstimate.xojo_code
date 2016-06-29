@@ -580,23 +580,27 @@ Protected Class drawEstimate
 		    g.TextSize = 12
 		  End If
 		  
-		  dim sourceListbox as mdListbox = MainWindow.Listbox_LineItems
+		  dim sourceListbox as mdListbox
 		  
 		  If Type = "Estimate" Or Type = "Invoice" Then
 		    
-		     headers()  = Array ( "Name", "Time", "Rate", "QTY", "Price", "DiscSum", "DiscPerc", "Total"  )
-		     columns()  = Array ( 0,2,3,4,5,6,7,8 )
-		     columnWidths()  = Array ( 23,8,10,8,12,12,12, 15 )
-		     justification()  = Array( "Left", "Center", "Center", "Center", "Center", "Center", "Center", "Center" )
-		     showColumn()  = Array( True, True, True, True, True, True, True, True )
+		    sourceListbox = MainWindow.Listbox_LineItems
+		    
+		    headers()  = Array ( "Name", "Time", "Rate", "QTY", "Price", "DiscSum", "DiscPerc", "Total"  )
+		    columns()  = Array ( 0,2,3,4,5,6,7,8 )
+		    columnWidths()  = Array ( 23,8,10,8,12,12,12, 15 )
+		    justification()  = Array( "Left", "Center", "Center", "Center", "Center", "Center", "Center", "Center" )
+		    showColumn()  = Array( True, True, True, True, True, True, True, True )
 		    
 		  ElseIf Type = "Pack List" Then
 		    
-		     headers()  = Array ( "Qty", "Name", "Notes", "Case", "Truck"  )
-		     columns()  = Array ( 4,0,9,-1,-1 )
-		     columnWidths()  = Array ( 10,35,35,10,10 )
-		     justification()  = Array( "Center", "Left", "Left", "Center", "Center" )
-		     showColumn()  = Array( True, True, True, True, True )
+		    sourceListbox = MainWindow.Listbox_PL_LineItems
+		    
+		    headers()  = Array ( "Qty", "Name", "Notes", "Case", "Truck"  )
+		    columns()  = Array ( 0,1,2,-1,-1 )
+		    columnWidths()  = Array ( 10,35,35,10,10 )
+		    justification()  = Array( "Center", "Left", "Left", "Center", "Center" )
+		    showColumn()  = Array( True, True, True, True, True )
 		    
 		  End If
 		  
@@ -1067,7 +1071,7 @@ Protected Class drawEstimate
 		  
 		  
 		  
-		   
+		  
 		End Function
 	#tag EndMethod
 

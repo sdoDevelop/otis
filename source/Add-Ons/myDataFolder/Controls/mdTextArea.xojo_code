@@ -13,19 +13,19 @@ Inherits TextArea
 		  Case 13  'Carriage return
 		    
 		    'Get the name of the currently highlighted control
-		    controlName = sdoWindow.Focus.Name
+		    'controlName = sdoWindow.Focus.Name
 		    
 		    'Save the value for this control
-		    me.saveValue
+		    'me.saveValue
 		    
 		    'Reload the section we are in
-		    app.masterReload( parentSection )
+		    'app.masterReload( parentSection )
 		    
 		    'Set focus to previously focused control
-		    me.sdoWindow.setControlFocus( controlName )
+		    'me.sdoWindow.setControlFocus( controlName )
 		    
 		    'Move Down the tab order
-		    me.sdoWindow.FocusNext
+		    'me.sdoWindow.FocusNext
 		    
 		    
 		    

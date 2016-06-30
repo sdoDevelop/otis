@@ -597,7 +597,7 @@ Protected Class drawEstimate
 		    sourceListbox = MainWindow.Listbox_PL_LineItems
 		    
 		    headers()  = Array ( "Qty", "Name", "Notes", "Case", "Truck"  )
-		    columns()  = Array ( 0,1,2,-1,-1 )
+		    columns()  = Array ( 0,1,3,-1,-1 )
 		    columnWidths()  = Array ( 10,35,35,10,10 )
 		    justification()  = Array( "Center", "Left", "Left", "Center", "Center" )
 		    showColumn()  = Array( True, True, True, True, True )

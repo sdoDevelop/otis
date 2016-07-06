@@ -54,6 +54,19 @@
         "Hash":"BB4874D046E01A48239C3FD7DBAF4F38",
         "URL":"http:\/\/nspdevelopment.weebly.com\/uploads\/9\/6\/9\/7\/9697054\/otis.zip"
       }
+    },
+    {
+      "AppName":"Otis",
+      "ImageURL":"",
+      "MinimumRequiredVersion":"",
+      "ReleaseNotes":"Bug Fixes",
+      "RequiresPayment":false,
+      "UseTransparency":true,
+      "Version":"1.0.0a5",
+      "MacBinary":{
+        "Hash":"74DD0E91188B97A1FA67CF69549CFF8D",
+        "URL":"http:\/\/nspdevelopment.weebly.com\/uploads\/9\/6\/9\/7\/9697054\/otis.zip"
+      }
     }
   ]
 }

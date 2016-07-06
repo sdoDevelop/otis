@@ -12,13 +12,14 @@ Inherits postgreSQLDatabase
 		  dim lineitem_name as string
 		  dim table_name as string
 		  dim notification_pkids() as string
+		  dim lineitem_pkids_ as string
 		  
-		  Break
 		  
-		  make_table_name
+		  
+		  s1 = make_table_name
 		  
 		  // pull all new notifications down from server
-		  SQL = "Select * From " + s1 + " Where checked_ = True ;"
+		  SQL = "Select * From " + s1 + " Where checked_ = False ;"
 		  ps = otis.db.prepare( SQL )
 		  theRecordSet = ps.SQLSelect
 		  If Otis.db.error Then
@@ -27,7 +28,7 @@ Inherits postgreSQLDatabase
 		  
 		  // Check how many records there are
 		  n1 = theRecordSet.RecordCount
-		  break
+		  
 		  For i1 as integer = 0 To theRecordSet.RecordCount - 1
 		    
 		    ' grab the notification type
@@ -37,12 +38,13 @@ Inherits postgreSQLDatabase
 		      
 		      'grab the line item name
 		      lineitem_name = theRecordSet.Field( "lineitem_name" ).StringValue
+		      lineitem_pkids_ = theRecordSet.Field( "lineitem_pkids" ).StringValue
 		      
 		      'gather all the pkids into array
 		      notification_pkids.Append( theRecordSet.Field( "pkid" ).StringValue )
 		      
 		      'create a message box that informs the user that there is a price discrepency
-		      MsgBox( "The line item with the name " + lineitem_name + " does not have consistant prices across EIPL's in this event." )
+		      Window_Price_Discrepency.myOpen( lineitem_name, lineitem_pkids_ )
 		      
 		      'Set 
 		      
@@ -77,11 +79,14 @@ Inherits postgreSQLDatabase
 
 
 	#tag Method, Flags = &h0
-		Sub make_table_name()
+		Function make_table_name() As string
 		  // Conconct our table name
 		  table_name = "notification." + otis.db.username + "_rap"
 		  listen_channel = otis.db.username
-		End Sub
+		  
+		  
+		  Return table_name
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -120,6 +125,11 @@ Inherits postgreSQLDatabase
 			Visible=true
 			Group="Position"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="listen_channel"
+			Group="Behavior"
+			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MultiThreaded"

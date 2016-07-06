@@ -59,12 +59,30 @@
       "AppName":"Otis",
       "ImageURL":"",
       "MinimumRequiredVersion":"",
+<<<<<<< Updated upstream
       "ReleaseNotes":"Bug Fixes",
       "RequiresPayment":false,
       "UseTransparency":true,
       "Version":"1.0.0a5",
       "MacBinary":{
         "Hash":"74DD0E91188B97A1FA67CF69549CFF8D",
+=======
+      "ReleaseNotes":"",
+      "RequiresPayment":false,
+      "UseTransparency":true,
+      "Version":"1.0.0a5"
+    },
+    {
+      "AppName":"Otis",
+      "ImageURL":"",
+      "MinimumRequiredVersion":"",
+      "ReleaseNotes":"",
+      "RequiresPayment":false,
+      "UseTransparency":true,
+      "Version":"1.0.0a6",
+      "MacBinary":{
+        "Hash":"3BE7F5843584C9487ABA67380B2786D7",
+>>>>>>> Stashed changes
         "URL":"http:\/\/nspdevelopment.weebly.com\/uploads\/9\/6\/9\/7\/9697054\/otis.zip"
       }
     }

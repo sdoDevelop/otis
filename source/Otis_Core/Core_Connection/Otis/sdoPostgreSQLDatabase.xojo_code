@@ -6,17 +6,16 @@ Inherits postgreSQLDatabase
 		  dim SQL as string
 		  dim ps as PostgreSQLPreparedStatement
 		  dim theRecordSet as RecordSet
-		  dim s1, s2(), s3, s4 as string
+		  dim s1, s2, s3, s4 as string
 		  dim n1, n2, n3, n4 as integer
 		  dim notification_type as string
 		  dim lineitem_name as string
 		  dim table_name as string
 		  dim notification_pkids() as string
 		  
+		  Break
 		  
-		  
-		  // Conconct our table name
-		  table_name = "notification." + otis.db.username + "_rap"
+		  make_table_name
 		  
 		  // pull all new notifications down from server
 		  SQL = "Select * From " + s1 + " Where checked_ = True ;"
@@ -28,7 +27,7 @@ Inherits postgreSQLDatabase
 		  
 		  // Check how many records there are
 		  n1 = theRecordSet.RecordCount
-		  
+		  break
 		  For i1 as integer = 0 To theRecordSet.RecordCount - 1
 		    
 		    ' grab the notification type
@@ -40,7 +39,7 @@ Inherits postgreSQLDatabase
 		      lineitem_name = theRecordSet.Field( "lineitem_name" ).StringValue
 		      
 		      'gather all the pkids into array
-		      notification_pkids.Append( theRecordSet.Field( "pkid" ).StringValue
+		      notification_pkids.Append( theRecordSet.Field( "pkid" ).StringValue )
 		      
 		      'create a message box that informs the user that there is a price discrepency
 		      MsgBox( "The line item with the name " + lineitem_name + " does not have consistant prices across EIPL's in this event." )
@@ -75,6 +74,32 @@ Inherits postgreSQLDatabase
 		  
 		End Sub
 	#tag EndEvent
+
+
+	#tag Method, Flags = &h0
+		Sub make_table_name()
+		  // Conconct our table name
+		  table_name = "notification." + otis.db.username + "_rap"
+		  listen_channel = otis.db.username
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub set_up_listen_channel()
+		  
+		  
+		  Listen( listen_channel )
+		End Sub
+	#tag EndMethod
+
+
+	#tag Property, Flags = &h0
+		listen_channel As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h1
+		Protected table_name As string
+	#tag EndProperty
 
 
 	#tag ViewBehavior

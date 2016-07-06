@@ -2,7 +2,6 @@
 Begin Window CalendarWindow
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   BalloonHelp     =   ""
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
@@ -46,7 +45,7 @@ Begin Window CalendarWindow
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
@@ -77,7 +76,7 @@ Begin Window CalendarWindow
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
@@ -92,7 +91,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -119,11 +118,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -136,7 +135,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -163,11 +162,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -180,7 +179,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -207,11 +206,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -224,7 +223,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -251,11 +250,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -268,7 +267,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -295,11 +294,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   6
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -312,7 +311,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -339,11 +338,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   7
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -356,7 +355,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -383,11 +382,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   8
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -400,7 +399,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -427,11 +426,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   9
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -444,7 +443,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -471,11 +470,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   10
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -488,7 +487,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -515,11 +514,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   11
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -532,7 +531,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -559,11 +558,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   12
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -576,7 +575,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -603,11 +602,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   13
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -620,7 +619,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -647,11 +646,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   14
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -664,7 +663,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -691,11 +690,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   15
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -708,7 +707,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -735,11 +734,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   16
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -752,7 +751,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -779,11 +778,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   17
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -796,7 +795,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -823,11 +822,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   18
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -840,7 +839,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -867,11 +866,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   19
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -884,7 +883,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -911,11 +910,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   20
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -928,7 +927,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -955,11 +954,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   21
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -972,7 +971,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -999,11 +998,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   22
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1016,7 +1015,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1043,11 +1042,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   23
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1060,7 +1059,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1087,11 +1086,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   24
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1104,7 +1103,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1131,11 +1130,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   25
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1148,7 +1147,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1175,11 +1174,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   26
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1192,7 +1191,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1219,11 +1218,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   27
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1236,7 +1235,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1263,11 +1262,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   28
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1280,7 +1279,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1307,11 +1306,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   29
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1324,7 +1323,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1351,11 +1350,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   30
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1368,7 +1367,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1395,11 +1394,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   31
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1412,7 +1411,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1439,11 +1438,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   32
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1456,7 +1455,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1483,11 +1482,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   33
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1500,7 +1499,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1527,11 +1526,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   34
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1544,7 +1543,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1571,11 +1570,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   35
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1588,7 +1587,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1615,11 +1614,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   36
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1632,7 +1631,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1659,11 +1658,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   37
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1676,7 +1675,7 @@ Begin Window CalendarWindow
    Begin BevelButton CalendarDateButton
       AcceptFocus     =   False
       AutoDeactivate  =   True
-      BackColor       =   
+      BackColor       =   &c00000000
       Bevel           =   0
       Bold            =   False
       ButtonType      =   0
@@ -1703,11 +1702,11 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       MenuValue       =   0
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   38
       TabPanelIndex   =   0
       TabStop         =   True
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1736,7 +1735,7 @@ Begin Window CalendarWindow
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   39
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1767,7 +1766,7 @@ Begin Window CalendarWindow
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   40
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1798,7 +1797,7 @@ Begin Window CalendarWindow
       LockLeft        =   False
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   41
       TabPanelIndex   =   0
       TabStop         =   True
@@ -1828,14 +1827,13 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   42
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "S"
       TextAlign       =   1
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1863,14 +1861,13 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   43
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "M"
       TextAlign       =   1
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1898,14 +1895,13 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   44
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "T"
       TextAlign       =   1
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1933,14 +1929,13 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   45
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "W"
       TextAlign       =   1
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -1968,14 +1963,13 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   46
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "T"
       TextAlign       =   1
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -2003,14 +1997,13 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   47
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "F"
       TextAlign       =   1
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -2038,14 +2031,13 @@ Begin Window CalendarWindow
       LockRight       =   False
       LockTop         =   False
       Multiline       =   False
-      Scope           =   "0"
+      Scope           =   0
       Selectable      =   False
       TabIndex        =   48
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "S"
       TextAlign       =   1
-      TextColor       =   
+      TextColor       =   &c00000000
       TextFont        =   "Geneva"
       TextSize        =   10.0
       TextUnit        =   0
@@ -2237,7 +2229,7 @@ End
 #tag EndEvents
 #tag Events CalendarDateButton
 	#tag Event
-		Sub Action()
+		Sub Action(index as Integer)
 		  #Pragma Unused Index
 		  
 		  //day has been chosen

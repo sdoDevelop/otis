@@ -114,6 +114,10 @@ Inherits Application
 
 
 	#tag Property, Flags = &h0
+		logged_in As Boolean
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		UpdateInitiater As Kaju.UpdateInitiater
 	#tag EndProperty
 

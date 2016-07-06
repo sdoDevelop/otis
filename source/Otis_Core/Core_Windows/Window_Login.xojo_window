@@ -606,6 +606,8 @@ End
 
 	#tag Method, Flags = &h0
 		Function login() As Boolean
+		  dim thereturn as RecordSet
+		  dim connected as Boolean
 		  
 		  otis.db = New otis.sdoPostgreSQLDatabase
 		  otis.db.UserName = dbUsername
@@ -617,10 +619,31 @@ End
 		  
 		  
 		  If otis.db.Connect Then
-		    
-		    Return True
+		    app.logged_in = True
+		    connected = True
 		  Else
 		    logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
+		    connected = False
+		  End If
+		  
+		  dim ps as PostgreSQLPreparedStatement
+		  dim SQL as string
+		  
+		  SQL = "Select * From notification.login_tasks();"
+		  ps = otis.db.prepare( SQL )
+		  thereturn = ps.SQLSelect
+		  If Otis.db.error Then
+		    logErrorMessage( 4, "DBase", otis.db.errormessage )
+		  End If
+		  break
+		  Otis.db.make_table_name
+		  
+		  otis.db.set_up_listen_channel
+		  
+		  
+		  If connected Then
+		    Return True
+		  Else 
 		    Return False
 		  End If
 		End Function
@@ -784,6 +807,12 @@ End
 		  zPrefsLogin.clearLines( "users.txt" )
 		  zPrefsLogin.addLine( "users.txt", dbUsername )
 		  zPrefsLogin.writeFile( "users.txt" )
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub setupnotifications()
+		  
 		End Sub
 	#tag EndMethod
 

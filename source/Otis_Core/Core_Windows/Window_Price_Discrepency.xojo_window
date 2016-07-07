@@ -238,6 +238,14 @@ End
 #tag EndWindow
 
 #tag WindowCode
+	#tag Event
+		Sub Close()
+		  otis.db.block_access = False
+		  
+		End Sub
+	#tag EndEvent
+
+
 	#tag Method, Flags = &h0
 		Sub myOpen(pLineitem_name as string, pLineitem_pkids as string)
 		  dim SQL as string
@@ -249,6 +257,7 @@ End
 		  dim LineItem_Name as string
 		  dim LineItem_Price as string
 		  
+		  otis.db.block_access = True
 		  
 		  property_lineitem_pkids = pLineitem_pkids
 		  
@@ -445,7 +454,7 @@ End
 		  dim ps as PostgreSQLPreparedStatement
 		  dim price_ as integer
 		  
-		  break
+		  
 		  price_ = price( Listbox1.ListIndex )
 		  
 		  // Get the LineItems from the server

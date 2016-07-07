@@ -10,7 +10,6 @@ Inherits postgreSQLDatabase
 		  dim n1, n2, n3, n4 as integer
 		  dim notification_type as string
 		  dim lineitem_name as string
-		  dim table_name as string
 		  dim notification_pkids() as string
 		  dim lineitem_pkids_ as string
 		  
@@ -48,6 +47,15 @@ Inherits postgreSQLDatabase
 		      
 		      'Set 
 		      
+		      // delete the checked notifications
+		      s2 = theRecordSet.Field( "pkid" ).StringValue
+		      SQL = "Delete From " + table_name + " Where pkid = '" + s2 + "' ; "
+		      ps = otis.db.prepare( SQL )
+		      ps.SQLExecute
+		      If Otis.db.error Then
+		        logErrorMessage( 3, "DBase", otis.db.errormessage )
+		      End If
+		      
 		      
 		      
 		      
@@ -57,13 +65,15 @@ Inherits postgreSQLDatabase
 		  
 		  s2 = Join( notification_pkids, " " )
 		  
+		  
+		  
 		  // delete the checked notifications
-		  SQL = "Delete From " + table_name + " Where " + s2 + " Like '%' || pkid || '%' ; " 
-		  ps = otis.db.prepare( SQL )
-		  ps.SQLExecute
-		  If Otis.db.error Then
-		    logErrorMessage( 3, "DBase", otis.db.errormessage )
-		  End If
+		  'SQL = "Delete From " + table_name + " Where " + s2 + " Like '%' || pkid || '%' ; " 
+		  'ps = otis.db.prepare( SQL )
+		  'ps.SQLExecute
+		  'If Otis.db.error Then
+		  'logErrorMessage( 3, "DBase", otis.db.errormessage )
+		  'End If
 		  
 		  
 		  
@@ -97,6 +107,10 @@ Inherits postgreSQLDatabase
 		End Sub
 	#tag EndMethod
 
+
+	#tag Property, Flags = &h0
+		block_access As Boolean
+	#tag EndProperty
 
 	#tag Property, Flags = &h0
 		listen_channel As String

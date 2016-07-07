@@ -40,7 +40,9 @@ Inherits ComboBox
 
 	#tag Event
 		Sub LostFocus()
-		  saveValue
+		  If Not Otis.db.block_access Then
+		    saveValue
+		  End If
 		End Sub
 	#tag EndEvent
 

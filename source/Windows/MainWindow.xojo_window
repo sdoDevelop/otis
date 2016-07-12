@@ -8382,7 +8382,7 @@ End
 		  dim theRecordSet as RecordSet
 		  dim theRowTag as mdRowTag
 		  
-		  
+		  break
 		  
 		  // Exiting if an event is not selected
 		  If Listbox_Events.ListIndex = -1 Then
@@ -9278,6 +9278,18 @@ End
 		  
 		  
 		  
+		  // Checking to make sure eipl and inventory items are selected
+		  If me.ListIndex = -1 Or ListBox_EIPL.ListIndex = -1 Then
+		    If me.ListIndex = -1 Then
+		      logErrorMessage( 3, "DblClick_LB_Inven", "Could not get inventory pkid, no item selected 0005" )
+		    End If
+		    If ListBox_EIPL.ListIndex = -1 Then
+		      logErrorMessage( 3, "DblClick_LB_Inven", "Could not get EIPL pkid, no EIPL selected 0006" )
+		    End If
+		    'sdoreturn
+		    Return
+		  End If 
+		  
 		  // Grabbing the Rowtag and extracting pkid Inventory
 		  theRowTag = me.RowTag( me.ListIndex )
 		  theInventorypkid = theRowTag.pkid
@@ -9500,6 +9512,18 @@ End
 		  dim thePKID as string
 		  
 		  
+		  
+		  // Checking to make sure eipl and inventory items are selected
+		  If me.ListIndex = -1 Or ListBox_EIPL.ListIndex = -1 Then
+		    If me.ListIndex = -1 Then
+		      logErrorMessage( 3, "DblClick_LB_Inven", "Could not get inventory pkid, no item selected 0005" )
+		    End If
+		    If ListBox_EIPL.ListIndex = -1 Then
+		      logErrorMessage( 3, "DblClick_LB_Inven", "Could not get EIPL pkid, no EIPL selected 0006" )
+		    End If
+		    'sdoreturn
+		    Return
+		  End If 
 		  
 		  // Grabbing the Rowtag and extracting pkid Inventory
 		  theRowTag = me.RowTag( me.ListIndex )

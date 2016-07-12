@@ -78,6 +78,7 @@ Protected Module EIPL
 		  
 		  
 		  If MainWindow.ListBox_EIPL.ListIndex = -1 Then
+		    break
 		    Return
 		  End If
 		  

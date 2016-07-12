@@ -70,6 +70,7 @@ Begin Window Window_Error
       Selectable      =   False
       TabIndex        =   1
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "An Error Occurred..."
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -104,6 +105,7 @@ Begin Window Window_Error
       Selectable      =   False
       TabIndex        =   2
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "..."
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -138,6 +140,7 @@ Begin Window Window_Error
       Selectable      =   False
       TabIndex        =   3
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "..."
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -172,6 +175,7 @@ Begin Window Window_Error
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "..."
       TextAlign       =   0
       TextColor       =   &c00000000

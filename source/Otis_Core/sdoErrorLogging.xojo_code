@@ -30,7 +30,7 @@ Protected Module sdoErrorLogging
 		  Case 0  'No Error                     Just Info          [no messagebox]
 		    
 		  Case 1  'Expected Error          No Problem     [no messagebox]
-		     
+		    
 		  Case 2  'Expected Error          No Problem     [messagebox]
 		    errorMsgbox( pFacility, pMessage )
 		    
@@ -88,8 +88,8 @@ Protected Module sdoErrorLogging
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Sub writeFile(pLevel as integer, pFacility as string, pMessage as String)
+	#tag Method, Flags = &h1
+		Protected Sub writeFile(pLevel as integer, pFacility as string, pMessage as String)
 		  dim tos as TextOutputStream
 		  dim logFolder as new FolderItem
 		  dim theString as string

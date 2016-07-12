@@ -1,6 +1,13 @@
 #tag Module
 Protected Module sdoScripts
 	#tag Method, Flags = &h0
+		Sub sdoReturn()
+		  logErrorMessage( 4, "error_occurred", "Please Check the Error Log" )
+		  'sdoErrorLogging.writeFile
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Untitled()
 		  
 		End Sub

@@ -295,7 +295,7 @@ Begin Window KajuUpdateWindow
       LockTop         =   True
       Maximum         =   0
       Scope           =   2
-      TabIndex        =   8
+      TabIndex        =   "8"
       TabPanelIndex   =   0
       TabStop         =   True
       Top             =   402

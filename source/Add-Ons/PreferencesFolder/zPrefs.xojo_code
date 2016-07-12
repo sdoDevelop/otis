@@ -82,7 +82,7 @@ Protected Class zPrefs
 		        
 		        dim x2 as integer = 0
 		        While Not t.EOF
-		           reDim theLIneArray( x2 )
+		          reDim theLIneArray( x2 )
 		          theLIneArray( x2 ) = t.ReadLine.ToText
 		          x2 = x2 + 1
 		        Wend

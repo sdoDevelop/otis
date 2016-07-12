@@ -129,6 +129,11 @@ Inherits postgreSQLDatabase
 			EditorType="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="block_access"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -144,6 +149,7 @@ Inherits postgreSQLDatabase
 			Name="listen_channel"
 			Group="Behavior"
 			Type="String"
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MultiThreaded"

@@ -1125,13 +1125,13 @@ Inherits Listbox
 		      
 		      If not theExpanded Then
 		        
-		        // Save the current listcount
+		        // Save the original listcount
 		        x2 = me.ListCount
 		        
 		        // Expand Foder
 		        me.Expanded( i1 ) = True
 		        
-		        // Save the current ListCount
+		        // Save the expanded folder ListCount
 		        x3 = me.ListCount
 		        addedRecords = x3 - x2
 		        

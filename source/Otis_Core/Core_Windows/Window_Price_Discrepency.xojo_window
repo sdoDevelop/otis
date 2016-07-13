@@ -1,20 +1,20 @@
 #tag Window
-Begin Window Window_Error
-   BackColor       =   &c39393900
+Begin Window Window_Price_Discrepency
+   BackColor       =   &cFFFFFF00
    Backdrop        =   0
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
-   Frame           =   2
+   Frame           =   0
    FullScreen      =   False
    FullScreenButton=   False
-   HasBackColor    =   True
-   Height          =   276
+   HasBackColor    =   False
+   Height          =   286
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
    MaxHeight       =   32000
-   MaximizeButton  =   True
+   MaximizeButton  =   False
    MaxWidth        =   32000
    MenuBar         =   0
    MenuBarVisible  =   True
@@ -25,171 +25,97 @@ Begin Window Window_Error
    Resizeable      =   True
    Title           =   "Untitled"
    Visible         =   True
-   Width           =   498
-   Begin ImageWell ImageWell1
+   Width           =   397
+   Begin Label Label_title
       AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
       Enabled         =   True
-      Height          =   244
+      Height          =   20
       HelpTag         =   ""
-      Image           =   1064376319
       Index           =   -2147483648
       InitialParent   =   ""
+      Italic          =   False
       Left            =   20
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   False
+      LockRight       =   True
       LockTop         =   True
+      Multiline       =   False
       Scope           =   0
+      Selectable      =   False
       TabIndex        =   0
       TabPanelIndex   =   0
-      TabStop         =   True
-      Top             =   12
-      Visible         =   True
-      Width           =   150
-   End
-   Begin Label Label_Working
-      AutoDeactivate  =   True
-      Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   190
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   1
-      TabPanelIndex   =   0
-      Text            =   "An Error Occurred..."
-      TextAlign       =   0
+      Text            =   "Title"
+      TextAlign       =   1
       TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   38
+      Top             =   23
       Transparent     =   True
       Underline       =   False
       Visible         =   True
-      Width           =   272
+      Width           =   357
    End
-   Begin Label Label_Line1
+   Begin Listbox Listbox1
       AutoDeactivate  =   True
+      AutoHideScrollbars=   True
       Bold            =   False
+      Border          =   True
+      ColumnCount     =   1
+      ColumnsResizable=   False
+      ColumnWidths    =   ""
       DataField       =   ""
       DataSource      =   ""
+      DefaultRowHeight=   -1
       Enabled         =   True
-      Height          =   20
+      EnableDrag      =   False
+      EnableDragReorder=   False
+      GridLinesHorizontal=   0
+      GridLinesVertical=   0
+      HasHeading      =   True
+      HeadingIndex    =   -1
+      Height          =   158
       HelpTag         =   ""
+      Hierarchical    =   False
       Index           =   -2147483648
       InitialParent   =   ""
+      InitialValue    =   ""
       Italic          =   False
-      Left            =   190
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   2
-      TabPanelIndex   =   0
-      Text            =   "..."
-      TextAlign       =   0
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   70
-      Transparent     =   True
-      Underline       =   False
-      Visible         =   True
-      Width           =   272
-   End
-   Begin Label Label_Line2
-      AutoDeactivate  =   True
-      Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Height          =   145
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   190
+      Left            =   20
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
-      Multiline       =   True
+      RequiresSelection=   False
       Scope           =   0
-      Selectable      =   False
-      TabIndex        =   3
+      ScrollbarHorizontal=   False
+      ScrollBarVertical=   True
+      SelectionType   =   0
+      TabIndex        =   1
       TabPanelIndex   =   0
-      Text            =   "..."
-      TextAlign       =   0
-      TextColor       =   &c00000000
+      TabStop         =   True
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   92
-      Transparent     =   True
+      Top             =   51
       Underline       =   False
+      UseFocusRing    =   True
       Visible         =   True
-      Width           =   272
+      Width           =   357
+      _ScrollOffset   =   0
+      _ScrollWidth    =   -1
    End
-   Begin Label Label_Line3
+   Begin PushButton PushButton_match_low
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   190
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   4
-      TabPanelIndex   =   0
-      Text            =   "..."
-      TextAlign       =   0
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   236
-      Transparent     =   True
-      Underline       =   False
-      Visible         =   True
-      Width           =   272
-   End
-   Begin PushButton PushButton1
-      AutoDeactivate  =   True
-      Bold            =   False
-      ButtonStyle     =   "2"
+      ButtonStyle     =   "0"
       Cancel          =   False
-      Caption         =   "Close"
+      Caption         =   "Match Low"
       Default         =   False
       Enabled         =   True
       Height          =   20
@@ -198,6 +124,99 @@ Begin Window Window_Error
       InitialParent   =   ""
       Italic          =   False
       Left            =   20
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      Scope           =   0
+      TabIndex        =   2
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   12.0
+      TextUnit        =   0
+      Top             =   246
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
+   End
+   Begin PushButton PushButton_match_high
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "Match High"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      Scope           =   0
+      TabIndex        =   3
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   12.0
+      TextUnit        =   0
+      Top             =   225
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
+   End
+   Begin PushButton PushButton_match_selected
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "Match Selected"
+      Default         =   True
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   263
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   True
+      LockTop         =   False
+      Scope           =   0
+      TabIndex        =   4
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   12.0
+      TextUnit        =   0
+      Top             =   246
+      Underline       =   False
+      Visible         =   True
+      Width           =   114
+   End
+   Begin PushButton PushButton_ignore
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "Ignore"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   171
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -208,9 +227,9 @@ Begin Window Window_Error
       TabPanelIndex   =   0
       TabStop         =   True
       TextFont        =   "System"
-      TextSize        =   0.0
+      TextSize        =   12.0
       TextUnit        =   0
-      Top             =   256
+      Top             =   246
       Underline       =   False
       Visible         =   True
       Width           =   80
@@ -219,53 +238,261 @@ End
 #tag EndWindow
 
 #tag WindowCode
+	#tag Event
+		Sub Close()
+		  otis.db.block_access = False
+		  
+		End Sub
+	#tag EndEvent
+
+
 	#tag Method, Flags = &h0
-		Sub myOpen(pLine1 as string, optional pLine2 as string, optional pLine3 as string)
+		Sub myOpen(pLineitem_name as string, pLineitem_pkids as string)
+		  dim SQL as string
+		  dim ps as PostgreSQLPreparedStatement
+		  dim theRecordSet as RecordSet
+		  dim s1, s2, s3, s4 as string
+		  dim n1, n2, n3, n4 as Double
+		  dim EIPL_Number as string
+		  dim LineItem_Name as string
+		  dim LineItem_Price as string
+		  
+		  otis.db.block_access = True
+		  
+		  property_lineitem_pkids = pLineitem_pkids
+		  
+		  // Set up the listbox
+		  redim price(-1)
+		  Listbox1.ColumnCount = 3
+		  Listbox1.Heading(0) = "EIPL"
+		  Listbox1.Heading(1) = "Name"
+		  Listbox1.Heading(2) = "Price"
+		  
+		  
+		  // Create the Title
+		  s1 = "There is a price discrepency with " + pLineitem_name
+		  Label_title.Text = s1
+		  
+		  // Get the LineItems from the server
+		  SQL = "Select lineitems.pkid, lineitems.name_, lineitems.price, eipl.eipl_nmbr From lineitems, eipl Where '"_
+		   + pLineitem_pkids + "' Like '%' || lineitems.pkid || '%' And lineitems.fkeipl = eipl.pkid ; " 
+		  ps = otis.db.prepare( SQL )
+		  theRecordSet = ps.SQLSelect
+		  If otis.db.error Then
+		    logErrorMessage( 4, "DBase", otis.db.errormessage )
+		  End If
+		  
+		  // clear the listbox
+		  Listbox1.DeleteAllRows
+		  
+		  For i1 as integer = 0 to theRecordSet.RecordCount - 1
+		    
+		    EIPL_Number = theRecordSet.Field( "eipl_nmbr" ).StringValue
+		    LineItem_Name = theRecordSet.Field( "name_" ).StringValue
+		    n1 = theRecordSet.Field( "price" ).DoubleValue
+		    n2 = n1 / 100
+		    LineItem_Price = "$" + str( n2 )
+		    
+		    Listbox1.AddRow( EIPL_Number, LineItem_Name, LineItem_Price )
+		    price.Append( n1 )
+		    
+		    'determin highest and lowest price
+		    If n1 > Highest_Price Then
+		      Highest_Price = n1
+		    End If
+		    If n1 < Lowest_Price Or Lowest_Price = 0 Then
+		      Lowest_Price = n1
+		    End If
+		    
+		    theRecordSet.MoveNext
+		    
+		  Next
+		  
+		  
+		  me.Show
 		  
 		  
 		  
-		  Label_Line1.Text = pLine1
 		  
-		  Label_Line2.Text = pLine2
 		  
-		  Label_Line3.Text = pLine3
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub updateText(pLine1 as string, optional pLine2 as string, optional pLine3 as string)
-		  
-		  
-		  If pLine1 <> "" Then
-		    Label_Line1.Text = pLine1
-		    If pLine1 = "-clear" Then
-		      Label_Line1.Text = ""
-		    End If
-		  End If
-		  
-		  If pLine2 <> "" Then
-		    Label_Line2.Text = pLine2
-		    If pLine2 = "-clear" Then
-		      Label_Line2.Text = ""
-		    End If
-		  End If
-		  
-		  If pLine3 <> "" Then
-		    Label_Line3.Text = pLine3
-		    If pLine3 = "-clear" Then
-		      Label_Line3.Text = ""
-		    End If
-		  End If
-		End Sub
-	#tag EndMethod
+
+	#tag Property, Flags = &h0
+		Highest_Price As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Lowest_Price As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		price() As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		property_lineitem_pkids As String
+	#tag EndProperty
 
 
 #tag EndWindowCode
 
-#tag Events PushButton1
+#tag Events PushButton_match_low
 	#tag Event
 		Sub Action()
-		  Window_Error.Close
+		  dim SQL as string
+		  dim ps as PostgreSQLPreparedStatement
+		  dim price_ as integer
+		  
+		  
+		  price_ = Lowest_Price
+		  
+		  // Get the LineItems from the server
+		  SQL = "Update lineitems Set price = " + price_.ToText + " Where '" + property_lineitem_pkids + "' Like '%' || pkid || '%'  ; " 
+		  ps = otis.db.prepare( SQL )
+		  ps.SQLExecute
+		  
+		  If otis.db.error Then
+		    logErrorMessage( 4, "DBase", otis.db.errormessage )
+		  End If
+		  
+		  MainWindow.ListBox_EIPL.loadMe( true )
+		  
+		  me.Window.Close
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton_match_high
+	#tag Event
+		Sub Action()
+		  dim SQL as string
+		  dim ps as PostgreSQLPreparedStatement
+		  dim price_ as integer
+		  
+		  
+		  price_ = Highest_Price
+		  
+		  // Get the LineItems from the server
+		  SQL = "Update lineitems Set price = " + price_.ToText + " Where '" + property_lineitem_pkids + "' Like '%' || pkid || '%'  ; " 
+		  ps = otis.db.prepare( SQL )
+		  ps.SQLExecute
+		  
+		  If otis.db.error Then
+		    logErrorMessage( 4, "DBase", otis.db.errormessage )
+		  End If
+		  
+		  MainWindow.ListBox_EIPL.loadMe( true )
+		  
+		  me.Window.Close
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton_match_selected
+	#tag Event
+		Sub Action()
+		  dim SQL as string
+		  dim ps as PostgreSQLPreparedStatement
+		  dim price_ as integer
+		  
+		  
+		  price_ = price( Listbox1.ListIndex )
+		  
+		  // Get the LineItems from the server
+		  SQL = "Update lineitems Set price = " + price_.ToText + " Where '" + property_lineitem_pkids + "' Like '%' || pkid || '%'  ; " 
+		  ps = otis.db.prepare( SQL )
+		  ps.SQLExecute
+		  
+		  If otis.db.error Then
+		    logErrorMessage( 4, "DBase", otis.db.errormessage )
+		  End If
+		  
+		  MainWindow.ListBox_EIPL.loadMe( true )
+		  
+		  me.Window.Close
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton_ignore
+	#tag Event
+		Sub Action()
+		  dim SQL as string
+		  dim ps as PostgreSQLPreparedStatement
+		  
+		  
+		  
+		  
+		  // Get the LineItems from the server
+		  SQL = "Update lineitems Set ignore_price_discrepency = True Where '" + property_lineitem_pkids + "' Like '%' || pkid || '%'  ; " 
+		  ps = otis.db.prepare( SQL )
+		  ps.SQLExecute
+		  
+		  If otis.db.error Then
+		    logErrorMessage( 4, "DBase", otis.db.errormessage )
+		  End If
+		  
+		  MainWindow.ListBox_EIPL.loadMe( true )
+		  
+		  me.Window.Close
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -456,6 +683,11 @@ End
 			"3 - Parent Window Screen"
 			"4 - Stagger"
 		#tag EndEnumValues
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="property_lineitem_pkids"
+		Group="Behavior"
+		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Resizeable"

@@ -45,7 +45,7 @@ Begin sdoWindow MainWindow
       TabIndex        =   1
       TabPanelIndex   =   0
       Top             =   0
-      Value           =   2
+      Value           =   1
       Visible         =   True
       Width           =   1182
       Begin Listbox eventList_Listbox
@@ -7832,6 +7832,22 @@ Begin sdoWindow MainWindow
       Scope           =   0
       TabPanelIndex   =   0
    End
+   Begin Otis.check_for_notifications check_for_notifications1
+      Index           =   -2147483648
+      LockedInPosition=   False
+      Priority        =   5
+      Scope           =   0
+      StackSize       =   0
+      TabPanelIndex   =   0
+   End
+   Begin Timer Timer_check_notifications
+      Index           =   -2147483648
+      LockedInPosition=   False
+      Mode            =   2
+      Period          =   1000
+      Scope           =   0
+      TabPanelIndex   =   0
+   End
 End
 #tag EndWindow
 
@@ -8397,10 +8413,11 @@ End
 		  
 		  // Load Eipl listbox and select eipl
 		  ListBox_EIPL.loadMe
+		  
 		  ListBox_EIPL.searchMePKID( theEIPLpkid )
 		  EIPL.controls_load( True )
 		  
-		  mainWindow_PagePanel.Value = 2
+		  'mainWindow_PagePanel.Value = 2
 		  
 		End Sub
 	#tag EndMethod
@@ -9262,6 +9279,18 @@ End
 		  
 		  
 		  
+		  // Checking to make sure eipl and inventory items are selected
+		  If me.ListIndex = -1 Or ListBox_EIPL.ListIndex = -1 Then
+		    If me.ListIndex = -1 Then
+		      logErrorMessage( 3, "DblClick_LB_Inven", "Could not get inventory pkid, no item selected 0005" )
+		    End If
+		    If ListBox_EIPL.ListIndex = -1 Then
+		      logErrorMessage( 3, "DblClick_LB_Inven", "Could not get EIPL pkid, no EIPL selected 0006" )
+		    End If
+		    'sdoreturn
+		    Return
+		  End If 
+		  
 		  // Grabbing the Rowtag and extracting pkid Inventory
 		  theRowTag = me.RowTag( me.ListIndex )
 		  theInventorypkid = theRowTag.pkid
@@ -9485,6 +9514,18 @@ End
 		  
 		  
 		  
+		  // Checking to make sure eipl and inventory items are selected
+		  If me.ListIndex = -1 Or ListBox_EIPL.ListIndex = -1 Then
+		    If me.ListIndex = -1 Then
+		      logErrorMessage( 3, "DblClick_LB_Inven", "Could not get inventory pkid, no item selected 0005" )
+		    End If
+		    If ListBox_EIPL.ListIndex = -1 Then
+		      logErrorMessage( 3, "DblClick_LB_Inven", "Could not get EIPL pkid, no EIPL selected 0006" )
+		    End If
+		    'sdoreturn
+		    Return
+		  End If 
+		  
 		  // Grabbing the Rowtag and extracting pkid Inventory
 		  theRowTag = me.RowTag( me.ListIndex )
 		  theInventorypkid = theRowTag.pkid
@@ -9568,6 +9609,16 @@ End
 		      'app.msgboxalert( "Process Terminated", "Please Select an EIPL first", "Ok" )
 		    end if
 		  End Select
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events Timer_check_notifications
+	#tag Event
+		Sub Action()
+		  
+		  If app.logged_in Then
+		    otis.db.checkfornotifications
+		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents

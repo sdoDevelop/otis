@@ -3,7 +3,9 @@ Protected Class mdCheckbox
 Inherits Checkbox
 	#tag Event
 		Sub Action()
-		  saveValue
+		  If Not Otis.db.block_access Then
+		    saveValue
+		  End If
 		End Sub
 	#tag EndEvent
 

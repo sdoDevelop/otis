@@ -47,10 +47,10 @@ Begin Window Window_Contract
       LimitText       =   0
       LineHeight      =   0.0
       LineSpacing     =   1.0
-      LockBottom      =   False
+      LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   False
+      LockRight       =   True
       LockTop         =   True
       Mask            =   ""
       Multiline       =   True
@@ -107,38 +107,6 @@ Begin Window Window_Contract
       Visible         =   True
       Width           =   100
    End
-   Begin ComboBox ComboBox_formatSize
-      AutoComplete    =   False
-      AutoDeactivate  =   True
-      Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialValue    =   ""
-      Italic          =   False
-      Left            =   71
-      ListIndex       =   0
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   0
-      TabIndex        =   2
-      TabPanelIndex   =   0
-      TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   33
-      Underline       =   False
-      UseFocusRing    =   True
-      Visible         =   True
-      Width           =   51
-   End
    Begin PushButton PushButton_formatBold
       AutoDeactivate  =   True
       Bold            =   False
@@ -158,7 +126,7 @@ Begin Window Window_Contract
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Scope           =   2
+      Scope           =   0
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
@@ -189,7 +157,7 @@ Begin Window Window_Contract
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Scope           =   2
+      Scope           =   0
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
@@ -200,6 +168,37 @@ Begin Window Window_Contract
       Underline       =   False
       Visible         =   True
       Width           =   28
+   End
+   Begin PopupMenu PopupMenu_formatSize
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      InitialValue    =   ""
+      Italic          =   False
+      Left            =   71
+      ListIndex       =   0
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   5
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   32
+      Underline       =   False
+      Visible         =   True
+      Width           =   45
    End
 End
 #tag EndWindow
@@ -286,8 +285,8 @@ End
 		  
 		  
 		  'put the body into the TextArea
-		  TextArea_contract_body.Text = contract_body
-		  
+		  'TextArea_contract_body.Text = contract_body
+		  TextArea_contract_body.StyledText.RTFData = contract_body
 		  
 		  
 		  
@@ -385,65 +384,19 @@ End
 
 #tag EndWindowCode
 
-#tag Events ComboBox_formatSize
-	#tag Event
-		Sub Open()
-		  
-		  
-		  
-		  For i1 as integer = 1 To 18
-		    me.AddRow i1.ToText
-		  Next
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Change()
-		  
-		  
-		  
-		  'Check if there is anything selected
-		  If TextArea_contract_body.SelLength <> 0 Then
-		    'there is something selected
-		    
-		    TextArea_contract_body.SelTextSize = val( me.Text )
-		    
-		    
-		  Else
-		    'there is nothing selected
-		    
-		    TextArea_contract_body.TextSize =  val( me.Text )
-		    
-		  End If
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events PushButton_formatBold
 	#tag Event
 		Sub Action()
 		  
 		  
 		  
-		  'Check if there is anything selected
-		  If TextArea_contract_body.SelLength <> 0 Then
-		    'there is something selected
-		    
-		    If TextArea_contract_body.SelBold = False Then
-		      TextArea_contract_body.SelBold = True
-		    Else
-		      TextArea_contract_body.SelBold = False
-		    End If
-		    
-		    
+		  
+		  If TextArea_contract_body.SelBold = False Then
+		    TextArea_contract_body.SelBold = True
 		  Else
-		    'there is nothing selected
-		    
-		    If TextArea_contract_body.Bold = False Then
-		      TextArea_contract_body.Bold = True
-		    Else
-		      TextArea_contract_body.Bold = False
-		    End If
-		    
+		    TextArea_contract_body.SelBold = False
 		  End If
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -453,27 +406,38 @@ End
 		  
 		  
 		  
-		  'Check if there is anything selected
-		  If TextArea_contract_body.SelLength <> 0 Then
-		    'there is something selected
-		    
-		    If TextArea_contract_body.SelItalic = False Then
-		      TextArea_contract_body.SelItalic = True
-		    Else
-		      TextArea_contract_body.SelItalic = False
-		    End If
-		    
-		    
+		  
+		  If TextArea_contract_body.SelItalic = False Then
+		    TextArea_contract_body.SelItalic = True
 		  Else
-		    'there is nothing selected
-		    
-		    If TextArea_contract_body.Italic = False Then
-		      TextArea_contract_body.Italic = True
-		    Else
-		      TextArea_contract_body.Italic = False
-		    End If
-		    
+		    TextArea_contract_body.SelItalic = False
 		  End If
+		  
+		  
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PopupMenu_formatSize
+	#tag Event
+		Sub Change()
+		  
+		  
+		  
+		  
+		  TextArea_contract_body.SelTextSize = val( me.Text )
+		  
+		  
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Open()
+		  
+		  
+		  
+		  For i1 as integer = 1 To 18
+		    me.AddRow i1.ToText
+		  Next
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -8382,7 +8382,7 @@ End
 		  dim theRecordSet as RecordSet
 		  dim theRowTag as mdRowTag
 		  
-		  break
+		  
 		  
 		  // Exiting if an event is not selected
 		  If Listbox_Events.ListIndex = -1 Then
@@ -8413,10 +8413,11 @@ End
 		  
 		  // Load Eipl listbox and select eipl
 		  ListBox_EIPL.loadMe
+		  
 		  ListBox_EIPL.searchMePKID( theEIPLpkid )
 		  EIPL.controls_load( True )
 		  
-		  mainWindow_PagePanel.Value = 2
+		  'mainWindow_PagePanel.Value = 2
 		  
 		End Sub
 	#tag EndMethod

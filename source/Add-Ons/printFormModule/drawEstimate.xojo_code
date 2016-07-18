@@ -42,7 +42,11 @@ Protected Class drawEstimate
 		    infoDictContact(4) = MainWindow.mdLabel_EIPL_Contact_AddressLine2.Text
 		    
 		    'City State, Zip
-		    infoDictContact(5) = MainWindow.mdLabel_Contact_City.Text + " " + MainWindow.mdLabel_Contact_State.Text + ", " + MainWindow.mdLabel_Contact_Zip.Text
+		    infoDictContact(5) = MainWindow.mdLabel_Contact_City.Text 
+		    If MainWindow.mdLabel_Contact_City.Text <> "" Or MainWindow.mdLabel_Contact_State.Text <> "" Then
+		      infoDictContact(5) = infoDictContact(5) + ", "
+		    End If
+		    infoDictContact(5) = infoDictContact(5) + MainWindow.mdLabel_Contact_State.Text + " " + MainWindow.mdLabel_Contact_Zip.Text
 		    
 		    'Phone
 		    infoDictContact(6) = MainWindow.mdLabel_Contact_Phone.Text
@@ -75,7 +79,12 @@ Protected Class drawEstimate
 		    infoDictVenue(4) = MainWindow.mdLabel_Venue_AddressLine2.Text
 		    
 		    'City State, Zip
-		    infoDictVenue(5) = MainWindow.mdLabel_Venue_City.Text + " " + MainWindow.mdLabel_Venue_State.Text + ", " + MainWindow.mdLabel_Venue_Zip.Text
+		    infoDictVenue(5) = MainWindow.mdLabel_Venue_City.Text 
+		    If MainWindow.mdLabel_Venue_City.Text <> "" Or MainWindow.mdLabel_Venue_State.Text <> "" Then
+		      infoDictVenue(5) = infoDictVenue(5) + ", "
+		    End If
+		    infoDictVenue(5) = infoDictVenue(5) + MainWindow.mdLabel_Venue_State.Text + " " + MainWindow.mdLabel_Venue_Zip.Text
+		    
 		    
 		    'Phone
 		    infoDictVenue(6) = MainWindow.mdLabel_Venue_Phone.Text
@@ -540,7 +549,7 @@ Protected Class drawEstimate
 		  dim n1, n2, n3, n4 as integer
 		  dim s1, s2, s3, s4 as string
 		  dim info() as string
-		  dim x, y as integer
+		  dim x, y, yinfobox as integer
 		  dim groupIndex as integer = 0
 		  dim recordIndex as integer
 		  dim thegroupDict() as Dictionary
@@ -565,6 +574,8 @@ Protected Class drawEstimate
 		  dim summaryDict() as Dictionary
 		  dim finalSummaryDict() as Dictionary
 		  dim infoBoxDict() as string
+		  
+		  dim finalSummaryLineisZero as Boolean
 		  
 		  
 		  dim headers() as string 
@@ -658,7 +669,7 @@ Protected Class drawEstimate
 		    finalSummaryDict(2).Value("Header") = "Sales Tax"
 		    finalSummaryDict(2).Value("Field Name" ) = "taxtotal_"
 		    finalSummaryDict(3) = new Dictionary
-		    finalSummaryDict(3).Value("Header") = "Total"
+		    finalSummaryDict(3).Value("Header") = "GrandTotal"
 		    finalSummaryDict(3).Value("Field Name" ) = "grandtotal_"
 		    If Type = "Invoice" Then
 		      'only apply to invoices
@@ -819,7 +830,7 @@ Protected Class drawEstimate
 		          
 		          // Extract the information from the RecordSet
 		          ReDim info(1)
-		          info(0) = summaryDict( summaryIndex ).Value( "Header" ) + ": "
+		          info(0) = groupName + " " + summaryDict( summaryIndex ).Value( "Header" ) + ": "
 		          s4 = theRecordSet.Field( summaryDict( summaryIndex ).Value( "Field Name" ) )
 		          n4 = val( s4 )
 		          info(1) = str( formatMyValue( n4 , 1 ) )
@@ -840,11 +851,24 @@ Protected Class drawEstimate
 		            logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
 		          End If
 		          
+		          '// Check the discount and see if we need to print it
+		          'dim discountAmount as integer
+		          'discountAmount = theRecordSet.Field( "discount_" )
+		          'If discountAmount = 0 Then
+		          'discount is equal to 0 
+		          
+		          'End If
+		          
 		          // Extract the information from the RecordSet
 		          ReDim info(1)
 		          info(0) = finalSummaryDict( finalSummaryIndex ).Value( "Header" ) + ": "
 		          s4 = theRecordSet.Field( finalSummaryDict( finalSummaryIndex ).Value( "Field Name" ) )
 		          n4 = val( s4 )
+		          If n4 = 0 Then
+		            finalSummaryLineisZero = True
+		          Else
+		            finalSummaryLineisZero = False
+		          End If
 		          info(1) = str( formatMyValue( n4, 1 ) )
 		          x = summaryXValue
 		        End If
@@ -929,22 +953,31 @@ Protected Class drawEstimate
 		          boxY = y + boxH
 		          g.FillRect( boxX, boxY, boxW, lineWidth )
 		          
+		          'Set up a new y for the infobox
+		          yinfobox = y
+		          
+		          y = y + g.TextHeight +spaceAboveLine + spaceBelowLine
+		          
 		        Else
 		          
 		          If finalSummaryIndex - 1 >= 0 And finalSummaryIndex - 1 <= infoBoxDict.Ubound Then
 		            
 		            boxX = margin + ( 30 * masterMult ) + ( 10 * masterMult )
-		            g.DrawString( infoBoxDict( finalSummaryIndex - 1 ), boxX, y )
+		            g.DrawString( infoBoxDict( finalSummaryIndex - 1 ), boxX, yinfobox )
 		            
 		          End If
 		          
 		        End If
 		        
 		        If Type = "Estimate" Or Type = "Invoice" Then
-		          // Draw the line
-		          g.Bold = True
-		          drawLine( x - 100 * MasterMult, y, info(), Array(50,50), Array( "Right", "Left" ), Array( True, True ) )
-		          g.Bold = False
+		          If Not finalSummaryLineisZero Then
+		            // Draw the line
+		            g.Bold = True
+		            drawLine( x - 100 * MasterMult, y, info(), Array(50,50), Array( "Right", "Left" ), Array( True, True ) )
+		            g.Bold = False
+		          Else
+		            y = y - g.TextHeight - spaceAboveLine - spaceBelowLine
+		          End If
 		        End If
 		        
 		      End If
@@ -956,6 +989,10 @@ Protected Class drawEstimate
 		      
 		      y = y + g.TextHeight +spaceAboveLine + spaceBelowLine
 		      x = margin
+		      
+		      If yinfobox <> 0 Then
+		        yinfobox = yinfobox + g.TextHeight +spaceAboveLine + spaceBelowLine
+		      End If
 		      
 		      If lineType = "Header" Then
 		        
@@ -1200,17 +1237,32 @@ Protected Class drawEstimate
 		  smallBoxHeight = g.TextHeight + spaceFromBottomLinetoText
 		  
 		  
-		  
-		  'Set up headers and info sources
-		  info() = Array( MainWindow.TextField_Event_AcountManager.Text, _
-		  MainWindow.TextField_Event_StartTime.Text + "^^" + MainWindow.TextField_Event_StartDate.Text, _
-		  MainWindow.TextField_Event_EndTime.Text + "^^" + MainWindow.TextField_Event_EndDate.Text, _
-		  MainWindow.TextField_Event_LoadInTime.Text + "^^" + MainWindow.TextField_Event_LoadInDate.Text, _
-		  MainWindow.TextField_Event_LoadOutTime.Text + "^^" + MainWindow.TextField_Event_LoadOutDate.Text, _
-		  MainWindow.TextField_EIPL_DiscountPercent.Text + "^^" + MainWindow.TextField_EIPL_DiscountAmount.Text, _
-		  MainWindow.TextField_EIPL_TaxRate.Text, _
-		  MainWindow.TextField_EIPL_DueDate.Text ) ' ^^ = next Line
-		  headers() = Array( "Acount Manager", "Event Start", "Event End", "Load-In", "Load-Out", "Discount", "Tax", "Payment Due"   )
+		  If Type = "Estimate" Then
+		    
+		    'Set up headers and info sources
+		    info() = Array( MainWindow.TextField_Event_AcountManager.Text, _
+		    MainWindow.TextField_Event_StartTime.Text + "^^" + MainWindow.TextField_Event_StartDate.Text, _
+		    MainWindow.TextField_Event_EndTime.Text + "^^" + MainWindow.TextField_Event_EndDate.Text, _
+		    MainWindow.TextField_Event_LoadInTime.Text + "^^" + MainWindow.TextField_Event_LoadInDate.Text, _
+		    MainWindow.TextField_Event_LoadOutTime.Text + "^^" + MainWindow.TextField_Event_LoadOutDate.Text, _
+		    MainWindow.TextField_EIPL_DiscountPercent.Text + "^^" + MainWindow.TextField_EIPL_DiscountAmount.Text, _
+		    MainWindow.TextField_EIPL_TaxRate.Text ) ' ^^ = next Line
+		    headers() = Array( "Acount Manager", "Event Start", "Event End", "Load-In", "Load-Out", "Discount", "Tax" )
+		    
+		  ElseIf Type = "Invoice" Then
+		    
+		    'Set up headers and info sources
+		    info() = Array( MainWindow.TextField_Event_AcountManager.Text, _
+		    MainWindow.TextField_Event_StartTime.Text + "^^" + MainWindow.TextField_Event_StartDate.Text, _
+		    MainWindow.TextField_Event_EndTime.Text + "^^" + MainWindow.TextField_Event_EndDate.Text, _
+		    MainWindow.TextField_Event_LoadInTime.Text + "^^" + MainWindow.TextField_Event_LoadInDate.Text, _
+		    MainWindow.TextField_Event_LoadOutTime.Text + "^^" + MainWindow.TextField_Event_LoadOutDate.Text, _
+		    MainWindow.TextField_EIPL_DiscountPercent.Text + "^^" + MainWindow.TextField_EIPL_DiscountAmount.Text, _
+		    MainWindow.TextField_EIPL_TaxRate.Text, _
+		    MainWindow.TextField_EIPL_DueDate.Text ) ' ^^ = next Line
+		    headers() = Array( "Acount Manager", "Event Start", "Event End", "Load-In", "Load-Out", "Discount", "Tax", "Payment Due"   )
+		    
+		  End If
 		  
 		  // Find the number of boxes
 		  numberOfBoxes(0) = Floor( info.Ubound / 2 )
@@ -1268,37 +1320,37 @@ Protected Class drawEstimate
 		    x2 = x1 + pageDimentions(0) - margin * 2
 		    y2 = y1
 		    'g.DrawLine( x1, y1, x2, y2 )
-		    g.FillRect( x1, y1, pageDimentions(0) - margin * 2, lineWidth )
+		    g.FillRect( x1, y1, pageDimentions(0) - margin * 2 - 2, lineWidth )
 		    
 		    'Header Seperator
 		    y1 = y1 + smallBoxHeight
 		    y2 = y1
 		    'g.DrawLine( x1, y1, x2, y2 )
-		    g.FillRect( x1, y1, pageDimentions(0) - margin * 2, lineWidth )
+		    g.FillRect( x1, y1, pageDimentions(0) - margin * 2 - 2, lineWidth )
 		    
 		    'Bottom of 1st Boxes
 		    y1 = y1 + smallBoxHeight * boxMult
 		    y2 = y1
 		    'g.DrawLine( x1, y1, x2, y2 )
-		    g.FillRect( x1, y1, pageDimentions(0) - margin * 2, lineWidth )
+		    g.FillRect( x1, y1, pageDimentions(0) - margin * 2 - 2, lineWidth )
 		    
 		    'Top of 2nd Boxes
 		    y1 = y1 + sectionSpacing
 		    y2 = y1
 		    'g.DrawLine( x1, y1, x2, y2 )
-		    g.FillRect( x1, y1, pageDimentions(0) - margin * 2, lineWidth )
+		    g.FillRect( x1, y1, pageDimentions(0) - margin * 2 - 2, lineWidth )
 		    
 		    'Header Separator
 		    y1 = y1 + smallBoxHeight
 		    y2 = y1
 		    'g.DrawLine( x1, y1, x2, y2 )
-		    g.FillRect( x1, y1, pageDimentions(0) - margin * 2, lineWidth )
+		    g.FillRect( x1, y1, pageDimentions(0) - margin * 2 - 2, lineWidth )
 		    
 		    'Bottom 2nd Boxes
 		    y1 = y1 + smallBoxHeight * boxMult
 		    y2 = y1 
 		    'g.DrawLine( x1, y1, x2, y2 )
-		    g.FillRect( x1, y1, pageDimentions(0) - margin * 2, lineWidth )
+		    g.FillRect( x1, y1, pageDimentions(0) - margin * 2 - 2, lineWidth )
 		    
 		    
 		  End If

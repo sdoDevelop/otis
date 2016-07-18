@@ -56,27 +56,44 @@ Inherits postgreSQLDatabase
 		        logErrorMessage( 3, "DBase", otis.db.errormessage )
 		      End If
 		      
+		    ElseIf notification_type = "eventStartDateChange" Then
 		      
+		      'Grab the event pkid from the event listbox
+		      dim theRT as mdRowTag
+		      dim thePKID as string
+		      dim event_pkid_ as string
+		      If MainWindow.Listbox_Events.ListIndex <> -1 Then
+		        theRT = MainWindow.Listbox_Events.RowTag( MainWindow.Listbox_Events.ListIndex )
+		        thePKID = theRT.pkid
+		      End If
 		      
+		      'Grab the event pkid of the notifaction
+		      event_pkid_ = theRecordSet.Field( "event_pkid_" ).StringValue
+		      
+		      'If the notification pkid and the current pkid match 
+		      If event_pkid_ = thePKID Then
+		        
+		        'Update the date boxes
+		        MainWindow.TextField_Event_StartDate.loadFromDB
+		        MainWindow.TextField_Event_EndDate.loadFromDB
+		        MainWindow.TextField_Event_LoadinDate.loadFromDB
+		        MainWindow.TextField_Event_LoadOutDate.loadFromDB
+		      End If
+		      
+		      // delete the checked notifications
+		      s2 = theRecordSet.Field( "pkid" ).StringValue
+		      SQL = "Delete From " + table_name + " Where pkid = '" + s2 + "' ; "
+		      ps = otis.db.prepare( SQL )
+		      ps.SQLExecute
+		      If Otis.db.error Then
+		        logErrorMessage( 3, "DBase", otis.db.errormessage )
+		      End If
 		      
 		    End If
 		    
 		  Next
 		  
 		  s2 = Join( notification_pkids, " " )
-		  
-		  
-		  
-		  // delete the checked notifications
-		  'SQL = "Delete From " + table_name + " Where " + s2 + " Like '%' || pkid || '%' ; " 
-		  'ps = otis.db.prepare( SQL )
-		  'ps.SQLExecute
-		  'If Otis.db.error Then
-		  'logErrorMessage( 3, "DBase", otis.db.errormessage )
-		  'End If
-		  
-		  
-		  
 		  
 		  
 		  
@@ -129,6 +146,11 @@ Inherits postgreSQLDatabase
 			EditorType="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="block_access"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -144,6 +166,7 @@ Inherits postgreSQLDatabase
 			Name="listen_channel"
 			Group="Behavior"
 			Type="String"
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MultiThreaded"

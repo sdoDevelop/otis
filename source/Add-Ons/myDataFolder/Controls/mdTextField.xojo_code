@@ -64,8 +64,11 @@ Inherits TextField
 
 	#tag Event
 		Sub LostFocus()
+		  
 		  If Not Otis.db.block_access Then
 		    saveValue
+		  Else
+		    logErrorMessage( 1, "DBase", "Access to Database is blocked at this time" )
 		  End If
 		End Sub
 	#tag EndEvent
@@ -250,7 +253,9 @@ Inherits TextField
 		  
 		  // Catch errors
 		  If otis.db.Error Then
-		    logErrorMessage( 2, "Could not save value", otis.db.ErrorMessage )
+		    Break
+		    'logErrorMessage( 3, "Could not save value", otis.db.ErrorMessage )
+		    MsgBox( otis.db.errorMessage )
 		  Else
 		    RaiseEvent Saved 
 		  End If

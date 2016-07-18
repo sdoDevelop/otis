@@ -562,6 +562,8 @@ Protected Class drawEstimate
 		  dim summaryIndex as integer
 		  dim finalSummaryIndex as integer
 		  dim theDataDict() as Dictionary
+		  dim estimateInfoBoxText as String
+		  dim invoiceInfoBoxText as String
 		  
 		  dim groupSummaryDone as Boolean
 		  dim finalSummaryDone as Boolean
@@ -582,7 +584,9 @@ Protected Class drawEstimate
 		  dim columns() as integer
 		  dim columnWidths() as integer 
 		  dim justification() as string 
-		  dim showColumn() as Boolean 
+		  dim showColumn() as Boolean
+		  
+		  dim infoBoxWidth as integer 
 		  
 		  // Settings
 		  If Type = "Estimate" Or Type = "Invoice" Then
@@ -590,6 +594,10 @@ Protected Class drawEstimate
 		  ElseIf Type = "Pack List" Then
 		    g.TextSize = 12
 		  End If
+		  
+		  // Set info box info
+		  estimateInfoBoxText = "Please note that this estimate serves only as a proposal and is no way a contract for services to be provided.  If you wish to contract the proposed services please contact us to confirm your acceptance of this proposal.  This estimate is valid for 30 days.  Thank You. "
+		  invoiceInfoBoxText = "Thank you for your business! We look forward to continuing to work with you on great events in the future!  Please remit payment to: Northern Sun Productions, 522 6th Ave NW, Rochester, MN. 55901.  Thank You."
 		  
 		  dim sourceListbox as mdListbox
 		  
@@ -930,8 +938,9 @@ Protected Class drawEstimate
 		        // Draw the infobox
 		        If finalSummaryIndex = 0 Then
 		          
-		          boxH = ( finalSummaryDict.Ubound + 1 ) * ( g.TextHeight +spaceAboveLine + spaceBelowLine )
+		          boxH = ( finalSummaryDict.Ubound + 1 ) * ( g.TextHeight +spaceAboveLine + spaceBelowLine ) + 4
 		          boxW = summaryXValue - ( 90 * masterMult ) - margin
+		          infoBoxWidth = boxW
 		          
 		          'Left Line
 		          boxX = margin + ( 30 * masterMult )
@@ -960,10 +969,15 @@ Protected Class drawEstimate
 		          
 		        Else
 		          
-		          If finalSummaryIndex - 1 >= 0 And finalSummaryIndex - 1 <= infoBoxDict.Ubound Then
-		            
+		          'If finalSummaryIndex - 1 >= 0 And finalSummaryIndex - 1 <= infoBoxDict.Ubound Then
+		          If finalSummaryIndex = 1 Then
 		            boxX = margin + ( 30 * masterMult ) + ( 10 * masterMult )
-		            g.DrawString( infoBoxDict( finalSummaryIndex - 1 ), boxX, yinfobox )
+		            If Type = "Estimate" Then
+		              'g.DrawString( infoBoxDict( finalSummaryIndex - 1 ), boxX, yinfobox )
+		              g.DrawString( estimateInfoBoxText, boxX, yinfobox, infoBoxWidth - margin )
+		            ElseIf Type = "Invoice" Then
+		              g.DrawString( invoiceInfoBoxText, boxX, yinfobox, infoBoxWidth - margin )
+		            End If
 		            
 		          End If
 		          

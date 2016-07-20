@@ -1276,6 +1276,16 @@ Protected Class drawEstimate
 		    MainWindow.TextField_EIPL_DueDate.Text ) ' ^^ = next Line
 		    headers() = Array( "Acount Manager", "Event Start", "Event End", "Load-In", "Load-Out", "Discount", "Tax", "Payment Due"   )
 		    
+		  ElseIf Type = "Pack List" Then
+		    
+		    'Set up headers and info sources
+		    info() = Array( MainWindow.TextField_Event_AcountManager.Text, _
+		    MainWindow.TextField_Event_StartTime.Text + "^^" + MainWindow.TextField_Event_StartDate.Text, _
+		    MainWindow.TextField_Event_EndTime.Text + "^^" + MainWindow.TextField_Event_EndDate.Text, _
+		    MainWindow.TextField_Event_LoadInTime.Text + "^^" + MainWindow.TextField_Event_LoadInDate.Text, _
+		    MainWindow.TextField_Event_LoadOutTime.Text + "^^" + MainWindow.TextField_Event_LoadOutDate.Text ) ' ^^ = next Line
+		    headers() = Array( "Acount Manager", "Event Start", "Event End", "Load-In", "Load-Out" )
+		    
 		  End If
 		  
 		  // Find the number of boxes

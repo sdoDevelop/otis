@@ -258,7 +258,6 @@ Begin Window Window_Login
       Selectable      =   False
       TabIndex        =   5
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "UserName"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -293,7 +292,6 @@ Begin Window Window_Login
       Selectable      =   False
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Password"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -328,7 +326,6 @@ Begin Window Window_Login
       Selectable      =   False
       TabIndex        =   7
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Server Address"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -363,7 +360,6 @@ Begin Window Window_Login
       Selectable      =   False
       TabIndex        =   8
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Port"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -398,7 +394,6 @@ Begin Window Window_Login
       Selectable      =   False
       TabIndex        =   9
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Database"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -474,7 +469,6 @@ Begin Window Window_Login
       Width           =   80
    End
    Begin zPrefs zPrefsLogin
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Scope           =   0
@@ -588,7 +582,6 @@ Begin Window Window_Login
       Selectable      =   False
       TabIndex        =   15
       TabPanelIndex   =   0
-      TabStop         =   True
       Text            =   "Version"
       TextAlign       =   0
       TextColor       =   &c00000000
@@ -615,7 +608,11 @@ End
 		Function login() As Boolean
 		  dim thereturn as RecordSet
 		  dim connected as Boolean
+		  dim ps as PostgreSQLPreparedStatement
+		  dim SQL as string
 		  
+		  
+		  // Set database settings
 		  otis.db = New otis.sdoPostgreSQLDatabase
 		  otis.db.UserName = dbUsername
 		  otis.db.Password = dbPassword
@@ -624,7 +621,7 @@ End
 		  otis.db.DatabaseName = dbName
 		  
 		  
-		  
+		  // Try to connect
 		  If otis.db.Connect Then
 		    app.logged_in = True
 		    connected = True
@@ -633,9 +630,7 @@ End
 		    connected = False
 		  End If
 		  
-		  dim ps as PostgreSQLPreparedStatement
-		  dim SQL as string
-		  
+		  // Execute login tasks on the server
 		  SQL = "Select * From notification.login_tasks();"
 		  ps = otis.db.prepare( SQL )
 		  thereturn = ps.SQLSelect
@@ -643,8 +638,9 @@ End
 		    logErrorMessage( 4, "DBase", otis.db.errormessage )
 		  End If
 		  
-		  dim s as string = Otis.db.make_table_name
+		  'dim s as string = Otis.db.make_table_name
 		  
+		  // Start listening for the server to talk to us
 		  otis.db.set_up_listen_channel
 		  
 		  

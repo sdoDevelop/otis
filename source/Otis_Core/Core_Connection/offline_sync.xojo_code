@@ -16,7 +16,7 @@ Protected Module offline_sync
 		  remote_db = New otis.sdoPostgreSQLDatabase
 		  remote_db.UserName = "transferscout"
 		  remote_db.Password = "that would be logical"
-		  remote_db.Host = "192.168.10.201"
+		  remote_db.Host = "45.32.72.207"
 		  remote_db.Port = 5432
 		  remote_db.DatabaseName = "otisalpha"
 		  
@@ -38,63 +38,13 @@ Protected Module offline_sync
 
 	#tag Method, Flags = &h21
 		Private Function download_database() As Boolean
-		  dim SQL as string
-		  dim ps as PostgreSQLPreparedStatement
-		  dim theReturn as RecordSet
-		  dim theTableString as String
-		  dim theBoolean as Boolean
-		  dim errorOccurred as Boolean
-		  
-		  dim x1 as integer
+		  dim s as Shell
+		  dim s1 as string
 		  
 		  
-		  // Aquire the names of all the tables to download
-		  SQL = "Select table_name From information_schema.tables Where table_schema = 'public';"
-		  ps = remote_db.Prepare( SQL )
-		  theReturn = ps.SQLSelect
-		  If remote_db.Error Then
-		    logErrorMessage( 3, "DBase", remote_db.ErrorMessage )
-		    errorOccurred = True
-		  End If
+		  'make sure we check the users credentials before downloading the database
 		  
-		  // Transfer table names into array
-		  While Not theReturn.EOF
-		    
-		    x1 = theReturn.RecordCount - 1
-		    
-		    ReDim theTables( x1 )
-		    
-		    theTables( x1 ) = theReturn.Field( "table_name" )
-		    
-		    'theRecordSet.MoveNext
-		    
-		  Wend
-		  
-		  theTableString = Join( theTables(), ", " )
-		  ReDim theRecordSet( theTables.Ubound )
-		  
-		  For i1 as integer = 0 To theTables.Ubound
-		    
-		    'SQL = "Select * From " + theTableString( i1 ) + " ;"
-		    ps = remote_db.Prepare( SQL )
-		    theRecordSet( i1 ) = ps.SQLSelect
-		    If remote_db.Error Then
-		      logErrorMessage( 3, "DBase", remote_db.ErrorMessage )
-		      errorOccurred = True
-		    End If
-		    
-		  Next
-		  
-		  If theRecordSet.Ubound = -1 Then
-		    logErrorMessage( 3, "RecordSet", "No Tables Downloaded from remote_db" )
-		  End If
-		  
-		  
-		  If errorOccurred Then
-		    Return False
-		  Else
-		    Return True
-		  End If
+		  's1 = "pg_dump -C -c -h 45.32.72.207 -U transfer_monkey otisalpha | psql -h localhost -U transfer_monkey otisalpha"
 		  
 		End Function
 	#tag EndMethod

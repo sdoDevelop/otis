@@ -166,6 +166,40 @@ Protected Module offline_sync
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Sub scriptyes()
+		  dim theLineArray() as string
+		  dim runBefore as Boolean
+		  
+		  
+		  
+		  // Check if we have run this app before
+		  
+		  'load pref file named "run_before.txt"
+		  theLineArray() = zPrefsLogin.readFile( "run_before.txt" )
+		  
+		  'Read the contents of the file
+		  If theLineArray.Ubound <> -1 Then  'The File exists
+		    If theLineArray(0) = "True" Then
+		      runBefore = True
+		    ElseIf theLineArray(0) = "False" Then
+		      runBefore = False
+		    End If
+		  Else
+		    runBefore = False
+		  End If
+		  
+		  
+		  
+		  ' now if this app has run before then we shouldn't need to pull the whole database
+		  ' we just need to pull the new sql statements down from the server and run them
+		  
+		  // Connect to the remote db
+		  
+		  '
+		End Sub
+	#tag EndMethod
+
 
 	#tag Property, Flags = &h21
 		Private local_db As PostgreSQLDatabase

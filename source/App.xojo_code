@@ -113,6 +113,10 @@ Inherits Application
 	#tag EndNote
 
 
+	#tag Property, Flags = &h21
+		Private been_Run As Boolean
+	#tag EndProperty
+
 	#tag Property, Flags = &h0
 		logged_in As Boolean
 	#tag EndProperty
@@ -138,6 +142,11 @@ Inherits Application
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="logged_in"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
 #tag EndClass

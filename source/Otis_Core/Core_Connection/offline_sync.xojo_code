@@ -1,7 +1,69 @@
 #tag Module
 Protected Module offline_sync
 	#tag Method, Flags = &h21
-		Private Function connect_databases() As Boolean
+		Private Function check_db_version() As Boolean
+		  dim rs_remote, rs_local as RecordSet
+		  dim sql_remote, sql_local as string
+		  dim ps_remote, ps_local as PostgreSQLPreparedStatement
+		  dim n1, n2, n3, n4 as integer
+		  dim s1, s2, s3, s4 as string
+		  dim version_mismatch as Boolean
+		  
+		  
+		  sql_remote = "Select * From info_schema.dbinfo ; "
+		  sql_local = sql_remote
+		  
+		  // Pull the info from each databse
+		  ps_remote = remote_db.Prepare( sql_remote )
+		  ps_local = local_db.Prepare( sql_local )
+		  
+		  rs_remote = ps_remote.SQLSelect
+		  rs_local = ps_local.SQLSelect
+		  
+		  If remote_db.Error Then
+		    logErrorMessage( 3, "offline_sync", "could not pull remote_db version" )
+		  End If
+		  If local_db.Error Then
+		    logErrorMessage( 3, "offline_sync", "could not pull local_db version" )
+		    If not remote_db.Error Then
+		      version_mismatch = True
+		      Exit
+		    End If
+		  End If
+		  
+		  // Compare Versions
+		  For i1 as integer = 1 To 3
+		    
+		    Select Case i1
+		    Case 1
+		      s1 = "major_version"
+		    Case 2
+		      s1 = "minor_version"
+		    Case 3 
+		      s1 = "build_version"
+		    End Select
+		    
+		    
+		    n1 = rs_remote.Field( s1 ).IntegerValue
+		    n2 = rs_local.Field( s1 ).IntegerValue
+		    
+		    If n1 > n2 Then
+		      version_mismatch = True
+		    End If
+		    
+		    If version_mismatch Then
+		      Exit
+		    End If
+		    
+		  Next
+		  
+		  Return version_mismatch
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Function connect_databases(db_name as string) As Boolean
 		  
 		  // Local Connection
 		  local_db = New otis.sdoPostgreSQLDatabase
@@ -9,7 +71,7 @@ Protected Module offline_sync
 		  local_db.Password = "that would be logical"
 		  local_db.Host = "localhost"
 		  local_db.Port = 5432
-		  local_db.DatabaseName = "otislocal"
+		  local_db.DatabaseName = db_name
 		  
 		  
 		  // Remote connection
@@ -18,7 +80,7 @@ Protected Module offline_sync
 		  remote_db.Password = "that would be logical"
 		  remote_db.Host = "45.32.72.207"
 		  remote_db.Port = 5432
-		  remote_db.DatabaseName = "otisalpha"
+		  remote_db.DatabaseName = db_name
 		  
 		  If local_db.Connect Then
 		  Else
@@ -37,166 +99,69 @@ Protected Module offline_sync
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function download_database() As Boolean
-		  dim s as Shell
-		  dim s1 as string
-		  
-		  
-		  'make sure we check the users credentials before downloading the database
-		  
-		  's1 = "pg_dump -C -c -h 45.32.72.207 -U transfer_monkey otisalpha | psql -h localhost -U transfer_monkey otisalpha"
-		  
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
 		Private Sub master()
 		  
 		  
 		  
+		  
 		  // Connect to databases
-		  If Not connect_databases Then
+		  If Not connect_databases( "postgress" ) Then
 		    logErrorMessage( 4, "DBase", "Could not connect, check error log" )
 		  End If
 		  
-		  // Download each table from the remote_db
-		  If Not download_database Then
-		    logErrorMessage( 4, "RemoteDBase", "Trouble downloading tables, check error log" )
+		  // Check the version of the local database
+		  If check_db_version Then  'there is a version mismatch
+		    update_database
 		  End If
 		  
-		  // Populate the local_db
-		  If Not populate_local_db Then
-		    logErrorMessage( 4, "LocalDBase", "Trouble populating local_db, check error log" )
-		  End If
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function populate_local_db() As Boolean
-		  dim fieldNameString as string
-		  dim fieldValueString as Variant
-		  dim fieldNames() as string
-		  dim sArray() as string
-		  dim s1, s2, s3, s4 as string
+		Private Sub update_database()
+		  dim rs_remote, rs_local as RecordSet
+		  dim sql_remote, sql_local as string
+		  dim ps_remote, ps_local as PostgreSQLPreparedStatement
 		  dim n1, n2, n3, n4 as integer
-		  
-		  dim SQL as string
-		  dim ps as PostgreSQLPreparedStatement
-		  dim theDELETESQL as string
-		  dim theDELETEPS as PostgreSQLPreparedStatement
-		  
-		  dim errorOccurred as Boolean
+		  dim s1, s2, s3, s4 as string
+		  dim sql_statements() as string
 		  
 		  
-		  // Loop through tables
-		  For i1 as integer = 0 To theTables.Ubound
+		  sql_remote = "Select * From db_creation ; "
+		  ps_remote = remote_db.Prepare( sql_remote )
+		  rs_remote = ps_remote.SQLSelect
+		  If remote_db.Error Then
+		    logErrorMessage( 3, "offline_sync", "could not pull creation scripts" )
+		  End If
+		  
+		  // Loop through each record
+		  For i1 as integer = 1 To rs_remote.RecordCount
 		    
-		    theDELETESQL = "Delete From " + theTables(i1) + ";"
-		    theDELETEPS = local_db.Prepare(theDELETESQL)
-		    theDELETEPS.SQLExecute
-		    If local_db.Error Then
-		      logErrorMessage( 3, "LocalDBase", "Could Not delete table " + theTables(i1) + ": " + local_db.ErrorMessage )
-		      errorOccurred = True
-		    End If
+		    // Pull the current script into a string
+		    s1 = rs_remote.Field( "script_contents" )
 		    
-		    'theRecordSet().MoveFirst
+		    // Split that string into seperate statements
+		    sql_statements() = Split( s1, ";" )
 		    
-		    For i2 as integer = 1 to theRecordSet(i1).RecordCount
-		      ReDim sArray( i2 - 1 )
-		      sArray( i2 - 1 ) = "$" + i2.ToText
+		    For i2 as integer = 0 To sql_statements.Ubound
 		      
-		      ReDim fieldNames( i2 - 1 )
-		      'fieldNames( i2 - 1 ) = theRecordSet(i1).Field.Name
-		    Next
-		    s1 = Join( sArray(), ", " )
-		    fieldNameString = Join( fieldNames(), ", " )
-		    
-		    n4 = 0
-		    
-		    // Loop through each record
-		    While Not theRecordSet(i1).EOF
-		      
-		      n4 = n4 + 1
-		      
-		      For i2 as integer = 1 to theRecordSet(i1).RecordCount
-		        ReDim sArray( i2 - 1 )
-		        sArray( i2 - 1 ) = "$" + i2.ToText
-		      Next
-		      s1 = Join( sArray(), ", " )
-		      
-		      SQL = "Insert Into " + theTables(i1) + " ( " + fieldNameString + " ) Values ( " + s1 + " ) ; "
-		      ps = local_db.Prepare(SQL)
-		      ps.SQLExecute
+		      ps_local = local_db.Prepare( sql_statements( i2 ) )
+		      ps_local.SQLExecute
 		      If local_db.Error Then
-		        logErrorMessage( 3, "LocalDBase", "Error Adding Row " + n4.ToText + ": " + local_db.ErrorMessage )
-		        errorOccurred = True
+		        logErrorMessage( 3, "offline_sync", local_db.ErrorMessage )
 		      End If
 		      
-		      theRecordSet(i1).MoveNext
-		      
-		    Wend
+		    Next
+		    
+		    If rs_remote.Field( "switch_db" ) = "yes" Then
+		      If Not connect_databases( "otis_main" ) Then
+		        logErrorMessage( 4, "offline_sync", "could not connect to databases"
+		      End If
+		    End If
+		    
 		    
 		  Next
 		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub scriptyes()
-		  dim theLineArray() as string
-		  dim runBefore as Boolean
-		  
-		  
-		  
-		  // Check if we have run this app before
-		  
-		  'load pref file named "run_before.txt"
-		  theLineArray() = zPrefsLogin.readFile( "run_before.txt" )
-		  
-		  'Read the contents of the file
-		  If theLineArray.Ubound <> -1 Then  'The File exists
-		    If theLineArray(0) = "True" Then
-		      runBefore = True
-		    ElseIf theLineArray(0) = "False" Then
-		      runBefore = False
-		    End If
-		  Else
-		    runBefore = False
-		  End If
-		  
-		  
-		  
-		  ' now if this app has run before then we shouldn't need to pull the whole database
-		  ' we just need to pull the new sql statements down from the server and run them
-		  
-		  // Connect to the remote db
-		  
-		  '
 		End Sub
 	#tag EndMethod
 
@@ -209,49 +174,6 @@ Protected Module offline_sync
 		Private remote_db As PostgreSQLDatabase
 	#tag EndProperty
 
-	#tag Property, Flags = &h21
-		Private theRecordSet() As RecordSet
-	#tag EndProperty
 
-	#tag Property, Flags = &h21
-		Private theTables() As String
-	#tag EndProperty
-
-
-	#tag ViewBehavior
-		#tag ViewProperty
-			Name="Index"
-			Visible=true
-			Group="ID"
-			InitialValue="-2147483648"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Left"
-			Visible=true
-			Group="Position"
-			InitialValue="0"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Name"
-			Visible=true
-			Group="ID"
-			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Super"
-			Visible=true
-			Group="ID"
-			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Top"
-			Visible=true
-			Group="Position"
-			InitialValue="0"
-			Type="Integer"
-		#tag EndViewProperty
-	#tag EndViewBehavior
 End Module
 #tag EndModule

@@ -9,7 +9,7 @@ Begin Window Window_status_log
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   400
+   Height          =   428
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
@@ -25,7 +25,7 @@ Begin Window Window_status_log
    Resizeable      =   True
    Title           =   "Status"
    Visible         =   True
-   Width           =   600
+   Width           =   604
    Begin TextArea TextArea_log
       AcceptTabs      =   False
       Alignment       =   0
@@ -43,7 +43,7 @@ Begin Window Window_status_log
       HideSelection   =   True
       Index           =   -2147483648
       Italic          =   False
-      Left            =   16
+      Left            =   18
       LimitText       =   0
       LineHeight      =   0.0
       LineSpacing     =   1.0
@@ -67,7 +67,7 @@ Begin Window Window_status_log
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   11
+      Top             =   39
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
@@ -80,6 +80,133 @@ Begin Window Window_status_log
       Period          =   500
       Scope           =   2
       TabPanelIndex   =   0
+   End
+   Begin PushButton PushButton_find_errors
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "Errors"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   2
+      TabIndex        =   1
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   7
+      Underline       =   False
+      Visible         =   True
+      Width           =   63
+   End
+   Begin PushButton PushButton_prev
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "<"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   86
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   2
+      TabIndex        =   2
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   7
+      Underline       =   False
+      Visible         =   True
+      Width           =   30
+   End
+   Begin PushButton PushButton_next
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   ">"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   120
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   2
+      TabIndex        =   3
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   7
+      Underline       =   False
+      Visible         =   True
+      Width           =   30
+   End
+   Begin Label Label_index
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   155
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   2
+      Selectable      =   False
+      TabIndex        =   4
+      TabPanelIndex   =   0
+      Text            =   "index"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   7
+      Transparent     =   True
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
    End
 End
 #tag EndWindow
@@ -99,13 +226,35 @@ End
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Sub select_error(error_number as integer)
+		  dim n1, n2, n3, err_loc as integer
+		  
+		  err_loc = errors( error_number )
+		  
+		  TextArea_log.SelStart = err_loc
+		  TextArea_log.SelLength = 7
+		  
+		  n1 = TextArea_log.LineNumAtCharPos( err_loc )
+		  TextArea_log.ScrollPosition = n1
+		End Sub
+	#tag EndMethod
+
 
 	#tag Property, Flags = &h1
 		Protected backlog_() As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
+		Private current_error As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
 		Private current_ubound As Integer = -1
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private errors() As Integer
 	#tag EndProperty
 
 
@@ -125,6 +274,73 @@ End
 		    current_ubound = backlog_.Ubound
 		    
 		  End If
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton_find_errors
+	#tag Event
+		Sub Action()
+		  dim endLoop as Boolean
+		  dim s1, s2, s3, s4 as string
+		  dim err_loc, n2, start as integer
+		  
+		  ReDim errors(-1)
+		  s1 = TextArea_log.Text
+		  
+		  While Not endLoop 
+		    
+		    err_loc = InStr( start, s1, "[Error]" )
+		    
+		    If err_loc = 0 Then
+		      endLoop = True
+		      Exit
+		    End If
+		    
+		    n2 = errors.Ubound + 1
+		    redim errors(n2)
+		    errors(n2) = err_loc
+		    
+		    start = err_loc + 1
+		    
+		  Wend
+		  
+		  
+		  Label_index.Text = "1 of " + str( errors.Ubound + 1 )
+		  current_error = 1
+		  select_error( 1 )
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton_prev
+	#tag Event
+		Sub Action()
+		  dim n1, n2, n3, n4 as integer
+		  
+		  
+		  n1 = current_error
+		  n1 = n1 - 1
+		  If n1 < 1 Then
+		    n1 = 1
+		  End If
+		  
+		  select_error( n1 )
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton_next
+	#tag Event
+		Sub Action()
+		  dim n1, n2, n3, n4 as integer
+		  
+		  
+		  n1 = current_error
+		  n1 = n1 + 1
+		  If n1 > errors.Ubound - 1 Then
+		    n1 = 1
+		  End If
+		  
+		  select_error( n1 )
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -137,6 +137,18 @@ Inherits postgreSQLDatabase
 		Protected table_name As string
 	#tag EndProperty
 
+	#tag Property, Flags = &h1
+		Protected version_build As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h1
+		Protected version_major As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h1
+		Protected version_minor As Integer
+	#tag EndProperty
+
 
 	#tag ViewBehavior
 		#tag ViewProperty

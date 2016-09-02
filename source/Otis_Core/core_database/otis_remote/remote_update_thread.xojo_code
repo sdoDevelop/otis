@@ -5,19 +5,34 @@ Inherits Thread
 		Sub Run()
 		  dim sql as string
 		  dim ps as PostgreSQLPreparedStatement
+		  dim dt as new date
+		  
 		  
 		  
 		  For i1 as integer = 0 To statements.Ubound
 		    
 		    sql = statements(i1)
 		    ps = otis_remote.db.prepare( sql )
+		    
 		    ps.SQLExecute
 		    If otis_remote.db.error Then
 		      otis_remote.db.log_current_error
 		      Exit
 		    End If
 		    
-		    sql = "Insert Into info_schema.statment_log 
+		    sql = "Insert Into info_schema.statment_log ( user_name, execution_time, statement_ ) Values( $1, $2, $3 ) ;"
+		    ps = otis_remote.db.prepare( sql )
+		    ps.Bind( 0, otis_remote.db.username )
+		    ps.Bind( 1, dt )
+		    ps.Bind( 2, statements(i1) )
+		    
+		    ps.SQLExecute
+		    If otis_remote.db.error Then
+		      otis_remote.db.log_current_error
+		      Exit
+		    End If
+		    
+		  Next
 		End Sub
 	#tag EndEvent
 

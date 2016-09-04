@@ -8,9 +8,10 @@ Inherits Thread
 		  dim dt as new date
 		  
 		  
-		  
+		  // Loop through each statement in our statments() array
 		  For i1 as integer = 0 To statements.Ubound
 		    
+		    // execute our statement from the log
 		    sql = statements(i1)
 		    ps = otis_remote.db.prepare( sql )
 		    
@@ -20,6 +21,7 @@ Inherits Thread
 		      Exit
 		    End If
 		    
+		    // Add the statement we just executed to the server sql_log
 		    sql = "Insert Into info_schema.statment_log ( user_name, execution_time, statement_ ) Values( $1, $2, $3 ) ;"
 		    ps = otis_remote.db.prepare( sql )
 		    ps.Bind( 0, otis_remote.db.username )

@@ -1,33 +1,14 @@
-#tag Class
-Protected Class otisPostgreSQL
-Inherits postgreSQLDatabase
-	#tag Method, Flags = &h0
-		Sub log_current_error()
-		  dim err as ind_error
-		  
-		  err.time = new Date
-		  err.facility = "otisSQLite"
-		  err. error_code = ErrorCode
-		  err.message = ErrorMessage
-		  
-		  errario.go(err)
+#tag Module
+Protected Module errario
+	#tag Method, Flags = &h1
+		Protected Sub go(err as ind_error)
+		  // Accepts an error and manages the shit out of it
+		  // overloaded
+		  //      - one eccepts type ind_error
+		  //      - one accepts the parameters ( time, facility, error_code, message )
+		  //      - one accepsts just ( message )
 		End Sub
 	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub log_error(err as ind_error)
-		  errario.go(err)
-		End Sub
-	#tag EndMethod
-
-
-	#tag Property, Flags = &h0
-		#tag Note
-			each error gets an array element
-			
-		#tag EndNote
-		error_log() As ind_error
-	#tag EndProperty
 
 
 	#tag ViewBehavior
@@ -65,5 +46,5 @@ Inherits postgreSQLDatabase
 			Type="Integer"
 		#tag EndViewProperty
 	#tag EndViewBehavior
-End Class
-#tag EndClass
+End Module
+#tag EndModule

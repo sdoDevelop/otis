@@ -1,35 +1,5 @@
 #tag Class
-Protected Class otisPostgreSQL
-Inherits postgreSQLDatabase
-	#tag Method, Flags = &h0
-		Sub log_current_error()
-		  dim err as ind_error
-		  
-		  err.time = new Date
-		  err.facility = "otisSQLite"
-		  err. error_code = ErrorCode
-		  err.message = ErrorMessage
-		  
-		  errario.go(err)
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub log_error(err as ind_error)
-		  errario.go(err)
-		End Sub
-	#tag EndMethod
-
-
-	#tag Property, Flags = &h0
-		#tag Note
-			each error gets an array element
-			
-		#tag EndNote
-		error_log() As ind_error
-	#tag EndProperty
-
-
+Protected Class Class1
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Index"

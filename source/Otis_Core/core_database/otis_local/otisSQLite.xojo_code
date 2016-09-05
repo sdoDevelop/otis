@@ -22,8 +22,8 @@ Inherits SQLiteDatabase
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub log_current_error()
+	#tag Method, Flags = &h1
+		Protected Sub log_current_error()
 		  dim n as integer
 		  dim err as ind_error
 		  
@@ -32,15 +32,12 @@ Inherits SQLiteDatabase
 		  err. error_code = ErrorCode
 		  err.message = ErrorMessage
 		  
-		  n = error_log.Ubound + 1
-		  
-		  error_log(n) = err
+		  errario.go(err)
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub log_error(time as Date, facility as string, error_code as integer, message as string)
-		  dim n as integer
+	#tag Method, Flags = &h1
+		Protected Sub log_error(time as Date, facility as string, error_code as integer, message as string)
 		  dim err as ind_error
 		  
 		  err.time = time
@@ -48,19 +45,32 @@ Inherits SQLiteDatabase
 		  err. error_code = error_code
 		  err.message = message
 		  
-		  n = error_log.Ubound + 1
-		  
-		  error_log(n) = err
+		  errario.go(err)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub log_error(err as ind_error)
+		  errario.go(err)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub log_error(err as ind_error)
-		  dim n as integer
+		Sub offline_sql_log(statement as String)
+		  dim pq as SQLitePreparedStatement
+		  dim sql as string
+		  dim date_ as new date
 		  
-		  n = error_log.Ubound + 1
 		  
-		  error_log(n) = err
+		  sql = "Insert Into sql_log ( creation_ts, username_, sql_statment ) Values( $1, $2, $3 ) ; "
+		  pq = me.Prepare( sql )
+		  pq.Bind( 0, date_.SQLDateTime )
+		  pq.Bind( 1, ".." )
+		  pq.Bind( 2, statement )
+		  pq.SQLExecute
+		  If me.Error Then
+		    log_current_error
+		  End If
 		End Sub
 	#tag EndMethod
 
@@ -78,6 +88,7 @@ Inherits SQLiteDatabase
 
 	#tag Method, Flags = &h0
 		Sub SQLExecuteU()
+		  dim s1 as string
 		  
 		  // Execute the statement
 		  ps.SQLExecute
@@ -88,16 +99,72 @@ Inherits SQLiteDatabase
 		    Return
 		  End If
 		  
+		  // Check if this is a select statment...shouldn't be since this is SQLExecute...
+		  s1 = Left( current_sql, 7 ) 
+		  If InStr( s1, "Select" ) > 0 Then
+		    // it is a select statement, which we don't need to do anything else
+		    Return
+		  End If
+		  
 		  // Check if we are online
 		  If online_status Then
 		    
 		    // we are online
 		    // Update the server
-		    otis_remote.rut.run
+		    otis_remote.rut.add_querry( current_sql )
 		    
+		    
+		  Else
+		    
+		    // we are offline
+		    // log the sql statemtent
+		    offline_sql_log( current_sql )
 		    
 		  End If
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function SQLSelectU() As RecordSet
+		  dim s1 as string
+		  dim rs as RecordSet
+		  
+		  // Execute the statement
+		  rs = ps.SQLSelect
+		  
+		  // Check for errors
+		  If me.Error Then
+		    log_current_error
+		    Return
+		  End If
+		  
+		  // Check if this is a select statment
+		  s1 = Left( current_sql, 7 ) 
+		  If InStr( s1, "Select" ) > 0 Then
+		    // it is a select statement, which we don't need to do anything else
+		    Return
+		  Else
+		    // since its not a select statment we can update the server
+		    
+		    // Check if we are online
+		    If online_status Then
+		      
+		      // we are online
+		      // Update the server
+		      otis_remote.rut.add_querry( current_sql )
+		      
+		    Else
+		      
+		      // we are offline
+		      // log the sql statemtent
+		      offline_sql_log( current_sql )
+		      
+		    End If
+		    
+		  End If
+		  
+		  
+		End Function
 	#tag EndMethod
 
 

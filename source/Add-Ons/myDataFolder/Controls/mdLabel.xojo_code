@@ -18,10 +18,10 @@ Inherits Label
 		  // Start our database transaction
 		  otis.db.SQLExecute( "Begin Transaction;" )
 		  
-		  ps = otis.db.Prepare( theSQL )
+		  otis_local.db.prepareU( theSQL )
 		  
 		  // Grab our field from the Database
-		  theRecordSet = ps.SQLSelect
+		  theRecordSet = otis_local.db.SQLSelectU
 		  
 		  // Catch any error
 		  If otis.db.Error Then

@@ -19,8 +19,8 @@ Inherits postgreSQLDatabase
 		  
 		  // pull all new notifications down from server
 		  SQL = "Select * From " + s1 + " Where checked_ = False ;"
-		  ps = otis.db.prepare( SQL )
-		  theRecordSet = ps.SQLSelect
+		  otis_local.db.prepareU( SQL )
+		  theRecordSet = otis_local.db.SQLSelectU
 		  If Otis.db.error Then
 		    logErrorMessage( 3, "DBase", otis.db.errormessage )
 		  End If
@@ -50,7 +50,7 @@ Inherits postgreSQLDatabase
 		      // delete the checked notifications
 		      s2 = theRecordSet.Field( "pkid" ).StringValue
 		      SQL = "Delete From " + table_name + " Where pkid = '" + s2 + "' ; "
-		      ps = otis.db.prepare( SQL )
+		      otis_local.db.prepareU( SQL )
 		      ps.SQLExecute
 		      If Otis.db.error Then
 		        logErrorMessage( 3, "DBase", otis.db.errormessage )
@@ -83,7 +83,7 @@ Inherits postgreSQLDatabase
 		      // delete the checked notifications
 		      s2 = theRecordSet.Field( "pkid" ).StringValue
 		      SQL = "Delete From " + table_name + " Where pkid = '" + s2 + "' ; "
-		      ps = otis.db.prepare( SQL )
+		      otis_local.db.prepareU( SQL )
 		      ps.SQLExecute
 		      If Otis.db.error Then
 		        logErrorMessage( 3, "DBase", otis.db.errormessage )

@@ -76,13 +76,13 @@ Inherits Checkbox
 		  theSQL = "Select " + mdfieldName + " From " + mdTableName + " Where " + mdpkFieldName + " = $1 ;"
 		  
 		  // Prepare statement
-		  ps = otis.db.Prepare( theSQL )
+		  otis_local.db.prepareU( theSQL )
 		  
 		  // Bind our values
 		  ps.Bind( 0, mdpkValue )
 		  
 		  // Execute our select
-		  theRecordSet = ps.SQLSelect
+		  theRecordSet = otis_local.db.SQLSelectU
 		  
 		  // Grab our Value
 		  theValue = theRecordSet.Field( mdfieldName ).BooleanValue
@@ -105,7 +105,7 @@ Inherits Checkbox
 		  
 		  // Prepare our sql
 		  theSQL = "Update " + mdTableName + " Set " + mdfieldName + " = $1 Where " + mdpkFieldName + " = $2 ; "
-		  ps = otis.db.Prepare( theSQL )
+		  otis_local.db.prepareU( theSQL )
 		  ps.Bind( 0, theValue )
 		  ps.Bind( 1, mdpkValue )
 		  

@@ -143,7 +143,7 @@ Inherits Listbox
 		    // Build the SQL
 		    theSQL = "Delete From " + mdTableName + " Where pkid = $1 ; "
 		    
-		    ps = otis.db.Prepare( theSQL )
+		    otis_local.db.prepareU( theSQL )
 		    ps.Bind( 0, thepkid )
 		    ps.SQLExecute
 		    
@@ -314,11 +314,11 @@ Inherits Listbox
 		  
 		  
 		  // Prepare the statement
-		  ps = otis.db.Prepare( theSQL )
+		  otis_local.db.prepareU( theSQL )
 		  
 		  // Execute and put the results into a recordset
 		  otis.db.SQLExecute( "Begin Transaction" )
-		  theRecordSet = ps.SQLSelect
+		  theRecordSet = otis_local.db.SQLSelectU
 		  If otis.db.error Then
 		    logErrorMessage( 4, "DB", "Could Not Load: " + otis.db.ErrorMessage )
 		  End If
@@ -749,9 +749,9 @@ Inherits Listbox
 		  // *****Database Connection*****
 		  // Prepare SQL
 		  theSQL = "Select " + Join( theFieldNameArray(), ", " ) + " From " + mdTableName + " Where pkid = $1;"
-		  ps = otis.db.Prepare( theSQL )
+		  otis_local.db.prepareU( theSQL )
 		  ps.Bind( 0, theRowTag.pkid )
-		  theRecordSet = ps.SQLSelect
+		  theRecordSet = otis_local.db.SQLSelectU
 		  if otis.db.Error Then
 		    logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
 		  End If
@@ -1004,7 +1004,7 @@ Inherits Listbox
 		  theSQL = "Update " + s1 + " Set " + s2 + " = $1 Where " + mdpkFieldName + " = $2 ;"
 		  
 		  // Prepare the statement
-		  ps = otis.db.prepare( theSQL )
+		  otis_local.db.prepareU( theSQL )
 		  ps.Bind( 0, theValue )
 		  ps.Bind( 1, thepkid )
 		  

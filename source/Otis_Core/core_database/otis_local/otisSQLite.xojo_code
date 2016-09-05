@@ -1,8 +1,8 @@
 #tag Class
 Protected Class otisSQLite
 Inherits SQLiteDatabase
-	#tag Method, Flags = &h0
-		Sub bindU(values() As Variant)
+	#tag Method, Flags = &h1
+		Protected Sub bindU(values() As Variant)
 		  dim finish as Boolean
 		  dim s1, s2, sql as string
 		  dim n1 as integer
@@ -23,7 +23,57 @@ Inherits SQLiteDatabase
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub log_current_error()
+		Protected Function connectU() As Boolean
+		  Dim f As FolderItem
+		  f = New FolderItem("MyDB.sqlite")
+		  
+		  Dim db As New otisSQLite
+		  me.DatabaseFile = f
+		  If db.CreateDatabaseFile Then
+		    // proceed with database operations...
+		  Else
+		    MsgBox("Database not created. Error: " + db.ErrorMessage)
+		  End If
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub connect_db()
+		  
+		  me.DatabaseFile = resource_stor.db_folder.Child( "otis.sqlite" )
+		  
+		  
+		  // Connect if it already exists
+		  If dbFile <> Nil And dbFile.Exists Then
+		    dbFile.Delete
+		  End If
+		  
+		  // Create the SQLite DB
+		  App.DB = New SQLiteDatabase
+		  App.DB.DatabaseFile = dbFile
+		  
+		  If App.DB.CreateDatabaseFile Then
+		    mIsConnected = True
+		    CreateStatusLabel.Text = "OK."
+		  Else
+		    mIsConnected = False
+		    CreateStatusLabel.Text = "Error: " + App.DB.ErrorMessage
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function IsConnected() As Boolean
+		  If App.DB Is Nil Then
+		    mIsConnected = False
+		  End If
+		  
+		  Return mIsConnected
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub log_current_error()
 		  dim n as integer
 		  dim err as ind_error
 		  
@@ -36,8 +86,8 @@ Inherits SQLiteDatabase
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Sub log_error(time as Date, facility as string, error_code as integer, message as string)
+	#tag Method, Flags = &h21
+		Private Sub log_error(time as Date, facility as string, error_code as integer, message as string)
 		  dim err as ind_error
 		  
 		  err.time = time
@@ -49,14 +99,14 @@ Inherits SQLiteDatabase
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Sub log_error(err as ind_error)
+	#tag Method, Flags = &h21
+		Private Sub log_error(err as ind_error)
 		  errario.go(err)
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub offline_sql_log(statement as String)
+	#tag Method, Flags = &h1
+		Protected Sub offline_sql_log(statement as String)
 		  dim pq as SQLitePreparedStatement
 		  dim sql as string
 		  dim date_ as new date
@@ -74,8 +124,8 @@ Inherits SQLiteDatabase
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub prepareU(statement As String)
+	#tag Method, Flags = &h1
+		Protected Sub prepareU(statement As String)
 		  
 		  
 		  
@@ -86,8 +136,8 @@ Inherits SQLiteDatabase
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub SQLExecuteU()
+	#tag Method, Flags = &h1
+		Protected Sub SQLExecuteU()
 		  dim s1 as string
 		  
 		  // Execute the statement
@@ -124,13 +174,13 @@ Inherits SQLiteDatabase
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Function SQLSelectU() As RecordSet
+	#tag Method, Flags = &h1
+		Protected Function SQLSelectU() As RecordSet
 		  dim s1 as string
 		  dim rs as RecordSet
 		  
 		  // Execute the statement
-		  rs = ps.SQLSelect
+		  rs = otis_local.db.SQLSelectU
 		  
 		  // Check for errors
 		  If me.Error Then

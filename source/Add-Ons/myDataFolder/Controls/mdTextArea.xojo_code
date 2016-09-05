@@ -78,10 +78,10 @@ Inherits TextArea
 		  // Start our database transaction
 		  otis.db.SQLExecute( "Begin Transaction;" )
 		  
-		  ps = otis.db.Prepare( theSQL )
+		  otis_local.db.prepareU( theSQL )
 		  
 		  // Grab our field from the Database
-		  theRecordSet = ps.SQLSelect
+		  theRecordSet = otis_local.db.SQLSelectU
 		  
 		  // Catch any error
 		  If otis.db.Error Then
@@ -137,7 +137,7 @@ Inherits TextArea
 		  // Create our SQL
 		  theSQL = "Update " + mdtableName + " Set " + mdfieldName + " = $1 Where " + mdpkFieldName + " = $2 ; "
 		  
-		  ps = otis.db.Prepare( theSQL )
+		  otis_local.db.prepareU( theSQL )
 		  
 		  // Bind our values
 		  ps.Bind( 0, theValue )

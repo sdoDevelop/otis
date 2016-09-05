@@ -445,9 +445,9 @@ Protected Module myData
 		  
 		  // Prepare SQL
 		  theSQL = "Select " + Join( theFieldNameArray(), ", " ) + " From " + pTableName + " Where pkid = $1;"
-		  ps = otis.db.Prepare( theSQL )
+		  otis_local.db.prepareU( theSQL )
 		  ps.Bind( 0, pPKID )
-		  theRecordSet = ps.SQLSelect
+		  theRecordSet = otis_local.db.SQLSelectU
 		  if otis.db.Error Then
 		    logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
 		  End If

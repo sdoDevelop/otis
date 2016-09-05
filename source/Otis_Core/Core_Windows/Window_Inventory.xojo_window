@@ -699,10 +699,10 @@ End
 		  theSQL = "Insert Into inventory Default Values Returning pkid;"
 		  
 		  // preparing the PreparedStatement
-		  ps = otis.db.Prepare( theSQL )
+		  otis_local.db.prepareU( theSQL )
 		  
 		  // Executing the select
-		  theRecordSet = ps.SQLSelect
+		  theRecordSet = otis_local.db.SQLSelectU
 		  
 		  // Refresh the Listbox
 		  Listbox_inventory.refreshMe

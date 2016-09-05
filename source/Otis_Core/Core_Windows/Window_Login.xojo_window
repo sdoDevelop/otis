@@ -638,12 +638,6 @@ End
 
 #tag WindowCode
 	#tag Method, Flags = &h0
-		Sub cancelLogin()
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Function login() As Boolean
 		  dim thereturn as RecordSet
 		  dim connected as Boolean
@@ -651,13 +645,8 @@ End
 		  dim SQL as string
 		  
 		  
-		  // Set database settings
-		  otis.db = New otis.sdoPostgreSQLDatabase
-		  otis.db.UserName = dbUsername
-		  otis.db.Password = dbPassword
-		  otis.db.Host = dbHost
-		  otis.db.Port = dbPort
-		  otis.db.DatabaseName = dbName
+		  // Set up our application data folder
+		  resource_stor.create_app_folder
 		  
 		  
 		  // Try to connect
@@ -671,8 +660,8 @@ End
 		  
 		  // Execute login tasks on the server
 		  SQL = "Select * From notification.login_tasks();"
-		  ps = otis.db.prepare( SQL )
-		  thereturn = ps.SQLSelect
+		  otis_local.db.prepareU( SQL )
+		  thereturn = otis_local.db.SQLSelectU
 		  If Otis.db.error Then
 		    logErrorMessage( 4, "DBase", otis.db.errormessage )
 		  End If
@@ -695,6 +684,7 @@ End
 		Sub myOpen()
 		  dim theLineArray() as Text
 		  dim stageCodeLetter as string
+		  dim have_password as Boolean
 		  
 		  Select Case app.StageCode
 		  Case 0
@@ -709,15 +699,7 @@ End
 		  
 		  Label_version.Text = app.MajorVersion.ToText + "." + app.MinorVersion.ToText + "." + app.BugVersion.ToText + stageCodeLetter + app.NonReleaseVersion.ToText
 		  
-		  
-		  // Set our variables that we know right away
-		  dbHost = "192.168.10.201"
-		  dbPort = 5432
-		  dbName = "otisalpha"
-		  
-		  
 		  // Lets grab our saved username and password from users.txt
-		  
 		  theLineArray() = zPrefsLogin.readFile( "users.txt" )
 		  
 		  If theLineArray.Ubound <> -1 Then  'The File exists
@@ -725,32 +707,33 @@ End
 		    dbUsername = theLineArray( 0 )
 		  End If
 		  
-		  // Grabbing password from keychain
-		  'If 1 = 1 Then 'code grabbed from xojo documentation
-		  
-		  Dim ItemToFind as KeyChainItem
-		  Dim password As String
-		  
-		  ItemToFind = New KeyChainItem
-		  
-		  'Indicate the name of the application whose keychain item you wish to find
-		  ItemToFind.ServiceName = dbUsername + "@Otis"
-		  
-		  'get application's password from the system keychain
-		  password = System.KeyChain.FindPassword(ItemToFind)
-		  dbPassword = password.ToText
-		  
-		  
-		  
-		  
+		  // If we have a username then we want to try to find the password
+		  If dbUsername <> "" Then
+		    
+		    // Grabbing password from keychain
+		    Dim ItemToFind as KeyChainItem
+		    Dim password As String
+		    
+		    ItemToFind = New KeyChainItem
+		    
+		    'Indicate the name of the application whose keychain item you wish to find
+		    ItemToFind.ServiceName = dbUsername + "@Otis"
+		    
+		    Try
+		      'get application's password from the system keychain
+		      password = System.KeyChain.FindPassword(ItemToFind)
+		    Catch err as KeyChainException
+		      have_password = False
+		    End Try
+		    If password.ToText <> "" Or have_passwordThen
+		      dbPassword = password.ToText
+		    End If
+		    
+		  End If
 		  
 		  // Set our fields to the variables
 		  TextField_Username.Text = dbUsername
 		  TextField_Password.Text = dbPassword
-		  TextField_serverAddress.Text = dbHost
-		  TextField_Port.Text = dbPort.ToText
-		  TextField_Database.Text = dbName
-		  
 		  
 		  // Center the window
 		  Left = (screen(0).Width - me.Width) / 2
@@ -768,53 +751,52 @@ End
 		  
 		  
 		  
-		  Exception err as KeyChainException
-		    app.MsgBoxAlert( "Can't find item", str( err.Message ).ToText, "Uh-Oh" )
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
 		End Sub
 	#tag EndMethod
 
@@ -831,11 +813,11 @@ End
 		    System.KeyChain.AddPassword NewItem, dbPassword
 		  Else
 		    Beep
-		    app.MsgBoxAlert( "You don't have a key chain", "No Password Saved", "Ok" )
+		    errario.go( "You don't have a key chain, No Password Saved, Ok" )
 		  End if
 		  
 		  Exception err as KeyChainException
-		    'app.MsgBoxAlert( "Can't add item", str( err.Message ).ToText, "Ok" )
+		    errario.go("Uh-Oh keychain Exception
 		End Sub
 	#tag EndMethod
 
@@ -849,12 +831,6 @@ End
 		  zPrefsLogin.clearLines( "users.txt" )
 		  zPrefsLogin.addLine( "users.txt", dbUsername )
 		  zPrefsLogin.writeFile( "users.txt" )
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h1
-		Protected Sub setupnotifications()
-		  
 		End Sub
 	#tag EndMethod
 

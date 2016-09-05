@@ -275,9 +275,9 @@ End
 		  
 		  // Get the LineItems from the server
 		  SQL = "Select lineitems.pkid, lineitems.name_, lineitems.price, eipl.eipl_nmbr From lineitems, eipl Where '"_
-		   + pLineitem_pkids + "' Like '%' || lineitems.pkid || '%' And lineitems.fkeipl = eipl.pkid ; " 
-		  ps = otis.db.prepare( SQL )
-		  theRecordSet = ps.SQLSelect
+		  + pLineitem_pkids + "' Like '%' || lineitems.pkid || '%' And lineitems.fkeipl = eipl.pkid ; " 
+		  otis_local.db.prepareU( SQL )
+		  theRecordSet = otis_local.db.SQLSelectU
 		  If otis.db.error Then
 		    logErrorMessage( 4, "DBase", otis.db.errormessage )
 		  End If
@@ -409,7 +409,7 @@ End
 		  
 		  // Get the LineItems from the server
 		  SQL = "Update lineitems Set price = " + price_.ToText + " Where '" + property_lineitem_pkids + "' Like '%' || pkid || '%'  ; " 
-		  ps = otis.db.prepare( SQL )
+		  otis_local.db.prepareU( SQL )
 		  ps.SQLExecute
 		  
 		  If otis.db.error Then
@@ -434,7 +434,7 @@ End
 		  
 		  // Get the LineItems from the server
 		  SQL = "Update lineitems Set price = " + price_.ToText + " Where '" + property_lineitem_pkids + "' Like '%' || pkid || '%'  ; " 
-		  ps = otis.db.prepare( SQL )
+		  otis_local.db.prepareU( SQL )
 		  ps.SQLExecute
 		  
 		  If otis.db.error Then
@@ -459,7 +459,7 @@ End
 		  
 		  // Get the LineItems from the server
 		  SQL = "Update lineitems Set price = " + price_.ToText + " Where '" + property_lineitem_pkids + "' Like '%' || pkid || '%'  ; " 
-		  ps = otis.db.prepare( SQL )
+		  otis_local.db.prepareU( SQL )
 		  ps.SQLExecute
 		  
 		  If otis.db.error Then
@@ -483,7 +483,7 @@ End
 		  
 		  // Get the LineItems from the server
 		  SQL = "Update lineitems Set ignore_price_discrepency = True Where '" + property_lineitem_pkids + "' Like '%' || pkid || '%'  ; " 
-		  ps = otis.db.prepare( SQL )
+		  otis_local.db.prepareU( SQL )
 		  ps.SQLExecute
 		  
 		  If otis.db.error Then
@@ -576,6 +576,11 @@ End
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="Highest_Price"
+		Group="Behavior"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="ImplicitInstance"
 		Visible=true
 		Group="Behavior"
@@ -597,6 +602,11 @@ End
 		InitialValue="True"
 		Type="Boolean"
 		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Lowest_Price"
+		Group="Behavior"
+		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MacProcID"
@@ -687,7 +697,8 @@ End
 	#tag ViewProperty
 		Name="property_lineitem_pkids"
 		Group="Behavior"
-		Type="Integer"
+		Type="String"
+		EditorType="MultiLineEditor"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Resizeable"

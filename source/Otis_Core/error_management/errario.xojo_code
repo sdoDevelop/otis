@@ -1,5 +1,23 @@
 #tag Module
 Protected Module errario
+	#tag Method, Flags = &h21
+		Private Sub alert_user()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub go(alert as boolean, time as date, facility as string, error_code as integer, message as string)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub go(time as date, facility as string, error_code as integer, message as string)
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h1
 		Protected Sub go(err as ind_error)
 		  // Accepts an error and manages the shit out of it
@@ -7,6 +25,28 @@ Protected Module errario
 		  //      - one eccepts type ind_error
 		  //      - one accepts the parameters ( time, facility, error_code, message )
 		  //      - one accepsts just ( message )
+		  
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub go(msg as String)
+		  // Accepts an error and manages the shit out of it
+		  // overloaded
+		  //      - one eccepts type ind_error
+		  //      - one accepts the parameters ( time, facility, error_code, message )
+		  //      - one accepsts just ( message )
+		  
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub log_error()
+		  
 		End Sub
 	#tag EndMethod
 

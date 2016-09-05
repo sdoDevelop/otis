@@ -8013,7 +8013,7 @@ End
 		    theSQL = "INSERT INTO lineitems ( fkeipl ) VALUES ( '" + theEIPLpkid + "' ) RETURNING pkid ;"
 		    
 		    // Execute sql and put contents into record set
-		    theRecordSet = otis.db.SQLSelect( theSQL )
+		    theRecordSet = otis_local.db.SQLSelectU( theSQL )
 		    if otis.db.Error then
 		      logErrorMessage( 4, "LineItem", otis.db.ErrorMessage )
 		    end if
@@ -8062,9 +8062,9 @@ End
 		    
 		    
 		    SQL = "Select * From lineitem_to_inventory( $1 );"
-		    ps = otis.db.Prepare( SQL )
+		    otis_local.db.prepareU( SQL )
 		    ps.Bind( 0, EIPLpkid )
-		    theRecordSet = ps.SQLSelect
+		    theRecordSet = otis_local.db.SQLSelectU
 		    If otis.db.Error Then
 		      logErrorMessage( 4, "DBase", "Could not add Line Item: Check error Log" )
 		      logErrorMessage( 3, "DBase", "Could not add Line Item: Check error Log" + otis.db.ErrorMessage )
@@ -8201,12 +8201,12 @@ End
 		    
 		    // Executing the script to duplicate eipls on the server
 		    theSQL = "Select * From mknexteipl( $1, $2 ) ;"
-		    ps = otis.db.Prepare( theSQL )
+		    otis_local.db.prepareU( theSQL )
 		    ps.Bind( 0, theEIPLpkid )
 		    ps.Bind( 1, p_mode )
 		    
 		    otis.db.SQLExecute( "Start Transaction;" )
-		    theSQLReturn = ps.SQLSelect
+		    theSQLReturn = otis_local.db.SQLSelectU
 		    otis.db.SQLExecute( "End Transaction;" )
 		    
 		    If otis.db.Error Then
@@ -8391,12 +8391,12 @@ End
 		  
 		  // Preparing SQL
 		  theSQL = "INSERT INTO eipl ( fkevents_ ) VALUES ( $1 ) RETURNING pkid ;"
-		  ps = otis.db.Prepare( theSQL )
+		  otis_local.db.prepareU( theSQL )
 		  ps.Bind( 0, theEventpkid )
 		  
 		  // Executing SQL
 		  otis.db.SQLExecute( "Begin Transaction" )
-		  theRecordSet = ps.SQLSelect
+		  theRecordSet = otis_local.db.SQLSelectU
 		  otis.db.SQLExecute( "End Transaction" )
 		  
 		  If theRecordSet.FieldCount > 0 then
@@ -8427,8 +8427,8 @@ End
 		  
 		  //  Create Event on server
 		  theSQL = "Insert Into events_ Default Values Returning pkid;"
-		  ps = otis.db.Prepare( theSQL )
-		  theRecordSet = ps.SQLSelect
+		  otis_local.db.prepareU( theSQL )
+		  theRecordSet = otis_local.db.SQLSelectU
 		  
 		  // Extract pkid from record set
 		  thePKID = theRecordSet.Field( "pkid" ).StringValue
@@ -8462,9 +8462,9 @@ End
 		  If theEIPLpkid <> "" Then
 		    
 		    // Preparing SQL
-		    ps = otis.db.Prepare( "Select * From newpayment( $1 );" )
+		    otis_local.db.prepareU( "Select * From newpayment( $1 );" )
 		    ps.Bind( 0, theEIPLpkid )
-		    theRecordSet = ps.SQLSelect
+		    theRecordSet = otis_local.db.SQLSelectU
 		    
 		    If otis.db.Error Then
 		      logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
@@ -9208,11 +9208,11 @@ End
 		    
 		    // Prepare our SQL
 		    SQL = "Select * From Inventory Where department = $1 ;"
-		    ps = otis.db.Prepare( SQL )
+		    otis_local.db.prepareU( SQL )
 		    ps.Bind( 0, groupName )
 		    
 		    // Execute 
-		    theRecordSet = ps.SQLSelect
+		    theRecordSet = otis_local.db.SQLSelectU
 		    
 		    dim x1 as integer
 		    
@@ -9295,7 +9295,7 @@ End
 		  theEIPLpkid = theRowTag.pkid
 		  
 		  // Executing the script on server
-		  theRecordSet = otis.db.SQLSelect( "SELECT inventory_to_lineitem( '" + theInventorypkid + "', '" + theEIPLpkid + "' ) ;" )
+		  theRecordSet = otis_local.db.SQLSelectU( "SELECT inventory_to_lineitem( '" + theInventorypkid + "', '" + theEIPLpkid + "' ) ;" )
 		  If otis.db.error Then
 		    logErrorMessage( 4, "DBase", otis.db.errormessage )
 		  End If
@@ -9443,11 +9443,11 @@ End
 		    
 		    // Prepare our SQL
 		    SQL = "Select * From Inventory Where department = $1 ;"
-		    ps = otis.db.Prepare( SQL )
+		    otis_local.db.prepareU( SQL )
 		    ps.Bind( 0, groupName )
 		    
 		    // Execute 
-		    theRecordSet = ps.SQLSelect
+		    theRecordSet = otis_local.db.SQLSelectU
 		    
 		    dim x1 as integer
 		    
@@ -9530,7 +9530,7 @@ End
 		  theEIPLpkid = theRowTag.pkid
 		  
 		  // Executing the script on server
-		  theRecordSet = otis.db.SQLSelect( "SELECT inventory_to_lineitem( '" + theInventorypkid + "', '" + theEIPLpkid + "' ) ;" )
+		  theRecordSet = otis_local.db.SQLSelectU( "SELECT inventory_to_lineitem( '" + theInventorypkid + "', '" + theEIPLpkid + "' ) ;" )
 		  If otis.db.error Then
 		    logErrorMessage( 4, "DBase", otis.db.errormessage )
 		  End If

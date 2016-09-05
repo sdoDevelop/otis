@@ -821,11 +821,11 @@ Protected Class drawEstimate
 		          dim SQL as string
 		          SQL = "Select subtotal_, grandtotal_, amount_ From discounts_ Where fkeipl = $1 And department_ = $2;"
 		          dim ps as PostgreSQLPreparedStatement
-		          ps = otis.db.Prepare( SQL )
+		          otis_local.db.prepareU( SQL )
 		          ps.Bind( 0, eiplPKID )
 		          ps.Bind( 1, groupName )
 		          dim theRecordSet as RecordSet
-		          theRecordSet = ps.SQLSelect
+		          theRecordSet = otis_local.db.SQLSelectU
 		          If otis.db.Error Then
 		            logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
 		          End If
@@ -851,10 +851,10 @@ Protected Class drawEstimate
 		          dim SQL as string
 		          SQL = "Select balance_, grandtotal_, subtotal_, discount_, totalpaid_, taxtotal_ From eipl Where pkid = $1;"
 		          dim ps as PostgreSQLPreparedStatement
-		          ps = otis.db.Prepare( SQL )
+		          otis_local.db.prepareU( SQL )
 		          ps.Bind( 0, eiplPKID )
 		          dim theRecordSet as RecordSet
-		          theRecordSet = ps.SQLSelect
+		          theRecordSet = otis_local.db.SQLSelectU
 		          If otis.db.Error Then
 		            logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
 		          End If

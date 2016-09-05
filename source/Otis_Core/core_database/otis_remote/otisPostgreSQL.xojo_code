@@ -2,6 +2,23 @@
 Protected Class otisPostgreSQL
 Inherits postgreSQLDatabase
 	#tag Method, Flags = &h0
+		Function connectU(username as string, password as string) As Boolean
+		  me.UserName = username
+		  me.Password = password
+		  me.Host = "45.32.72.207"
+		  me.Port = 5432
+		  me.DatabaseName = "otis_data"
+		  
+		  If Not me.Connect Then
+		    log_current_error
+		    Return False
+		  Else
+		    Return True
+		  End If
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub log_current_error()
 		  dim err as ind_error
 		  

@@ -1267,10 +1267,10 @@ End
 		  
 		  // Prepare our SQL
 		  theSQL = "Insert Into contact_venue_data Default Values Returning pkid ; "
-		  ps = otis.db.Prepare( theSQL )
+		  otis_local.db.prepareU( theSQL )
 		  
 		  // Execute and grab pkid
-		  theRecordSet = ps.SQLSelect
+		  theRecordSet = otis_local.db.SQLSelectU
 		  If otis.db.Error Then
 		    logErrorMessage( 4, "DB", otis.db.ErrorMessage )
 		  End If
@@ -1303,7 +1303,7 @@ End
 		  
 		  // Set up sql to set the fk fields
 		  theSQL = "Update contact_venue_data Set " + thefkMasterName + " = $1, fkvenues = $2 Where pkid = $3 ; "
-		  ps = otis.db.Prepare( theSQL )
+		  otis_local.db.prepareU( theSQL )
 		  
 		  // Binding and Executing
 		  ps.Bind( 0, thefkMasterValue )
@@ -1358,10 +1358,10 @@ End
 		  
 		  // Prepare our SQL
 		  theSQL = "Insert Into venues Default Values Returning pkid ; "
-		  ps = otis.db.Prepare( theSQL )
+		  otis_local.db.prepareU( theSQL )
 		  
 		  // Execute SQL
-		  theRecordSet = ps.SQLSelect
+		  theRecordSet = otis_local.db.SQLSelectU
 		  
 		  // Extract the pkid
 		  thePKID = theRecordSet.Field( "pkid" ).StringValue

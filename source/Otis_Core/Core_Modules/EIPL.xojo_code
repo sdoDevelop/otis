@@ -21,7 +21,7 @@ Protected Module EIPL
 		    theSQL = "INSERT INTO lineitems ( fkeipl ) VALUES ( '" + theEIPLpkid + "' ) RETURNING pkid ;"
 		    
 		    // Execute sql and put contents into record set
-		    theRecordSet = otis.db.SQLSelect( theSQL )
+		    theRecordSet = otis_local.db.SQLSelectU( theSQL )
 		    if otis.db.Error then
 		      logErrorMessage( 4, "LineItem", otis.db.ErrorMessage )
 		    end if
@@ -135,7 +135,7 @@ Protected Module EIPL
 		    End If
 		    
 		    // Populate Contact stuff
-		    r1 = otis.db.SQLSelect( "Select fkcontacts From contact_venue_data Where fkeipl = '" + thePKID + "' And fkContacts <> '' ; " )
+		    r1 = otis_local.db.SQLSelectU( "Select fkcontacts From contact_venue_data Where fkeipl = '" + thePKID + "' And fkContacts <> '' ; " )
 		    if otis.db.Error Then
 		      logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
 		    end if
@@ -143,7 +143,7 @@ Protected Module EIPL
 		    loadAllFromDB( "contacts", s1 )
 		    
 		    // Populate Venue stuff
-		    r1 = otis.db.SQLSelect( "Select fkvenues From contact_venue_data Where fkeipl = '" + thePKID + "' And fkVenues <> '' ; " )
+		    r1 = otis_local.db.SQLSelectU( "Select fkvenues From contact_venue_data Where fkeipl = '" + thePKID + "' And fkVenues <> '' ; " )
 		    if otis.db.Error Then
 		      logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
 		    end if
@@ -168,7 +168,7 @@ Protected Module EIPL
 		    End If
 		    
 		    // Populate Contact stuff
-		    r1 = otis.db.SQLSelect( "Select fkcontacts From contact_venue_data Where fkeipl = '" + thePKID + "' And fkContacts <> '' ; " )
+		    r1 = otis_local.db.SQLSelectU( "Select fkcontacts From contact_venue_data Where fkeipl = '" + thePKID + "' And fkContacts <> '' ; " )
 		    if otis.db.Error Then
 		      logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
 		    end if
@@ -176,7 +176,7 @@ Protected Module EIPL
 		    loadAllFromDB( "contacts", s1 )
 		    
 		    // Populate Venue stuff
-		    r1 = otis.db.SQLSelect( "Select fkvenues From contact_venue_data Where fkeipl = '" + thePKID + "' And fkVenues <> '' ; " )
+		    r1 = otis_local.db.SQLSelectU( "Select fkvenues From contact_venue_data Where fkeipl = '" + thePKID + "' And fkVenues <> '' ; " )
 		    if otis.db.Error Then
 		      logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
 		    end if

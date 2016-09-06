@@ -1,8 +1,9 @@
 #tag Class
 Protected Class log_file
 	#tag Method, Flags = &h1
-		Protected Sub constructor(path as FolderItem, name as string)
-		  
+		Protected Sub constructor(p_path as FolderItem, p_name as string)
+		  path = p_path
+		  name = p_name
 		End Sub
 	#tag EndMethod
 

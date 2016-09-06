@@ -8527,13 +8527,27 @@ End
 		  
 		  Window_PrintPreview.p() = deagle.drawMe( true )
 		  
-		  Window_PrintPreview.pageDimensions() = deagle.pageDimentions()
+		  dim x, y, n1, n2 as integer
+		  dim d1, d2, d3 as double
+		  d3 = 0.9
+		  d1 = ( screen(0).AvailableHeight / deagle.masterMult ) * d3
+		  d2 = ( deagle.pageDimentions(1) / deagle.masterMult ) / d1
+		  n1 = Floor( deagle.pageDimentions(0) / d2 )
 		  
-		  Window_PrintPreview.Height = deagle.pageDimentions(1) / deagle.masterMult + 40
-		  Window_PrintPreview.Width = deagle.pageDimentions(0) / deagle.masterMult + 40
+		  x = n1
+		  y = Floor( d1 )
+		  
+		  Window_PrintPreview.pageDimensions() = Array(x,y) 'deagle.pageDimentions()
+		  
+		  'Window_PrintPreview.Height = screen(0).AvailableHeight'deagle.pageDimentions(1) / deagle.masterMult + 40
+		  'Window_PrintPreview.Width = deagle.pageDimentions(0) / deagle.masterMult + 40
+		  Window_PrintPreview.Height = y + 40
+		  Window_PrintPreview.Width = x + 40
+		  
 		  
 		  Window_PrintPreview.index = 0
 		  Window_PrintPreview.Canvas_preview.Backdrop = Window_PrintPreview.p(0)
+		  Window_PrintPreview.showMe
 		  
 		  
 		End Sub

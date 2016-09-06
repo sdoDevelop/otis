@@ -44,7 +44,7 @@ Begin Window Window_PrintPreview
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
-      Scope           =   "0"
+      Scope           =   0
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
@@ -73,7 +73,7 @@ Begin Window Window_PrintPreview
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "2"
+      Scope           =   2
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
@@ -104,7 +104,7 @@ Begin Window Window_PrintPreview
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   False
-      Scope           =   "2"
+      Scope           =   2
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
@@ -135,7 +135,7 @@ Begin Window Window_PrintPreview
       LockLeft        =   False
       LockRight       =   True
       LockTop         =   False
-      Scope           =   "2"
+      Scope           =   2
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
@@ -154,6 +154,8 @@ End
 	#tag Method, Flags = &h0
 		Sub showMe()
 		  me.Show
+		  me.Top = 40
+		  
 		End Sub
 	#tag EndMethod
 

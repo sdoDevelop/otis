@@ -22,8 +22,8 @@ Protected Module EIPL
 		    
 		    // Execute sql and put contents into record set
 		    theRecordSet = otis_local.db.SQLSelectU( theSQL )
-		    if otis.db.Error then
-		      logErrorMessage( 4, "LineItem", otis.db.ErrorMessage )
+		    if otis_local.db.error then
+		      logErrorMessage( 4, "LineItem", otis_local.db.errorMessage )
 		    end if
 		    
 		    if theRecordSet <> Nil then
@@ -136,16 +136,16 @@ Protected Module EIPL
 		    
 		    // Populate Contact stuff
 		    r1 = otis_local.db.SQLSelectU( "Select fkcontacts From contact_venue_data Where fkeipl = '" + thePKID + "' And fkContacts <> '' ; " )
-		    if otis.db.Error Then
-		      logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
+		    if otis_local.db.error Then
+		      logErrorMessage( 4, "DBase", otis_local.db.errorMessage )
 		    end if
 		    s1 = r1.Field( "fkcontacts" ).StringValue
 		    loadAllFromDB( "contacts", s1 )
 		    
 		    // Populate Venue stuff
 		    r1 = otis_local.db.SQLSelectU( "Select fkvenues From contact_venue_data Where fkeipl = '" + thePKID + "' And fkVenues <> '' ; " )
-		    if otis.db.Error Then
-		      logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
+		    if otis_local.db.error Then
+		      logErrorMessage( 4, "DBase", otis_local.db.errorMessage )
 		    end if
 		    s1 = r1.Field( "fkvenues" ).StringValue
 		    loadAllFromDB( "venues", s1 )
@@ -169,16 +169,16 @@ Protected Module EIPL
 		    
 		    // Populate Contact stuff
 		    r1 = otis_local.db.SQLSelectU( "Select fkcontacts From contact_venue_data Where fkeipl = '" + thePKID + "' And fkContacts <> '' ; " )
-		    if otis.db.Error Then
-		      logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
+		    if otis_local.db.error Then
+		      logErrorMessage( 4, "DBase", otis_local.db.errorMessage )
 		    end if
 		    s1 = r1.Field( "fkcontacts" ).StringValue
 		    loadAllFromDB( "contacts", s1 )
 		    
 		    // Populate Venue stuff
 		    r1 = otis_local.db.SQLSelectU( "Select fkvenues From contact_venue_data Where fkeipl = '" + thePKID + "' And fkVenues <> '' ; " )
-		    if otis.db.Error Then
-		      logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
+		    if otis_local.db.error Then
+		      logErrorMessage( 4, "DBase", otis_local.db.errorMessage )
 		    end if
 		    s1 = r1.Field( "fkvenues" ).StringValue
 		    loadAllFromDB( "venues", s1 )

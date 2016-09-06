@@ -48,6 +48,7 @@ Begin Window Window_Price_Discrepency
       Selectable      =   False
       TabIndex        =   0
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Title"
       TextAlign       =   1
       TextColor       =   &c00000000
@@ -278,8 +279,8 @@ End
 		  + pLineitem_pkids + "' Like '%' || lineitems.pkid || '%' And lineitems.fkeipl = eipl.pkid ; " 
 		  otis_local.db.prepareU( SQL )
 		  theRecordSet = otis_local.db.SQLSelectU
-		  If otis.db.error Then
-		    logErrorMessage( 4, "DBase", otis.db.errormessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "DBase", otis_local.db.errormessage )
 		  End If
 		  
 		  // clear the listbox
@@ -412,8 +413,8 @@ End
 		  otis_local.db.prepareU( SQL )
 		  ps.SQLExecute
 		  
-		  If otis.db.error Then
-		    logErrorMessage( 4, "DBase", otis.db.errormessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "DBase", otis_local.db.errormessage )
 		  End If
 		  
 		  MainWindow.ListBox_EIPL.loadMe( true )
@@ -437,8 +438,8 @@ End
 		  otis_local.db.prepareU( SQL )
 		  ps.SQLExecute
 		  
-		  If otis.db.error Then
-		    logErrorMessage( 4, "DBase", otis.db.errormessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "DBase", otis_local.db.errormessage )
 		  End If
 		  
 		  MainWindow.ListBox_EIPL.loadMe( true )
@@ -462,8 +463,8 @@ End
 		  otis_local.db.prepareU( SQL )
 		  ps.SQLExecute
 		  
-		  If otis.db.error Then
-		    logErrorMessage( 4, "DBase", otis.db.errormessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "DBase", otis_local.db.errormessage )
 		  End If
 		  
 		  MainWindow.ListBox_EIPL.loadMe( true )
@@ -486,8 +487,8 @@ End
 		  otis_local.db.prepareU( SQL )
 		  ps.SQLExecute
 		  
-		  If otis.db.error Then
-		    logErrorMessage( 4, "DBase", otis.db.errormessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "DBase", otis_local.db.errormessage )
 		  End If
 		  
 		  MainWindow.ListBox_EIPL.loadMe( true )

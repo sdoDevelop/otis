@@ -637,8 +637,14 @@ End
 #tag EndWindow
 
 #tag WindowCode
-	#tag Method, Flags = &h0
-		Function login() As Boolean
+	#tag Method, Flags = &h21
+		Private Sub call_updater()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Function login() As Boolean
 		  dim thereturn as RecordSet
 		  dim connected as Boolean
 		  dim ps as PostgreSQLPreparedStatement
@@ -646,24 +652,21 @@ End
 		  
 		  
 		  // Set up our application data folder
-		  resource_stor.create_app_folder
+		  resource_stor.construct_folder_structure
 		  
 		  
 		  // Try to connect
-		  If otis.db.Connect Then
-		    app.logged_in = True
-		    connected = True
-		  Else
-		    logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
-		    connected = False
+		  If otis_local.db.connectU Then
+		    
+		    
 		  End If
 		  
 		  // Execute login tasks on the server
 		  SQL = "Select * From notification.login_tasks();"
 		  otis_local.db.prepareU( SQL )
 		  thereturn = otis_local.db.SQLSelectU
-		  If Otis.db.error Then
-		    logErrorMessage( 4, "DBase", otis.db.errormessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "DBase", otis_local.db.errormessage )
 		  End If
 		  
 		  'dim s as string = Otis.db.make_table_name
@@ -682,30 +685,23 @@ End
 
 	#tag Method, Flags = &h0
 		Sub myOpen()
-		  dim theLineArray() as Text
-		  dim stageCodeLetter as string
 		  dim have_password as Boolean
+		  dim s1 as string
 		  
-		  Select Case app.StageCode
-		  Case 0
-		    stageCodeLetter = "d"
-		  Case 1 
-		    stageCodeLetter = "a"
-		  Case 2
-		    stageCodeLetter = "b"
-		  Case 3
-		    stageCodeLetter = "f"
-		  End Select
+		  populate_version_label
+		  set_up_logs
 		  
-		  Label_version.Text = app.MajorVersion.ToText + "." + app.MinorVersion.ToText + "." + app.BugVersion.ToText + stageCodeLetter + app.NonReleaseVersion.ToText
-		  
-		  // Lets grab our saved username and password from users.txt
-		  theLineArray() = zPrefsLogin.readFile( "users.txt" )
-		  
-		  If theLineArray.Ubound <> -1 Then  'The File exists
-		    // Set the username to the first username in file
-		    dbUsername = theLineArray( 0 )
-		  End If
+		  // Lets grab our saved username un_log
+		  Try 
+		    s1 = un_log.read_log(0)
+		  Catch e as RuntimeException
+		    dim err as ind_error
+		    err.stack_trace = e.Stack
+		    err.message = "Could not get username"
+		    errario.go( err )
+		  Finally
+		    dbUsername = s1
+		  End Try
 		  
 		  // If we have a username then we want to try to find the password
 		  If dbUsername <> "" Then
@@ -724,11 +720,9 @@ End
 		      password = System.KeyChain.FindPassword(ItemToFind)
 		    Catch err as KeyChainException
 		      have_password = False
-		    End Try
-		    If password.ToText <> "" Or have_passwordThen
+		    Finally
 		      dbPassword = password.ToText
-		    End If
-		    
+		    End Try
 		  End If
 		  
 		  // Set our fields to the variables
@@ -741,15 +735,9 @@ End
 		  
 		  me.Show
 		  
-		  // Call the updater
-		  dim PrefFolder as FolderItem
-		  PrefFolder = SpecialFolder.ApplicationData.Child( "Otis" )
-		  dim updater as new Kaju.UpdateChecker( PrefFolder )
-		  updater.ServerPublicRSAKey = "30820120300D06092A864886F70D01010105000382010D00308201080282010100CBAC639041952E744E95F250C79199901DCDE28C9FFCBEA38C05D45779F5B9CC14DE6EFCAE0D884D3C1D3FB8CC990A775B1FD0B5619D229A5760D7795E073E34DE649B28438B8B0653F36347F7622F477073A191D37C2F33B8A729D365755C2C61090EA8B8A2014E593E35279969BF76FA01D72EBA17B40D0B91F4859AB16AB588E9B3338667C388AF20F898D2AB978943FE3C9682F69CDD714BDAA158E1AC00EC436097F03A96898F0336F3E82ED9BC73753D49DEFC4AA18D22918F1C13D101486947ACDE51EDE7C0F92101914411D472A6F1761D8BCAA6615292E1DE53D2FC7AB55BA1F70CFF4F53A5F4793644FFC64685C5F4A024764E9205004D60364D8B020111"
-		  updater.UpdateURL = "http://nspdevelopment.weebly.com/uploads/9/6/9/7/9697054/updateinformation.json"
-		  updater.Execute
 		  
 		  
+		  call_updater
 		  
 		  
 		  
@@ -800,8 +788,29 @@ End
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub savePassword()
+	#tag Method, Flags = &h21
+		Private Sub populate_version_label()
+		  dim stageCodeLetter as string
+		  
+		  
+		  Select Case app.StageCode
+		  Case 0
+		    stageCodeLetter = "d"
+		  Case 1 
+		    stageCodeLetter = "a"
+		  Case 2
+		    stageCodeLetter = "b"
+		  Case 3
+		    stageCodeLetter = "f"
+		  End Select
+		  
+		  Label_version.Text = app.MajorVersion.ToText + "." + app.MinorVersion.ToText + "." + app.BugVersion.ToText + stageCodeLetter + app.NonReleaseVersion.ToText
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub savePassword()
 		  Dim NewItem as KeyChainItem
 		  If System.KeyChainCount > 0 then
 		    
@@ -817,20 +826,26 @@ End
 		  End if
 		  
 		  Exception err as KeyChainException
-		    errario.go("Uh-Oh keychain Exception
+		    errario.go("Uh-Oh keychain Exception")
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub saveUserName()
+		  
+		  // write the username to the log
+		  un_log.go( True, dbUsername )
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub saveUserName()
+		Sub set_up_logs()
+		  dim f as new FolderItem
+		  dim s as string
 		  
-		  
-		  // Currently this will just clear the username dicitonary in our zPrefsLogin allowing for only 1 username
-		  //  In the future I will add the ability to save multiple usernames and make one of them default
-		  
-		  zPrefsLogin.clearLines( "users.txt" )
-		  zPrefsLogin.addLine( "users.txt", dbUsername )
-		  zPrefsLogin.writeFile( "users.txt" )
+		  s = "un_log.txt"
+		  f = resource_stor.app_folder.Child( a )
+		  un_log = new log_file( f, s )
 		End Sub
 	#tag EndMethod
 
@@ -853,6 +868,10 @@ End
 
 	#tag Property, Flags = &h0
 		dbUsername As Text
+	#tag EndProperty
+
+	#tag Property, Flags = &h1
+		Protected un_log As resource_stor.log_file
 	#tag EndProperty
 
 

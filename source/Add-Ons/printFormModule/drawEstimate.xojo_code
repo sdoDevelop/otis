@@ -822,12 +822,12 @@ Protected Class drawEstimate
 		          SQL = "Select subtotal_, grandtotal_, amount_ From discounts_ Where fkeipl = $1 And department_ = $2;"
 		          dim ps as PostgreSQLPreparedStatement
 		          otis_local.db.prepareU( SQL )
-		          ps.Bind( 0, eiplPKID )
-		          ps.Bind( 1, groupName )
+		          otis_local.db.bindU( 0, eiplPKID )
+		          otis_local.db.bindU( 1, groupName )
 		          dim theRecordSet as RecordSet
 		          theRecordSet = otis_local.db.SQLSelectU
-		          If otis.db.Error Then
-		            logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
+		          If otis_local.db.error Then
+		            logErrorMessage( 4, "DBase", otis_local.db.errorMessage )
 		          End If
 		          
 		          // Check if there is a discount
@@ -852,11 +852,11 @@ Protected Class drawEstimate
 		          SQL = "Select balance_, grandtotal_, subtotal_, discount_, totalpaid_, taxtotal_ From eipl Where pkid = $1;"
 		          dim ps as PostgreSQLPreparedStatement
 		          otis_local.db.prepareU( SQL )
-		          ps.Bind( 0, eiplPKID )
+		          otis_local.db.bindU( 0, eiplPKID )
 		          dim theRecordSet as RecordSet
 		          theRecordSet = otis_local.db.SQLSelectU
-		          If otis.db.Error Then
-		            logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
+		          If otis_local.db.error Then
+		            logErrorMessage( 4, "DBase", otis_local.db.errorMessage )
 		          End If
 		          
 		          '// Check the discount and see if we need to print it

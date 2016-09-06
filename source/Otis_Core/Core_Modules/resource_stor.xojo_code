@@ -1,7 +1,7 @@
 #tag Module
 Protected Module resource_stor
-	#tag Method, Flags = &h1
-		Protected Sub construct_folder_structure()
+	#tag Method, Flags = &h0
+		Sub construct_folder_structure()
 		  create_app_folder
 		  create_prefs_folder
 		  create_db_folder

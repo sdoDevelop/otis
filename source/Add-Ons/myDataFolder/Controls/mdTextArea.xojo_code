@@ -75,8 +75,7 @@ Inherits TextArea
 		  // Generate our sql to grab this indiviual field from the database
 		  theSQL = "Select " + mdfieldName + " From " + mdtableName + " Where " + mdpkFieldName + " = '" + mdpkValue + "' ;"
 		  
-		  // Start our database transaction
-		  otis.db.SQLExecute( "Begin Transaction;" )
+		  
 		  
 		  otis_local.db.prepareU( theSQL )
 		  
@@ -84,12 +83,11 @@ Inherits TextArea
 		  theRecordSet = otis_local.db.SQLSelectU
 		  
 		  // Catch any error
-		  If otis.db.Error Then
-		    logErrorMessage( 4, "DB", "Cannot load: " + otis.db.ErrorMessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "DB", "Cannot load: " + otis_local.db.errorMessage )
 		  End If
 		  
-		  // End our database transaction
-		  otis.db.SQLExecute( "End Transaction;" )
+		  
 		  
 		  
 		  // Put our value into a variable
@@ -140,15 +138,15 @@ Inherits TextArea
 		  otis_local.db.prepareU( theSQL )
 		  
 		  // Bind our values
-		  ps.Bind( 0, theValue )
-		  ps.Bind( 1, mdpkValue )
+		  otis_local.db.bindU( 0, theValue )
+		  otis_local.db.bindU( 1, mdpkValue )
 		  
 		  // Executing
 		  ps.SQLExecute
 		  
 		  // Catch errors
-		  If otis.db.Error Then
-		    logErrorMessage( 2, "Could not save value", otis.db.ErrorMessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 2, "Could not save value", otis_local.db.errorMessage )
 		  End If
 		End Sub
 	#tag EndMethod

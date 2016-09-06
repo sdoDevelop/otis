@@ -13,11 +13,25 @@ Protected Class ind_error
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		stack_trace As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		time As Date
 	#tag EndProperty
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="error_code"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="facility"
+			Group="Behavior"
+			Type="String"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
 			Visible=true
@@ -31,6 +45,11 @@ Protected Class ind_error
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="message"
+			Group="Behavior"
+			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

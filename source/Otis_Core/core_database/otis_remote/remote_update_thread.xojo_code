@@ -66,9 +66,9 @@ Inherits Thread
 		    // Add the statement we just executed to the server sql_log
 		    sql = "Insert Into info_schema.statment_log ( user_name, execution_time, statement_ ) Values( $1, $2, $3 ) ;"
 		    ps = otis_remote.db.prepare( sql )
-		    ps.Bind( 0, otis_remote.db.username )
-		    ps.Bind( 1, dt )
-		    ps.Bind( 2, statements(i1) )
+		    otis_local.db.bindU( 0, otis_remote.db.username )
+		    otis_local.db.bindU( 1, dt )
+		    otis_local.db.bindU( 2, statements(i1) )
 		    ps.SQLExecute
 		    If otis_remote.db.error Then
 		      otis_remote.db.log_current_error

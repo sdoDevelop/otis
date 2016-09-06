@@ -105,8 +105,7 @@ Inherits TextField
 		  // Generate our sql to grab this indiviual field from the database
 		  theSQL = "Select " + mdfieldName + " From " + mdtableName + " Where " + mdpkFieldName + " = '" + mdpkValue + "' ;"
 		  
-		  // Start our database transaction
-		  otis.db.SQLExecute( "Begin Transaction;" )
+		  
 		  
 		  otis_local.db.prepareU( theSQL )
 		  
@@ -114,12 +113,11 @@ Inherits TextField
 		  theRecordSet = otis_local.db.SQLSelectU
 		  
 		  // Catch any error
-		  If otis.db.Error Then
-		    logErrorMessage( 4, "DB", "Cannot load: " + otis.db.ErrorMessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "DB", "Cannot load: " + otis_local.db.errorMessage )
 		  End If
 		  
-		  // End our database transaction
-		  otis.db.SQLExecute( "End Transaction;" )
+		  
 		  
 		  
 		  // Put our value into a variable
@@ -234,8 +232,8 @@ Inherits TextField
 		    otis_local.db.prepareU( theSQL )
 		    
 		    // Bind our values
-		    ps.Bind( 0, theValue )
-		    ps.Bind( 1, mdpkValue )
+		    otis_local.db.bindU( 0, theValue )
+		    otis_local.db.bindU( 1, mdpkValue )
 		    
 		  ElseIf me.Text = "" Then
 		    
@@ -244,7 +242,7 @@ Inherits TextField
 		    otis_local.db.prepareU( theSQL )
 		    
 		    // Bind our values
-		    ps.Bind( 0, mdpkValue )
+		    otis_local.db.bindU( 0, mdpkValue )
 		    
 		  End If
 		  
@@ -252,10 +250,10 @@ Inherits TextField
 		  ps.SQLExecute
 		  
 		  // Catch errors
-		  If otis.db.Error Then
+		  If otis_local.db.error Then
 		    Break
-		    'logErrorMessage( 3, "Could not save value", otis.db.ErrorMessage )
-		    MsgBox( otis.db.errorMessage )
+		    'logErrorMessage( 3, "Could not save value", otis_local.db.errorMessage )
+		    MsgBox( otis_local.db.errorMessage )
 		  Else
 		    RaiseEvent Saved 
 		  End If

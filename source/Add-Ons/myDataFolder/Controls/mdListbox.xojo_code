@@ -144,7 +144,7 @@ Inherits Listbox
 		    theSQL = "Delete From " + mdTableName + " Where pkid = $1 ; "
 		    
 		    otis_local.db.prepareU( theSQL )
-		    ps.Bind( 0, thepkid )
+		    otis_local.db.bindU( 0, thepkid )
 		    ps.SQLExecute
 		    
 		    loadMe( True )
@@ -316,13 +316,12 @@ Inherits Listbox
 		  // Prepare the statement
 		  otis_local.db.prepareU( theSQL )
 		  
-		  // Execute and put the results into a recordset
-		  otis.db.SQLExecute( "Begin Transaction" )
+		  
 		  theRecordSet = otis_local.db.SQLSelectU
-		  If otis.db.error Then
-		    logErrorMessage( 4, "DB", "Could Not Load: " + otis.db.ErrorMessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "DB", "Could Not Load: " + otis_local.db.errorMessage )
 		  End If
-		  otis.db.SQLExecute( "End Transaction" )
+		  
 		  
 		  dim x1 as integer
 		  
@@ -750,10 +749,10 @@ Inherits Listbox
 		  // Prepare SQL
 		  theSQL = "Select " + Join( theFieldNameArray(), ", " ) + " From " + mdTableName + " Where pkid = $1;"
 		  otis_local.db.prepareU( theSQL )
-		  ps.Bind( 0, theRowTag.pkid )
+		  otis_local.db.bindU( 0, theRowTag.pkid )
 		  theRecordSet = otis_local.db.SQLSelectU
-		  if otis.db.Error Then
-		    logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
+		  if otis_local.db.error Then
+		    logErrorMessage( 4, "DBase", otis_local.db.errorMessage )
 		  End If
 		  // ******************************
 		  
@@ -1005,13 +1004,13 @@ Inherits Listbox
 		  
 		  // Prepare the statement
 		  otis_local.db.prepareU( theSQL )
-		  ps.Bind( 0, theValue )
-		  ps.Bind( 1, thepkid )
+		  otis_local.db.bindU( 0, theValue )
+		  otis_local.db.bindU( 1, thepkid )
 		  
 		  ps.SQLExecute
 		  
-		  If otis.db.error Then
-		    logErrorMessage( 4, "Save Failed", otis.db.ErrorMessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "Save Failed", otis_local.db.errorMessage )
 		  End If
 		  
 		  

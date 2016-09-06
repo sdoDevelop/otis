@@ -13,6 +13,12 @@ Protected Module errario
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
+		Protected Sub go(alert as boolean, facility as string, error_code as integer, message as string)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
 		Protected Sub go(time as date, facility as string, error_code as integer, message as string)
 		  
 		End Sub
@@ -40,6 +46,12 @@ Protected Module errario
 		  //      - one accepsts just ( message )
 		  
 		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub go(facility as string, error_code as integer, message as string)
 		  
 		End Sub
 	#tag EndMethod

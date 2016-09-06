@@ -1,8 +1,20 @@
 #tag Class
 Protected Class otisSQLite
 Inherits SQLiteDatabase
-	#tag Method, Flags = &h1
-		Protected Sub bindU(values() As Variant)
+	#tag Method, Flags = &h0
+		Sub bindU(position as integer, Value as Variant)
+		  i1 = position
+		  
+		  s1 = "$" + str( i1 + 1 ) 
+		  s2 = Replace( current_sql, s1, values(i1) )
+		  If s2 <> current_sql Then
+		    current_sql = s2
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub bindU(values() As Variant)
 		  dim finish as Boolean
 		  dim s1, s2, sql as string
 		  dim n1 as integer
@@ -22,12 +34,12 @@ Inherits SQLiteDatabase
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Function connectU() As Boolean
+	#tag Method, Flags = &h0
+		Function connectU() As Boolean
 		  Dim f As FolderItem
-		  f = New FolderItem("MyDB.sqlite")
+		  f = New FolderItem("otis.sqlite")
 		  
-		  Dim db As New otisSQLite
+		  
 		  me.DatabaseFile = f
 		  If db.CreateDatabaseFile Then
 		    // proceed with database operations...
@@ -124,8 +136,8 @@ Inherits SQLiteDatabase
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Sub prepareU(statement As String)
+	#tag Method, Flags = &h0
+		Sub prepareU(statement As String)
 		  
 		  
 		  
@@ -136,8 +148,8 @@ Inherits SQLiteDatabase
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Sub SQLExecuteU()
+	#tag Method, Flags = &h0
+		Sub SQLExecuteU()
 		  dim s1 as string
 		  
 		  // Execute the statement
@@ -174,8 +186,8 @@ Inherits SQLiteDatabase
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Function SQLSelectU() As RecordSet
+	#tag Method, Flags = &h0
+		Function SQLSelectU() As RecordSet
 		  dim s1 as string
 		  dim rs as RecordSet
 		  
@@ -185,14 +197,14 @@ Inherits SQLiteDatabase
 		  // Check for errors
 		  If me.Error Then
 		    log_current_error
-		    Return
+		    Return rs
 		  End If
 		  
 		  // Check if this is a select statment
 		  s1 = Left( current_sql, 7 ) 
 		  If InStr( s1, "Select" ) > 0 Then
 		    // it is a select statement, which we don't need to do anything else
-		    Return
+		    Return rs
 		  Else
 		    // since its not a select statment we can update the server
 		    
@@ -217,6 +229,12 @@ Inherits SQLiteDatabase
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function SQLSelectU(statment as String) As RecordSet
+		  
+		End Function
+	#tag EndMethod
+
 
 	#tag Property, Flags = &h0
 		current_sql As String
@@ -225,7 +243,6 @@ Inherits SQLiteDatabase
 	#tag Property, Flags = &h0
 		#tag Note
 			each error gets an array element
-			
 		#tag EndNote
 		error_log() As ind_error
 	#tag EndProperty
@@ -244,6 +261,11 @@ Inherits SQLiteDatabase
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="current_sql"
+			Group="Behavior"
+			Type="String"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DatabaseFile"
 			Visible=true
@@ -291,6 +313,11 @@ Inherits SQLiteDatabase
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="online_status"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ShortColumnNames"

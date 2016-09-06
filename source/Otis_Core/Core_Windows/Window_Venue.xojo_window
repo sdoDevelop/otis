@@ -1271,8 +1271,8 @@ End
 		  
 		  // Execute and grab pkid
 		  theRecordSet = otis_local.db.SQLSelectU
-		  If otis.db.Error Then
-		    logErrorMessage( 4, "DB", otis.db.ErrorMessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "DB", otis_local.db.errorMessage )
 		  End If
 		  
 		  thePKID = theRecordSet.Field( "pkid" ).StringValue
@@ -1306,12 +1306,12 @@ End
 		  otis_local.db.prepareU( theSQL )
 		  
 		  // Binding and Executing
-		  ps.Bind( 0, thefkMasterValue )
-		  ps.Bind( 1, thevenuePKID )
-		  ps.Bind( 2, thePKID )
+		  otis_local.db.bindU( 0, thefkMasterValue )
+		  otis_local.db.bindU( 1, thevenuePKID )
+		  otis_local.db.bindU( 2, thePKID )
 		  ps.SQLExecute
-		  If otis.db.Error Then
-		    logErrorMessage( 4, "DB", otis.db.ErrorMessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "DB", otis_local.db.errorMessage )
 		  End If
 		  
 		  

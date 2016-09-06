@@ -27,11 +27,6 @@ Protected Module otis_remote
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="rut"
-			Group="Behavior"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"

@@ -31,6 +31,20 @@ Inherits Application
 
 
 	#tag Method, Flags = &h0
+		Function create_stack() As String()
+		  dim s1() as String
+		  
+		  try
+		    Raise new RuntimeException
+		  catch r as RuntimeException
+		    s1() = r.Stack
+		  End Try
+		  
+		  Return s1()
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub dbLoad()
 		  
 		  otis.db = New otis.sdoPostgreSQLDatabase
@@ -41,7 +55,7 @@ Inherits Application
 		  db.DatabaseName = "otismain"
 		  
 		  
-		  If otis.db.Connect Then
+		  If otis_local.db.connectU Then
 		    //app.MsgBoxAlert_2015( "Alert", "Connected to DB", "OK" )
 		  Else
 		    app.MsgBoxAlert( "Alert", "Cannot connect to server", "OK" )

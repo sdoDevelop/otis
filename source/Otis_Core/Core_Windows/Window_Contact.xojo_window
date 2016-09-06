@@ -233,6 +233,7 @@ Begin sdoWindow Window_Contact
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "First Name"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -267,6 +268,7 @@ Begin sdoWindow Window_Contact
       Selectable      =   False
       TabIndex        =   5
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Last Name"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -356,6 +358,7 @@ Begin sdoWindow Window_Contact
       Selectable      =   False
       TabIndex        =   7
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Job Title"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -445,6 +448,7 @@ Begin sdoWindow Window_Contact
       Selectable      =   False
       TabIndex        =   9
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Company"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -534,6 +538,7 @@ Begin sdoWindow Window_Contact
       Selectable      =   False
       TabIndex        =   11
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Email"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -623,6 +628,7 @@ Begin sdoWindow Window_Contact
       Selectable      =   False
       TabIndex        =   13
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Phone"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -712,6 +718,7 @@ Begin sdoWindow Window_Contact
       Selectable      =   False
       TabIndex        =   15
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Address Line 1"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -801,6 +808,7 @@ Begin sdoWindow Window_Contact
       Selectable      =   False
       TabIndex        =   17
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Address Line 2"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -890,6 +898,7 @@ Begin sdoWindow Window_Contact
       Selectable      =   False
       TabIndex        =   19
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "City"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -979,6 +988,7 @@ Begin sdoWindow Window_Contact
       Selectable      =   False
       TabIndex        =   21
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "State"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -1068,6 +1078,7 @@ Begin sdoWindow Window_Contact
       Selectable      =   False
       TabIndex        =   23
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Zip"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -1157,6 +1168,7 @@ Begin sdoWindow Window_Contact
       Selectable      =   False
       TabIndex        =   25
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Country"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -1349,8 +1361,8 @@ End
 		  
 		  // Execute and grab pkid
 		  theRecordSet = otis_local.db.SQLSelectU
-		  If otis.db.Error Then
-		    logErrorMessage( 4, "DB", otis.db.ErrorMessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "DB", otis_local.db.errorMessage )
 		  End If
 		  
 		  thePKID = theRecordSet.Field( "pkid" ).StringValue
@@ -1384,12 +1396,12 @@ End
 		  otis_local.db.prepareU( theSQL )
 		  
 		  // Binding and Executing
-		  ps.Bind( 0, thefkMasterValue )
-		  ps.Bind( 1, theContactPKID )
-		  ps.Bind( 2, thePKID )
+		  otis_local.db.bindU( 0, thefkMasterValue )
+		  otis_local.db.bindU( 1, theContactPKID )
+		  otis_local.db.bindU( 2, thePKID )
 		  ps.SQLExecute
-		  If otis.db.Error Then
-		    logErrorMessage( 4, "DB", otis.db.ErrorMessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "DB", otis_local.db.errorMessage )
 		  End If
 		  
 		  
@@ -1440,8 +1452,8 @@ End
 		  
 		  // Execute SQL
 		  theRecordSet = otis_local.db.SQLSelectU
-		  If otis.db.Error Then
-		    logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "DBase", otis_local.db.errorMessage )
 		  End If
 		  
 		  // Extract the pkid

@@ -79,7 +79,7 @@ Inherits Checkbox
 		  otis_local.db.prepareU( theSQL )
 		  
 		  // Bind our values
-		  ps.Bind( 0, mdpkValue )
+		  otis_local.db.bindU( 0, mdpkValue )
 		  
 		  // Execute our select
 		  theRecordSet = otis_local.db.SQLSelectU
@@ -106,14 +106,14 @@ Inherits Checkbox
 		  // Prepare our sql
 		  theSQL = "Update " + mdTableName + " Set " + mdfieldName + " = $1 Where " + mdpkFieldName + " = $2 ; "
 		  otis_local.db.prepareU( theSQL )
-		  ps.Bind( 0, theValue )
-		  ps.Bind( 1, mdpkValue )
+		  otis_local.db.bindU( 0, theValue )
+		  otis_local.db.bindU( 1, mdpkValue )
 		  
 		  // Execute then check for errors
 		  ps.SQLExecute
 		  
-		  If otis.db.Error Then
-		    logErrorMessage( 4, "Could not save value", otis.db.ErrorMessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 4, "Could not save value", otis_local.db.errorMessage )
 		  End If
 		End Sub
 	#tag EndMethod

@@ -446,10 +446,10 @@ Protected Module myData
 		  // Prepare SQL
 		  theSQL = "Select " + Join( theFieldNameArray(), ", " ) + " From " + pTableName + " Where pkid = $1;"
 		  otis_local.db.prepareU( theSQL )
-		  ps.Bind( 0, pPKID )
+		  otis_local.db.bindU( 0, pPKID )
 		  theRecordSet = otis_local.db.SQLSelectU
-		  if otis.db.Error Then
-		    logErrorMessage( 4, "DBase", otis.db.ErrorMessage )
+		  if otis_local.db.error Then
+		    logErrorMessage( 4, "DBase", otis_local.db.errorMessage )
 		  End If
 		  
 		  For i1 as integer = 0 To theFieldNameArray.Ubound

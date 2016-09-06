@@ -21,8 +21,8 @@ Inherits postgreSQLDatabase
 		  SQL = "Select * From " + s1 + " Where checked_ = False ;"
 		  otis_local.db.prepareU( SQL )
 		  theRecordSet = otis_local.db.SQLSelectU
-		  If Otis.db.error Then
-		    logErrorMessage( 3, "DBase", otis.db.errormessage )
+		  If otis_local.db.error Then
+		    logErrorMessage( 3, "DBase", otis_local.db.errormessage )
 		  End If
 		  
 		  // Check how many records there are
@@ -52,8 +52,8 @@ Inherits postgreSQLDatabase
 		      SQL = "Delete From " + table_name + " Where pkid = '" + s2 + "' ; "
 		      otis_local.db.prepareU( SQL )
 		      ps.SQLExecute
-		      If Otis.db.error Then
-		        logErrorMessage( 3, "DBase", otis.db.errormessage )
+		      If otis_local.db.error Then
+		        logErrorMessage( 3, "DBase", otis_local.db.errormessage )
 		      End If
 		      
 		    ElseIf notification_type = "eventStartDateChange" Then
@@ -85,8 +85,8 @@ Inherits postgreSQLDatabase
 		      SQL = "Delete From " + table_name + " Where pkid = '" + s2 + "' ; "
 		      otis_local.db.prepareU( SQL )
 		      ps.SQLExecute
-		      If Otis.db.error Then
-		        logErrorMessage( 3, "DBase", otis.db.errormessage )
+		      If otis_local.db.error Then
+		        logErrorMessage( 3, "DBase", otis_local.db.errormessage )
 		      End If
 		      
 		    End If

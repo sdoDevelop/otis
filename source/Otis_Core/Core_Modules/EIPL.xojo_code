@@ -933,8 +933,10 @@ Protected Module EIPL
 	#tag Method, Flags = &h1
 		Protected Sub load_inventory(keep_selection as Boolean)
 		  dim jus as string
+		  dim jus1 as string
 		  if keep_selection = True Then
 		    jus = MainWindow.ComboBox_PL_InventoryDepartmentFilter.Text
+		    jus1 = MainWindow.ComboBox_InventoryDepartmentFilter.Text
 		  end if
 		  
 		  MainWindow.Listbox_EIPL_Inventory.loadMe( keep_selection )
@@ -963,7 +965,12 @@ Protected Module EIPL
 		  
 		  // Put group names into the combobox
 		  MainWindow.ComboBox_InventoryDepartmentFilter.AddRows( theGroups() ) 
-		  
+		  If theGroups.IndexOf( jus1 ) > -1 Then
+		    break
+		    MainWindow.ComboBox_InventoryDepartmentFilter.Text = "All"
+		    MainWindow.ComboBox_InventoryDepartmentFilter.Text = jus1
+		    
+		  End If
 		  
 		  
 		  // Gather all of the group names
@@ -986,6 +993,8 @@ Protected Module EIPL
 		    break
 		    MainWindow.ComboBox_PL_InventoryDepartmentFilter.Text = "All"
 		    MainWindow.ComboBox_PL_InventoryDepartmentFilter.Text = jus
+		    MainWindow.ComboBox_InventoryDepartmentFilter.Text = "All"
+		    MainWindow.ComboBox_InventoryDepartmentFilter.Text = jus1
 		    
 		  End If
 		End Sub

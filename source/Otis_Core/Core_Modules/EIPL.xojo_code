@@ -220,8 +220,8 @@ Protected Module EIPL
 		    
 		    //  Listbox_EIPL
 		    MainWindow.ListBox_EIPL.mdTableName = "eipl"
-		    MainWindow.ListBox_EIPL.mdHeaders() = Array( "EIPL", "Type" )
-		    MainWindow.ListBox_EIPL.mdFieldNames() = Array ( "eipl_nmbr", "type_" )
+		    MainWindow.ListBox_EIPL.mdHeaders() = Array( "Name", "Type" )
+		    MainWindow.ListBox_EIPL.mdFieldNames() = Array ( "name_" , "type_" )
 		    MainWindow.ListBox_EIPL.mdpkFieldName = "pkid"
 		    MainWindow.ListBox_EIPL.mdSortFields() = Array( "type_", "eipl_nmbr" )
 		    MainWindow.ListBox_EIPL.mdColumnTypes() = Array( 0,0 )
@@ -234,6 +234,30 @@ Protected Module EIPL
 		    MainWindow.Label_EIPL_Number.mdFieldName = "eipl_nmbr"
 		    MainWindow.Label_EIPL_Number.mdFormat = 0
 		    MainWindow.Label_EIPL_Number.mdpkFieldName = "pkid"
+		    
+		    // Label_EIPLName_title
+		    MainWindow.Label_eiplName_title.mdTableName = "eipl"
+		    MainWindow.Label_eiplName_title.mdFieldName = "name_"
+		    MainWindow.Label_eiplName_title.mdFormat = 0
+		    MainWindow.Label_eiplName_title.mdpkFieldName = "pkid"
+		    
+		    // TextField_EIPLName
+		    MainWindow.TextField_EIPLName.mdTableName = "eipl"
+		    MainWindow.TextField_EIPLName.mdFieldName = "name_"
+		    MainWindow.TextField_EIPLName.mdFormat = 0
+		    MainWindow.TextField_EIPLName.mdpkFieldName = "pkid"
+		    
+		    // Label_PLName_title
+		    MainWindow.Label_PLName_title.mdTableName = "eipl"
+		    MainWindow.Label_PLName_title.mdFieldName = "name_"
+		    MainWindow.Label_PLName_title.mdFormat = 0
+		    MainWindow.Label_PLName_title.mdpkFieldName = "pkid"
+		    
+		    // TextField_PLName
+		    MainWindow.TextField_PLName.mdTableName = "eipl"
+		    MainWindow.TextField_PLName.mdFieldName = "name_"
+		    MainWindow.TextField_PLName.mdFormat = 0
+		    MainWindow.TextField_PLName.mdpkFieldName = "pkid"
 		    
 		    // Label_EIPL_Type
 		    MainWindow.Label_EIPL_Type.mdTableName = "eipl"

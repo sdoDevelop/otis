@@ -45,7 +45,7 @@ Begin sdoWindow MainWindow
       TabIndex        =   1
       TabPanelIndex   =   0
       Top             =   0
-      Value           =   2
+      Value           =   3
       Visible         =   True
       Width           =   1182
       Begin Listbox eventList_Listbox
@@ -1631,7 +1631,7 @@ Begin sdoWindow MainWindow
          TabIndex        =   0
          TabPanelIndex   =   3
          Top             =   23
-         Value           =   0
+         Value           =   1
          Visible         =   True
          Width           =   1174
          Begin Rectangle Rectangle_LineItemDetails
@@ -5083,6 +5083,85 @@ Begin sdoWindow MainWindow
             TopLeftColor    =   &cABABAB00
             Visible         =   True
             Width           =   481
+            Begin mdTextField TextField_EIPLName
+               AcceptTabs      =   False
+               Alignment       =   0
+               AutoDeactivate  =   True
+               AutomaticallyCheckSpelling=   False
+               BackColor       =   &cFFFFFF00
+               Bold            =   False
+               Border          =   True
+               CueText         =   ""
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Format          =   ""
+               Height          =   22
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "Rectangle6"
+               Italic          =   False
+               Left            =   707
+               LimitText       =   0
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   False
+               LockTop         =   True
+               Mask            =   ""
+               mdFormat        =   0
+               mdpkFieldName   =   "pkid"
+               Password        =   False
+               ReadOnly        =   False
+               Scope           =   0
+               TabIndex        =   0
+               TabPanelIndex   =   2
+               TabStop         =   True
+               Text            =   ""
+               TextColor       =   &c00000000
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   67
+               Underline       =   False
+               UseFocusRing    =   True
+               Visible         =   True
+               Width           =   219
+            End
+            Begin Label Label_eiplName
+               AutoDeactivate  =   True
+               Bold            =   False
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "Rectangle6"
+               Italic          =   False
+               Left            =   707
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   False
+               LockTop         =   True
+               Multiline       =   False
+               Scope           =   0
+               Selectable      =   False
+               TabIndex        =   1
+               TabPanelIndex   =   2
+               Text            =   "EIPL Name"
+               TextAlign       =   0
+               TextColor       =   &c00000000
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   45
+               Transparent     =   True
+               Underline       =   False
+               Visible         =   True
+               Width           =   100
+            End
          End
          Begin mdTextField TextField_LineItems_DiscountPerc
             AcceptTabs      =   False
@@ -5206,7 +5285,7 @@ Begin sdoWindow MainWindow
          TabIndex        =   0
          TabPanelIndex   =   4
          Top             =   23
-         Value           =   0
+         Value           =   1
          Visible         =   True
          Width           =   1174
          Begin Rectangle Rectangle_PL_LineItemDetails
@@ -7653,6 +7732,85 @@ Begin sdoWindow MainWindow
             TopLeftColor    =   &cABABAB00
             Visible         =   True
             Width           =   481
+            Begin Label Label_plName
+               AutoDeactivate  =   True
+               Bold            =   False
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Height          =   20
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "Rectangle11"
+               Italic          =   False
+               Left            =   721
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   False
+               LockTop         =   True
+               Multiline       =   False
+               Scope           =   0
+               Selectable      =   False
+               TabIndex        =   0
+               TabPanelIndex   =   2
+               Text            =   "EIPL Name"
+               TextAlign       =   0
+               TextColor       =   &c00000000
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   62
+               Transparent     =   True
+               Underline       =   False
+               Visible         =   True
+               Width           =   100
+            End
+            Begin mdTextField TextField_PLName
+               AcceptTabs      =   False
+               Alignment       =   0
+               AutoDeactivate  =   True
+               AutomaticallyCheckSpelling=   False
+               BackColor       =   &cFFFFFF00
+               Bold            =   False
+               Border          =   True
+               CueText         =   ""
+               DataField       =   ""
+               DataSource      =   ""
+               Enabled         =   True
+               Format          =   ""
+               Height          =   22
+               HelpTag         =   ""
+               Index           =   -2147483648
+               InitialParent   =   "Rectangle11"
+               Italic          =   False
+               Left            =   721
+               LimitText       =   0
+               LockBottom      =   False
+               LockedInPosition=   False
+               LockLeft        =   True
+               LockRight       =   False
+               LockTop         =   True
+               Mask            =   ""
+               mdFormat        =   0
+               mdpkFieldName   =   "pkid"
+               Password        =   False
+               ReadOnly        =   False
+               Scope           =   0
+               TabIndex        =   1
+               TabPanelIndex   =   2
+               TabStop         =   True
+               Text            =   ""
+               TextColor       =   &c00000000
+               TextFont        =   "System"
+               TextSize        =   0.0
+               TextUnit        =   0
+               Top             =   84
+               Underline       =   False
+               UseFocusRing    =   True
+               Visible         =   True
+               Width           =   219
+            End
          End
       End
       Begin PushButton PushButton_PL_Details
@@ -7815,6 +7973,76 @@ Begin sdoWindow MainWindow
          Underline       =   False
          Visible         =   True
          Width           =   417
+      End
+      Begin mdLabel Label_eiplName_title
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "mainWindow_PagePanel"
+         Italic          =   False
+         Left            =   183
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         mdFormat        =   0
+         Multiline       =   False
+         Scope           =   0
+         Selectable      =   False
+         TabIndex        =   5
+         TabPanelIndex   =   3
+         Text            =   "EIPL Name"
+         TextAlign       =   0
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   2
+         Transparent     =   True
+         Underline       =   False
+         Visible         =   True
+         Width           =   143
+      End
+      Begin mdLabel Label_plName_title
+         AutoDeactivate  =   True
+         Bold            =   False
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   -2147483648
+         InitialParent   =   "mainWindow_PagePanel"
+         Italic          =   False
+         Left            =   180
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         mdFormat        =   0
+         Multiline       =   False
+         Scope           =   0
+         Selectable      =   False
+         TabIndex        =   5
+         TabPanelIndex   =   4
+         Text            =   "EIPL Name"
+         TextAlign       =   0
+         TextColor       =   &c00000000
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   1
+         Transparent     =   True
+         Underline       =   False
+         Visible         =   True
+         Width           =   143
       End
    End
    Begin myToolbar mainWindow_Toolbar

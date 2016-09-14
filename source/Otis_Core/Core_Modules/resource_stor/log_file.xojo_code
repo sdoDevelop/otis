@@ -1,14 +1,14 @@
 #tag Class
 Protected Class log_file
-	#tag Method, Flags = &h1
-		Protected Sub constructor(p_path as FolderItem, p_name as string)
+	#tag Method, Flags = &h0
+		Sub constructor(p_path as FolderItem, p_name as string)
 		  path = p_path
 		  name = p_name
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Sub go(rewrite_file as boolean, line_text as string)
+	#tag Method, Flags = &h0
+		Sub go(rewrite_file as boolean, line_text as string)
 		  
 		  If rewrite_file Then
 		    
@@ -21,8 +21,8 @@ Protected Class log_file
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Sub go(line_text as string)
+	#tag Method, Flags = &h0
+		Sub go(line_text as string)
 		  log.Append( line_text )
 		  If Not update_in_progress Then
 		    update_file
@@ -31,8 +31,8 @@ Protected Class log_file
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Function read_log() As string()
+	#tag Method, Flags = &h0
+		Function read_log() As string()
 		  // Will raise runtime exception if file is not found
 		  
 		  dim t as TextInputStream
@@ -62,8 +62,8 @@ Protected Class log_file
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Function read_log(line_number as integer) As string
+	#tag Method, Flags = &h0
+		Function read_log(line_number as integer) As string
 		  dim s1, s2() as string
 		  
 		  s2() = me.read_log

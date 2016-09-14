@@ -3,10 +3,14 @@ Protected Class otisSQLite
 Inherits SQLiteDatabase
 	#tag Method, Flags = &h0
 		Sub bindU(position as integer, Value as Variant)
+		  dim finish as Boolean
+		  dim s1, s2, sql as string
+		  dim n1, i1 as integer
+		  
 		  i1 = position
 		  
 		  s1 = "$" + str( i1 + 1 ) 
-		  s2 = Replace( current_sql, s1, values(i1) )
+		  s2 = Replace( current_sql, s1, value )
 		  If s2 <> current_sql Then
 		    current_sql = s2
 		  End If
@@ -35,16 +39,24 @@ Inherits SQLiteDatabase
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub connection_operations()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function connectU() As Boolean
 		  Dim f As FolderItem
 		  f = New FolderItem("otis.sqlite")
 		  
 		  
 		  me.DatabaseFile = f
-		  If db.CreateDatabaseFile Then
+		  If otis_local.db.CreateDatabaseFile Then
 		    // proceed with database operations...
+		    Return True
 		  Else
 		    MsgBox("Database not created. Error: " + db.ErrorMessage)
+		    Return False
 		  End If
 		End Function
 	#tag EndMethod
@@ -53,24 +65,14 @@ Inherits SQLiteDatabase
 		Protected Sub connect_db()
 		  
 		  me.DatabaseFile = resource_stor.db_folder.Child( "otis.sqlite" )
-		  
+		  dbFile = me.DatabaseFile
 		  
 		  // Connect if it already exists
 		  If dbFile <> Nil And dbFile.Exists Then
-		    dbFile.Delete
+		    connectU
 		  End If
 		  
-		  // Create the SQLite DB
-		  App.DB = New SQLiteDatabase
-		  App.DB.DatabaseFile = dbFile
 		  
-		  If App.DB.CreateDatabaseFile Then
-		    mIsConnected = True
-		    CreateStatusLabel.Text = "OK."
-		  Else
-		    mIsConnected = False
-		    CreateStatusLabel.Text = "Error: " + App.DB.ErrorMessage
-		  End If
 		End Sub
 	#tag EndMethod
 
@@ -265,6 +267,7 @@ Inherits SQLiteDatabase
 			Name="current_sql"
 			Group="Behavior"
 			Type="String"
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DatabaseFile"

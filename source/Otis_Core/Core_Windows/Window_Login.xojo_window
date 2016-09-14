@@ -701,7 +701,7 @@ End
 		    err.message = "Could not get username"
 		    errario.go( err )
 		  Finally
-		    dbUsername = s1
+		    dbUsername = s1.ToText
 		  End Try
 		  
 		  // If we have a username then we want to try to find the password
@@ -845,8 +845,8 @@ End
 		  dim s as string
 		  
 		  s = "un_log.txt"
-		  f = resource_stor.app_folder.Child( a )
-		  un_log = new log_file( f, s )
+		  f = resource_stor.app_folder.Child( s )
+		  un_log = new resource_stor.log_file( f, s )
 		End Sub
 	#tag EndMethod
 
@@ -871,8 +871,8 @@ End
 		dbUsername As Text
 	#tag EndProperty
 
-	#tag Property, Flags = &h1
-		Protected un_log As resource_stor.log_file
+	#tag Property, Flags = &h0
+		un_log As resource_stor.log_file
 	#tag EndProperty
 
 

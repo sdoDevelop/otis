@@ -13,7 +13,7 @@ Protected Class ind_error
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		stack_trace As String
+		stack_trace() As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -31,6 +31,7 @@ Protected Class ind_error
 			Name="facility"
 			Group="Behavior"
 			Type="String"
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -50,11 +51,17 @@ Protected Class ind_error
 			Name="message"
 			Group="Behavior"
 			Type="String"
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="stack_trace()"
+			Group="Behavior"
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty

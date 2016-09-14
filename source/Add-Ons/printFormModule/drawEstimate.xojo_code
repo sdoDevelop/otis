@@ -1143,9 +1143,14 @@ Protected Class drawEstimate
 		      settings = pagesetup.SetupString
 		    End If
 		    g = OpenPrinterDialog(pagesetup)
+		    dim pic666() as Picture
+		    If g = Nil Then
+		      Return pic666
+		    End If
 		    masterMult = g.Height / pageDimentions(1)
 		    pageDimentions(0) = g.Width
 		    pageDimentions(1) = g.Height
+		    
 		  End If
 		  
 		  headerHeight = headerHeight * masterMult

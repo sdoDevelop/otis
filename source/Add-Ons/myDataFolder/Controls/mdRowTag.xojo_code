@@ -20,6 +20,10 @@ Protected Class mdRowTag
 		pkid As String
 	#tag EndProperty
 
+	#tag Property, Flags = &h0
+		thepkids() As String
+	#tag EndProperty
+
 
 	#tag ViewBehavior
 		#tag ViewProperty

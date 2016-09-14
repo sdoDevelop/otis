@@ -106,6 +106,12 @@ Inherits postgreSQLDatabase
 
 
 	#tag Method, Flags = &h0
+		Function is_online() As Boolean
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function make_table_name() As string
 		  // Conconct our table name
 		  table_name = "notification." + otis.db.username + "_rap"

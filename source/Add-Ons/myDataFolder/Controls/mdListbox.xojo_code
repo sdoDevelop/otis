@@ -121,35 +121,51 @@ Inherits Listbox
 		  dim thepkid as string
 		  dim theRowTag as mdRowTag
 		  dim theNextRowpkid as string
+		  dim pkidlist() as string
+		  dim n1, n2 as integer
+		  dim fin as Boolean
 		  
 		  
 		  // Ask User if they are sure
 		  Dim n As Integer
+		  
 		  n = MsgBox("Are you sure you want to delete " + me.Cell( me.ListIndex, 0 ) + "?", 36)
+		  
 		  If n = 6 Then
 		    // user pressed Yes
 		    
 		    // Get the Rowtag
 		    theRowTag = me.RowTag( me.ListIndex )
-		    thepkid = theRowTag.pkid
-		    
-		    // Change the listindex
-		    If me.ListIndex = me.ListCount - 1 Then
-		      me.ListIndex = me.ListIndex - 1
+		    If me.RowIsFolder(me.ListIndex) Then
+		      thepkid = "'" + join( theRowTag.thepkids(), "','" ) + "'"
+		      pkidlist = theRowTag.thepkids()
 		    Else
-		      me.ListIndex = me.ListIndex + 1
+		      thepkid = "'" + theRowTag.pkid + "'"
+		      redim pkidlist(-1)
+		      pkidlist.Append(thepkid)
+		      
+		      // Change the listindex
+		      If me.ListIndex = me.ListCount - 1 Then
+		        me.ListIndex = me.ListIndex - 1
+		      Else
+		        me.ListIndex = me.ListIndex + 1
+		      End If
+		      
 		    End If
 		    
 		    // Build the SQL
-		    theSQL = "Delete From " + mdTableName + " Where pkid = $1 ; "
+		    theSQL = "Delete From " + mdTableName + " Where pkid in (" + thepkid + ") ; "
 		    
 		    ps = otis.db.Prepare( theSQL )
-		    ps.Bind( 0, thepkid )
+		    //ps.Bind( 0, pkidlist )
 		    ps.SQLExecute
+		    if otis.db.error then
+		      MsgBox( otis.db.errormessage)
+		    End If
 		    
 		    loadMe( True )
 		    
-		    MsgBox( "Delete Successful" )
+		    //MsgBox( "Delete Successful" )
 		    
 		  ElseIf n = 7 Then
 		    // user pressed No
@@ -680,6 +696,16 @@ Inherits Listbox
 		    themdRowTag.groupStart = mdGroupDict( i1 ).Value( "Start" )
 		    themdRowTag.groupEnd = mdGroupDict( i1 ).Value( "End" )
 		    themdRowTag.isFolder = True
+		    
+		    dim thepkids() as string
+		    
+		    For i2 as integer = themdRowTag.groupStart To themdRowTag.groupEnd
+		      
+		      thepkids.Append( mdDataDict(i2).Value("pkid"))
+		      
+		    Next
+		    
+		    themdRowTag.thepkids() = thepkids()
 		    
 		    // Add the Rowtag
 		    If theRow > mdRowInfo.Ubound Then

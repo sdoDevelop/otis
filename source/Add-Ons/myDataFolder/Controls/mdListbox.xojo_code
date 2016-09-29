@@ -154,7 +154,15 @@ Inherits Listbox
 		    End If
 		    
 		    // Build the SQL
-		    theSQL = "Delete From " + mdTableName + " Where pkid in (" + thepkid + ") ; "
+		    dim s1, s2() as string
+		    s1 = mdTableName
+		    s2() = Split( s1, "," )
+		    If s2.Ubound > 0 Then
+		      s1 = s2(0)
+		    Else
+		      s1 = mdTableName
+		    End If
+		    theSQL = "Delete From " + s1 + " Where pkid in (" + thepkid + ") ; "
 		    
 		    ps = otis.db.Prepare( theSQL )
 		    //ps.Bind( 0, pkidlist )

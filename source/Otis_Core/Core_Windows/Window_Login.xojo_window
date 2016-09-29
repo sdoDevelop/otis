@@ -676,7 +676,7 @@ End
 		  
 		  
 		  // Set our variables that we know right away
-		  dbHost = "192.168.10.201"
+		  dbHost = "24.196.52.102"
 		  dbPort = 5432
 		  dbName = "otisalpha"
 		  
